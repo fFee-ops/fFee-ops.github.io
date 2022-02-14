@@ -1,0 +1,1966 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="JVM、GC, fFee-ops">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>JVM、GC | fFee-ops</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="fFee-ops" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">fFee-ops</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">fFee-ops</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/fFee-ops" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/fFee-ops" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = 'f0c3a40bc7adb2998a8ee70350e5d74ce7fa33f303f2b60f5e9ed13998af2d3d';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">JVM、GC</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                私密文章
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-01-21
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    5.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    22 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>@<a href="JVM%E3%80%81GC">toc</a></p>
+<h1 id="CMS错标对象的修正算法-三色标记算法"><a href="#CMS错标对象的修正算法-三色标记算法" class="headerlink" title="CMS错标对象的修正算法(三色标记算法)"></a>CMS错标对象的修正算法(三色标记算法)</h1><p><font color="red"><strong>fields：属性</strong></font><br><img src="https://img-blog.csdnimg.cn/20201210105717132.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="三色标记法"></p>
+<p>但是这个方法有个问题，在我扫描完A将其标记成黑色后，再去扫描B，发现B-D连接消失了，但是此时A-D又建立了连接，但是因为A已经被标记成黑色了，就不会回头再扫描和A相连的节点了，也就是D虽然有A引用，但是GC发现不了，任然会把D当作垃圾给清除掉。</p>
+<p><img src="https://img-blog.csdnimg.cn/20201210105946211.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>CMS的解决方案：Incremental Update</strong></p>
+<p>即当有一个新的引用产生的时候，二话不说就给你的A标记为灰色，到时候还要再扫描一次和A的属性有引用的节点（可以简单理解为和A相连的节点）。这样就能扫描到D了<br><img src="https://img-blog.csdnimg.cn/20201210110318778.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>但是上面这个解决方案隐含着一个巨大的BUG<br><img src="https://img-blog.csdnimg.cn/20201210110945748.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>所以在CMS的remake阶段，必须从头扫描一遍</strong></p>
+<h1 id="JVM调优第一步，了解JVM常用命令行参数"><a href="#JVM调优第一步，了解JVM常用命令行参数" class="headerlink" title="JVM调优第一步，了解JVM常用命令行参数"></a>JVM调优第一步，了解JVM常用命令行参数</h1><p>HotSpot参数分类</p>
+<blockquote>
+<p>标准： - 开头，所有的HotSpot都支持<br><br>非标准：-X 开头，特定版本HotSpot支持特定命令<br><br>不稳定：-XX 开头，下个版本可能取消</p>
+</blockquote>
+<p><strong>调优前的基础概念：</strong></p>
+<ol>
+<li>吞吐量：用户代码时间 /（用户代码执行时间 + 垃圾回收时间）</li>
+<li>响应时间：STW越短，响应时间越好</li>
+</ol>
+<p><strong>问题：</strong><br>所谓调优，首先确定，追求啥？吞吐量优先，还是响应时间优先？还是在满足一定的响应时间的情况下，要求达到多大的吞吐量…</p>
+<blockquote>
+<p>科学计算，吞吐量。数据挖掘，thrput。吞吐量优先的一般：（PS + PO）<br>响应时间：网站 GUI API （1.8 G1）</p>
+</blockquote>
+<p><strong>什么是调优</strong></p>
+<ol>
+<li>根据需求进行JVM规划和预调优</li>
+<li>优化运行JVM运行环境（慢，卡顿）</li>
+<li>解决JVM运行过程中出现的各种问题(OOM)</li>
+</ol>
+<h2 id="调优从规划开始"><a href="#调优从规划开始" class="headerlink" title="调优从规划开始"></a>调优从规划开始</h2><ul>
+<li><p>调优，从业务场景开始，没有业务场景的调优都是耍流氓</p>
+</li>
+<li><p>无监控（压力测试，能看到结果），不调优</p>
+</li>
+<li><p>步骤：</p>
+<ol>
+<li>熟悉业务场景（没有最好的垃圾回收器，只有最合适的垃圾回收器）<ol>
+<li>响应时间、停顿时间 [CMS G1 ZGC] （需要给用户作响应）</li>
+<li>吞吐量 = 用户时间 /( 用户时间 + GC时间) [PS]</li>
+</ol>
+</li>
+<li>选择回收器组合</li>
+<li>计算内存需求（经验值 1.5G 16G）</li>
+<li>选定CPU（越高越好）</li>
+<li>设定年代大小、升级年龄</li>
+<li>设定日志参数<ol>
+<li><code>-Xloggc:/opt/xxx/logs/xxx-xxx-gc-%t.log -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=5 -XX:GCLogFileSize=20M -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCCause</code></li>
+<li>或者每天产生一个日志文件</li>
+</ol>
+</li>
+<li>观察日志情况</li>
+</ol>
+</li>
+<li><p>案例1：垂直电商，最高每日百万订单，处理订单系统需要什么样的服务器配置？</p>
+<blockquote>
+<p>这个问题比较业余，因为很多不同的服务器配置都能支撑(1.5G 16G)</p>
+<p>1小时360000集中时间段， 100个订单/秒，（找一小时内的高峰期，1000订单/秒）</p>
+<p>经验值，</p>
+<p>非要计算：一个订单产生需要多少内存？512K * 1000 500M内存</p>
+<p>专业一点儿问法：要求响应时间100ms</p>
+<p>压测！</p>
+</blockquote>
+</li>
+<li><p>案例2：12306遭遇春节大规模抢票应该如何支撑？</p>
+<blockquote>
+<p>12306应该是中国并发量最大的秒杀网站：</p>
+<p>号称并发量100W最高</p>
+<p>CDN -&gt; LVS -&gt; NGINX -&gt; 业务系统 -&gt; 每台机器1W并发（10K问题） 100台机器</p>
+<p>普通电商订单 -&gt; 下单 -&gt;订单系统（IO）减库存 -&gt;等待用户付款</p>
+<p>12306的一种可能的模型： 下单 -&gt; 减库存 和 订单(redis kafka) 同时异步进行 -&gt;等付款</p>
+<p>减库存最后还会把压力压到一台服务器</p>
+<p>可以做分布式本地库存 + 单独服务器做库存均衡</p>
+<p>大流量的处理方法：分而治之</p>
+</blockquote>
+</li>
+<li><p>怎么得到一个事务会消耗多少内存？</p>
+<blockquote>
+<ol>
+<li>弄台机器，看能承受多少TPS？是不是达到目标？扩容或调优，让它达到</li>
+<li>用压测来确定</li>
+</ol>
+</blockquote>
+</li>
+</ul>
+<h2 id="优化环境"><a href="#优化环境" class="headerlink" title="优化环境"></a>优化环境</h2><ol>
+<li>有一个50万PV的资料类网站（从磁盘提取文档到内存）原服务器32位，1.5G的堆，用户反馈网站比较缓慢，因此公司决定升级，新的服务器为64位，16G的堆内存，结果用户反馈卡顿十分严重，反而比以前效率更低了<ol>
+<li>为什么原网站慢?<br>很多用户浏览数据，很多数据load到内存，内存不足，频繁GC，STW长，响应时间变慢</li>
+<li>为什么会更卡顿？<br>内存越大，FGC时间越长</li>
+<li>咋办？<br>PS -&gt; PN + CMS 或者 G1</li>
+</ol>
+</li>
+<li>系统CPU经常100%，如何调优？(面试高频)<br>CPU100%那么一定有线程在占用系统资源，<ol>
+<li>找出哪个进程cpu高（top）</li>
+<li>该进程中的哪个线程cpu高（top -Hp）</li>
+<li>导出该线程的堆栈 (jstack)</li>
+<li>查找哪个方法（栈帧）消耗时间 (jstack)</li>
+<li>工作线程占比高 | 垃圾回收线程占比高</li>
+</ol>
+</li>
+<li>系统内存飙高，如何查找问题？（面试高频）<ol>
+<li>导出堆内存 (jmap)</li>
+<li>分析 (jhat jvisualvm mat jprofiler … )</li>
+</ol>
+</li>
+<li>如何监控JVM<ol>
+<li>jstat jvisualvm jprofiler arthas top…</li>
+</ol>
+</li>
+</ol>
+<h2 id="解决JVM运行中的问题"><a href="#解决JVM运行中的问题" class="headerlink" title="解决JVM运行中的问题"></a>解决JVM运行中的问题</h2><h3 id="一个案例理解常用工具"><a href="#一个案例理解常用工具" class="headerlink" title="一个案例理解常用工具"></a>一个案例理解常用工具</h3><ol>
+<li><p>测试代码：</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">import</span> java<span class="token punctuation">.</span>math<span class="token punctuation">.</span>BigDecimal<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>ArrayList<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>ScheduledThreadPoolExecutor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>ThreadPoolExecutor<span class="token punctuation">;</span>
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>concurrent<span class="token punctuation">.</span>TimeUnit<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * 从数据库中读取信用数据，套用模型，并把结果进行记录和传输
+ */</span>
+
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">T15_FullGC_Problem01</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">CardInfo</span> <span class="token punctuation">{</span>
+        BigDecimal price <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">BigDecimal</span><span class="token punctuation">(</span><span class="token number">0.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String name <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> age <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+        Date birthdate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> ScheduledThreadPoolExecutor executor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ScheduledThreadPoolExecutor</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span>
+            <span class="token keyword">new</span> <span class="token class-name">ThreadPoolExecutor<span class="token punctuation">.</span>DiscardOldestPolicy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> Exception <span class="token punctuation">{</span>
+        executor<span class="token punctuation">.</span><span class="token function">setMaximumPoolSize</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token punctuation">;</span><span class="token punctuation">;</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token function">modelFit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">modelFit</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        List<span class="token operator">&lt;</span>CardInfo<span class="token operator">></span> taskList <span class="token operator">=</span> <span class="token function">getAllCardInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        taskList<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span>info <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">// do something</span>
+            executor<span class="token punctuation">.</span><span class="token function">scheduleWithFixedDelay</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//do sth with info</span>
+                info<span class="token punctuation">.</span><span class="token function">m</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> TimeUnit<span class="token punctuation">.</span>SECONDS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">private</span> <span class="token keyword">static</span> List<span class="token operator">&lt;</span>CardInfo<span class="token operator">></span> <span class="token function">getAllCardInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        List<span class="token operator">&lt;</span>CardInfo<span class="token operator">></span> taskList <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            CardInfo ci <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CardInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            taskList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>ci<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> taskList<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>java -Xms200M -Xmx200M -XX:+PrintGC com.mashibing.jvm.gc.T15_FullGC_Problem01（<font color="gray" size="3">将小程序跑起来</font>）</p>
+</li>
+<li><p>一般是运维团队首先受到报警信息（CPU Memory）</p>
+</li>
+<li><p>top命令观察到问题：内存不断增长 CPU占用率居高不下</p>
+</li>
+<li><p>top -Hp 观察进程中的线程，哪个线程CPU和内存占比高</p>
+</li>
+<li><p>jps定位具体java进程<br>jstack 定位线程状况，重点关注：WAITING BLOCKED<br>eg.<br>waiting on &lt;0x0000000088ca3310&gt; (a java.lang.Object)<br>假如有一个进程中100个线程，很多线程都在waiting on <xx> ，一定要找到是哪个线程持有这把锁<br>怎么找？搜索jstack dump的信息，找<xx> ，看哪个线程持有这把锁RUNNABLE<br>作业：1：写一个死锁程序，用jstack观察 2 ：写一个程序，一个线程持有锁不释放，其他线程等待</xx></xx></p>
+</li>
+<li><p>为什么阿里规范里规定，线程的名称（尤其是线程池）都要写有意义的名称<br>怎么样自定义线程池里的线程名称？（自定义ThreadFactory）</p>
+</li>
+<li><p>jinfo pid </p>
+</li>
+<li><p>jstat -gc 动态观察gc情况 / 阅读GC日志发现频繁GC / arthas观察 / jconsole/jvisualVM/ Jprofiler（最好用）<br>jstat -gc 4655 500 : 每个500个毫秒打印GC的情况<br>如果面试官问你是怎么定位OOM问题的？如果你回答用图形界面（错误）<br>1：已经上线的系统不用图形界面用什么？（cmdline arthas）<br>2：图形界面到底用在什么地方？测试！测试的时候进行监控！（压测观察）</p>
+</li>
+<li><p>jmap - histo 4655 | head -20，查找有多少对象产生</p>
+</li>
+<li><p>jmap -dump:format=b,file=xxx pid ：</p>
+<p>线上系统，内存特别大，jmap执行期间会对进程产生很大影响，甚至卡顿（电商不适合）<br>1：设定了参数HeapDump，OOM的时候会自动产生堆转储文件（不是很专业，因为多有监控，内存增长就会报警）<br>2：<font color="red">很多服务器备份（高可用），停掉这台服务器对其他服务器不影响</font><br>3：在线定位(一般小点儿公司用不到)</p>
+<p>4：在测试环境中压测（产生类似内存增长问题，在堆还不是很大的时候进行转储）</p>
+</li>
+<li><p>java -Xms20M -Xmx20M -XX:+UseParallelGC -XX:+HeapDumpOnOutOfMemoryError com.mashibing.jvm.gc.T15_FullGC_Problem01</p>
+</li>
+<li><p>使用MAT / jhat /jvisualvm 进行dump文件分析<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/baihuitestsoftware/articles/6406271.html">https://www.cnblogs.com/baihuitestsoftware/articles/6406271.html</a><br>jhat -J-mx512M xxx.dump</p>
+</li>
+</ol>
+<pre><code>http://192.168.17.11:7000
+拉到最后：找到对应链接
+可以使用OQL查找特定问题对象
+</code></pre>
+<ol start="14">
+<li>找到代码的问题</li>
+</ol>
+<h1 id="JVM调优案例汇总"><a href="#JVM调优案例汇总" class="headerlink" title="JVM调优案例汇总"></a>JVM调优案例汇总</h1><p>OOM产生的原因多种多样，有些程序未必产生OOM，不断FGC(CPU飙高，但内存回收特别少) （上面案例）</p>
+<ol>
+<li><p>硬件升级系统反而卡顿的问题（见上）</p>
+</li>
+<li><p>线程池不当运用产生OOM问题（见上）<br>不断的往List里加对象（实在太LOW）</p>
+</li>
+<li><p>smile jira问题<br>实际系统不断重启<br>解决问题 加内存 + 更换垃圾回收器 G1<br>真正问题在哪儿？不知道</p>
+</li>
+<li><p>tomcat http-header-size过大问题（Hector）</p>
+</li>
+<li><p>lambda表达式导致方法区溢出问题(MethodArea / Perm Metaspace)<br>LambdaGC.java     -XX:MaxMetaspaceSize=9M -XX:+PrintGCDetails</p>
+<pre class=" language-java"><code class="language-java"><span class="token string">"C:\Program Files\Java\jdk1.8.0_181\bin\java.exe"</span> <span class="token operator">-</span>XX<span class="token operator">:</span>MaxMetaspaceSize<span class="token operator">=</span>9M <span class="token operator">-</span>XX<span class="token operator">:</span><span class="token operator">+</span>PrintGCDetails <span class="token string">"-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\lib\idea_rt.jar=49316:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.1\bin"</span> <span class="token operator">-</span>Dfile<span class="token punctuation">.</span>encoding<span class="token operator">=</span>UTF<span class="token operator">-</span><span class="token number">8</span> <span class="token operator">-</span>classpath <span class="token string">"C:\Program Files\Java\jdk1.8.0_181\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\cldrdata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\jfxrt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\nashorn.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\ext\zipfs.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jfxswt.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_181\jre\lib\rt.jar;C:\work\ijprojects\JVM\out\production\JVM;C:\work\ijprojects\ObjectSize\out\artifacts\ObjectSize_jar\ObjectSize.jar"</span> com<span class="token punctuation">.</span>mashibing<span class="token punctuation">.</span>jvm<span class="token punctuation">.</span>gc<span class="token punctuation">.</span>LambdaGC
+<span class="token punctuation">[</span><span class="token function">GC</span> <span class="token punctuation">(</span>Metadata GC Threshold<span class="token punctuation">)</span> <span class="token punctuation">[</span>PSYoungGen<span class="token operator">:</span> 11341K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1880K</span><span class="token punctuation">(</span>38400K<span class="token punctuation">)</span><span class="token punctuation">]</span> 11341K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1888K</span><span class="token punctuation">(</span>125952K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0022190</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span>Times<span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.00</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>Full <span class="token function">GC</span> <span class="token punctuation">(</span>Metadata GC Threshold<span class="token punctuation">)</span> <span class="token punctuation">[</span>PSYoungGen<span class="token operator">:</span> 1880K<span class="token operator">-</span><span class="token operator">></span><span class="token function">0K</span><span class="token punctuation">(</span>38400K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>ParOldGen<span class="token operator">:</span> 8K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1777K</span><span class="token punctuation">(</span>35328K<span class="token punctuation">)</span><span class="token punctuation">]</span> 1888K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1777K</span><span class="token punctuation">(</span>73728K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Metaspace<span class="token operator">:</span> 8164K<span class="token operator">-</span><span class="token operator">></span><span class="token function">8164K</span><span class="token punctuation">(</span>1056768K<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.0100681</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span>Times<span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.02</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.01</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span><span class="token function">GC</span> <span class="token punctuation">(</span>Last ditch collection<span class="token punctuation">)</span> <span class="token punctuation">[</span>PSYoungGen<span class="token operator">:</span> 0K<span class="token operator">-</span><span class="token operator">></span><span class="token function">0K</span><span class="token punctuation">(</span>38400K<span class="token punctuation">)</span><span class="token punctuation">]</span> 1777K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1777K</span><span class="token punctuation">(</span>73728K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">0.0005698</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span>Times<span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.00</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.00</span> secs<span class="token punctuation">]</span> 
+<span class="token punctuation">[</span>Full <span class="token function">GC</span> <span class="token punctuation">(</span>Last ditch collection<span class="token punctuation">)</span> <span class="token punctuation">[</span>PSYoungGen<span class="token operator">:</span> 0K<span class="token operator">-</span><span class="token operator">></span><span class="token function">0K</span><span class="token punctuation">(</span>38400K<span class="token punctuation">)</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>ParOldGen<span class="token operator">:</span> 1777K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1629K</span><span class="token punctuation">(</span>67584K<span class="token punctuation">)</span><span class="token punctuation">]</span> 1777K<span class="token operator">-</span><span class="token operator">></span><span class="token function">1629K</span><span class="token punctuation">(</span>105984K<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>Metaspace<span class="token operator">:</span> 8164K<span class="token operator">-</span><span class="token operator">></span><span class="token function">8156K</span><span class="token punctuation">(</span>1056768K<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0.0124299</span> secs<span class="token punctuation">]</span> <span class="token punctuation">[</span>Times<span class="token operator">:</span> user<span class="token operator">=</span><span class="token number">0.06</span> sys<span class="token operator">=</span><span class="token number">0.00</span><span class="token punctuation">,</span> real<span class="token operator">=</span><span class="token number">0.01</span> secs<span class="token punctuation">]</span> 
+java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>InvocationTargetException
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>NativeMethodAccessorImpl<span class="token punctuation">.</span><span class="token function">invoke0</span><span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>NativeMethodAccessorImpl<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>NativeMethodAccessorImpl<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">62</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>DelegatingMethodAccessorImpl<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>DelegatingMethodAccessorImpl<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">43</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>Method<span class="token punctuation">.</span><span class="token function">invoke</span><span class="token punctuation">(</span>Method<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">498</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>instrument<span class="token punctuation">.</span>InstrumentationImpl<span class="token punctuation">.</span><span class="token function">loadClassAndStartAgent</span><span class="token punctuation">(</span>InstrumentationImpl<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">388</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>instrument<span class="token punctuation">.</span>InstrumentationImpl<span class="token punctuation">.</span><span class="token function">loadClassAndCallAgentmain</span><span class="token punctuation">(</span>InstrumentationImpl<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">411</span><span class="token punctuation">)</span>
+Caused by<span class="token operator">:</span> java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>OutOfMemoryError<span class="token operator">:</span> Compressed <span class="token keyword">class</span> <span class="token class-name">space</span>
+    at sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span>Unsafe<span class="token punctuation">.</span><span class="token function">defineClass</span><span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>ClassDefiner<span class="token punctuation">.</span><span class="token function">defineClass</span><span class="token punctuation">(</span>ClassDefiner<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">63</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>MethodAccessorGenerator$<span class="token number">1</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>MethodAccessorGenerator<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">399</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>MethodAccessorGenerator$<span class="token number">1</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>MethodAccessorGenerator<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">394</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>AccessController<span class="token punctuation">.</span><span class="token function">doPrivileged</span><span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>MethodAccessorGenerator<span class="token punctuation">.</span><span class="token function">generate</span><span class="token punctuation">(</span>MethodAccessorGenerator<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">393</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>MethodAccessorGenerator<span class="token punctuation">.</span><span class="token function">generateSerializationConstructor</span><span class="token punctuation">(</span>MethodAccessorGenerator<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">112</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>ReflectionFactory<span class="token punctuation">.</span><span class="token function">generateConstructor</span><span class="token punctuation">(</span>ReflectionFactory<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">398</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span>ReflectionFactory<span class="token punctuation">.</span><span class="token function">newConstructorForSerialization</span><span class="token punctuation">(</span>ReflectionFactory<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">360</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass<span class="token punctuation">.</span><span class="token function">getSerializableConstructor</span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1574</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass<span class="token punctuation">.</span>access$<span class="token function">1500</span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">79</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass$<span class="token number">3</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">519</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass$<span class="token number">3</span><span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">494</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>security<span class="token punctuation">.</span>AccessController<span class="token punctuation">.</span><span class="token function">doPrivileged</span><span class="token punctuation">(</span>Native Method<span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass<span class="token punctuation">.</span>&lt;init<span class="token operator">></span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">494</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectStreamClass<span class="token punctuation">.</span><span class="token function">lookup</span><span class="token punctuation">(</span>ObjectStreamClass<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">391</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">writeObject0</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1134</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">defaultWriteFields</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1548</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">writeSerialData</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1509</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">writeOrdinaryObject</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1432</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">writeObject0</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">1178</span><span class="token punctuation">)</span>
+    at java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>ObjectOutputStream<span class="token punctuation">.</span><span class="token function">writeObject</span><span class="token punctuation">(</span>ObjectOutputStream<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">348</span><span class="token punctuation">)</span>
+    at javax<span class="token punctuation">.</span>management<span class="token punctuation">.</span>remote<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>RMIConnectorServer<span class="token punctuation">.</span><span class="token function">encodeJRMPStub</span><span class="token punctuation">(</span>RMIConnectorServer<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">727</span><span class="token punctuation">)</span>
+    at javax<span class="token punctuation">.</span>management<span class="token punctuation">.</span>remote<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>RMIConnectorServer<span class="token punctuation">.</span><span class="token function">encodeStub</span><span class="token punctuation">(</span>RMIConnectorServer<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">719</span><span class="token punctuation">)</span>
+    at javax<span class="token punctuation">.</span>management<span class="token punctuation">.</span>remote<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>RMIConnectorServer<span class="token punctuation">.</span><span class="token function">encodeStubInAddress</span><span class="token punctuation">(</span>RMIConnectorServer<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">690</span><span class="token punctuation">)</span>
+    at javax<span class="token punctuation">.</span>management<span class="token punctuation">.</span>remote<span class="token punctuation">.</span>rmi<span class="token punctuation">.</span>RMIConnectorServer<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span>RMIConnectorServer<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">439</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>jmxremote<span class="token punctuation">.</span>ConnectorBootstrap<span class="token punctuation">.</span><span class="token function">startLocalConnectorServer</span><span class="token punctuation">(</span>ConnectorBootstrap<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">550</span><span class="token punctuation">)</span>
+    at sun<span class="token punctuation">.</span>management<span class="token punctuation">.</span>Agent<span class="token punctuation">.</span><span class="token function">startLocalManagementAgent</span><span class="token punctuation">(</span>Agent<span class="token punctuation">.</span>java<span class="token operator">:</span><span class="token number">137</span><span class="token punctuation">)</span>
+</code></pre>
+</li>
+<li><p>直接内存溢出问题（少见）<br>《深入理解Java虚拟机》P59，使用Unsafe分配直接内存，或者使用NIO的问题</p>
+</li>
+<li><p>栈溢出问题<br>-Xss设定太小</p>
+</li>
+<li><p>比较一下这两段程序的异同，分析哪一个是更优的写法：</p>
+<pre class=" language-java"><code class="language-java">Object o <span class="token operator">=</span> null<span class="token punctuation">;</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment" spellcheck="true">//业务处理</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span><span class="token number">100</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    Object o <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</li>
+<li><p>重写finalize引发频繁GC<br>小米云，HBase同步系统，系统通过nginx访问超时报警，最后排查，C++程序员重写finalize引发频繁GC问题<br>为什么C++程序员会重写finalize？（new delete）<br>finalize耗时比较长（200ms）</p>
+</li>
+<li><p>如果有一个系统，内存一直消耗不超过10%，但是观察GC日志，发现FGC总是频繁产生，会是什么引起的？<br>System.gc() (这个比较Low)</p>
+</li>
+<li><p>Distuptor有个可以设置链的长度，如果过大，然后对象大，消费完不主动释放，会溢出 (来自 死物风情)</p>
+</li>
+<li><p>用jvm都会溢出，mycat用崩过，1.6.5某个临时版本解析sql子查询算法有问题，9个exists的联合sql就导致生成几百万的对象（来自 死物风情）</p>
+</li>
+<li><p>new 大量线程，会产生 native thread OOM，（low）应该用线程池，<br>解决方案：减少堆空间（太TMlow了）,预留更多内存产生native thread<br>JVM内存占物理内存比例 50% - 80%</p>
+</li>
+<li><p>近期学生案例SQLLite的类库，批处理的时候会把所有的结果加载内存，有的人一下子更新几十万条数据，结果就产生了内存溢出，定位上用的是排除法，去掉这个模块就没问题，加上该模块就会出问题</p>
+</li>
+<li><p>java在线解压以及压缩文件造成的内存溢出</p>
+</li>
+<li><p>java使用opencv造成的卡顿与缓慢</p>
+</li>
+<li><p>最容易引起崩溃的报表系统</p>
+</li>
+<li><p>分库分表所引起的系统崩溃</p>
+</li>
+</ol>
+<h1 id="JVM垃圾回收的时候如何确定垃圾？是否知道什么是GC-Roots"><a href="#JVM垃圾回收的时候如何确定垃圾？是否知道什么是GC-Roots" class="headerlink" title="JVM垃圾回收的时候如何确定垃圾？是否知道什么是GC Roots"></a>JVM垃圾回收的时候如何确定垃圾？是否知道什么是GC Roots</h1><p>①简单地说，内存中已经不再被使用到的空间就是垃圾<br>②Java中可作为GC Roots的对象：</p>
+<blockquote>
+<p>①虚拟机栈（栈帧中的局部变量表）中引用的对象<br>②方法区中的静态属性引用的对象<br>③方法区中常量引用的对象<br>④本地方法栈JNI（Native方法）引用的对象</p>
+</blockquote>
+<h1 id="如何盘点查看JVM系统默认值"><a href="#如何盘点查看JVM系统默认值" class="headerlink" title="如何盘点查看JVM系统默认值"></a>如何盘点查看JVM系统默认值</h1><h2 id="JVM参数类型"><a href="#JVM参数类型" class="headerlink" title="JVM参数类型"></a>JVM参数类型</h2><p><strong>①标配参数(在JDK之间各个版本都比较稳定，很少有大的变化)</strong></p>
+<blockquote>
+<p>-version<br>-help<br>java -showversion</p>
+</blockquote>
+<p><strong>②x参数（了解）</strong></p>
+<blockquote>
+<p>-Xint：解释执行<br>-Xcomp：第一次使用就编译成本地代码<br>-Xmixed：混合模式</p>
+</blockquote>
+<p><strong>③<font color="red">xx参数</font></strong><br>Boolean类型</p>
+<blockquote>
+<p>公式<code>-XX：+或者- 某个属性(+表示开启、-表示关闭)</code><br>Case：开启打印GC收集细节<code>-XX:+PrintGCDetails</code></p>
+</blockquote>
+<p>KV设值类型</p>
+<blockquote>
+<p>公式：-XX:属性key=属性值value<br>Case：-XX:MetaspaceSize=128m</p>
+</blockquote>
+<h2 id="jinfo举例，如何查看当前运行程序的配置"><a href="#jinfo举例，如何查看当前运行程序的配置" class="headerlink" title="jinfo举例，如何查看当前运行程序的配置"></a>jinfo举例，如何查看当前运行程序的配置</h2><p>公式：①jinfo -flag 配置项 进程编号②jinfo -flags 进程编号</p>
+<h2 id="题外话（坑题）"><a href="#题外话（坑题）" class="headerlink" title="题外话（坑题）"></a>题外话（坑题）</h2><p>两个经典参数：<code>-Xms和-Xmx</code></p>
+<blockquote>
+<p>-Xms等价于-XX:InitialHeapSize<br>-Xmx等价于-XX:MaxHeapSize</p>
+</blockquote>
+<h1 id="盘点家底，查看JVM默认值"><a href="#盘点家底，查看JVM默认值" class="headerlink" title="盘点家底，查看JVM默认值"></a>盘点家底，查看JVM默认值</h1><h2 id="XX-PrintFlagsInitial"><a href="#XX-PrintFlagsInitial" class="headerlink" title="-XX:+PrintFlagsInitial"></a>-XX:+PrintFlagsInitial</h2><p>主要查看初始默认值</p>
+<p>公式①<code>java -XX:+PrintFlagsInitial -version</code><br>②<code>java -XX:+PrintFlagsInitial</code></p>
+<h2 id="XX-PrintFlagsfinal"><a href="#XX-PrintFlagsfinal" class="headerlink" title="-XX:+PrintFlagsfinal"></a>-XX:+PrintFlagsfinal</h2><p>公式：<code>java -XX:+PrintFlagsFinal -version</code></p>
+<p>PrintFlagsFinal举例，运行Java命令的同时打印出参数</p>
+<p><img src="https://img-blog.csdnimg.cn/20210105094303232.png" alt="在这里插入图片描述"></p>
+<h2 id="XX-PrintCommandLineFlags"><a href="#XX-PrintCommandLineFlags" class="headerlink" title="-XX:+PrintCommandLineFlags"></a>-XX:+PrintCommandLineFlags</h2><p>也是查看程序使用的默认JVM参数<br>但是显示的参数比较少，我们一般用它来看默认的垃圾收集器</p>
+<p>语法：<code>java -XX:+PrintCommandLineFlags -version</code><br><img src="https://img-blog.csdnimg.cn/20210105095034939.png" alt="在这里插入图片描述"></p>
+<h1 id="强引用、软引用、弱引用、虚引用分别是什么"><a href="#强引用、软引用、弱引用、虚引用分别是什么" class="headerlink" title="强引用、软引用、弱引用、虚引用分别是什么"></a>强引用、软引用、弱引用、虚引用分别是什么</h1><p><a target="_blank" rel="noopener" href="https://sliing.blog.csdn.net/article/details/108843246">强、软、弱、虚的简介</a></p>
+<h2 id="你知道弱引用的话，谈谈WeakHashMap"><a href="#你知道弱引用的话，谈谈WeakHashMap" class="headerlink" title="你知道弱引用的话，谈谈WeakHashMap"></a>你知道弱引用的话，谈谈WeakHashMap</h2><p>我们来看一个代码</p>
+<pre class=" language-java"><code class="language-java">    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        HashMap hashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Integer key <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String value <span class="token operator">=</span> <span class="token string">"HashMap"</span><span class="token punctuation">;</span>
+
+        hashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hashMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        key <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hashMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>hashMap <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> hashMap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/2021010510040188.png" alt="运行结果"><br>可以看到普通HashMap在gc对其无影响。<br>当然有个那个key = null;这是不影响HashMap的，因为已经存放进去了。</p>
+<pre class=" language-java"><code class="language-java"> <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">myWeakHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        WeakHashMap weakHashMap <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Integer key <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Integer</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        String value <span class="token operator">=</span> <span class="token string">"WeakHashMap"</span><span class="token punctuation">;</span>
+
+        weakHashMap<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>weakHashMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        key <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>weakHashMap<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        System<span class="token punctuation">.</span><span class="token function">gc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>weakHashMap <span class="token operator">+</span> <span class="token string">"\t"</span> <span class="token operator">+</span> weakHashMap<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210105100622980.png" alt="结果"></p>
+<p>可以看到如果用weakHashMap一旦GC就会被清除</p>
+<h1 id="请谈谈你对OOM的认识"><a href="#请谈谈你对OOM的认识" class="headerlink" title="请谈谈你对OOM的认识"></a>请谈谈你对OOM的认识</h1><p><img src="https://img-blog.csdnimg.cn/20210105101304320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="整体架构图"></p>
+<h2 id="1、java-lang-StackOverflowError"><a href="#1、java-lang-StackOverflowError" class="headerlink" title="1、java.lang.StackOverflowError"></a>1、java.lang.StackOverflowError</h2><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">stackOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+<span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">stackOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token function">stackOverflow</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="2、java-lang-OutOfMemoryError-Java-heap-space"><a href="#2、java-lang-OutOfMemoryError-Java-heap-space" class="headerlink" title="2、java.lang.OutOfMemoryError:Java heap space"></a>2、java.lang.OutOfMemoryError:Java heap space</h2><p><img src="https://img-blog.csdnimg.cn/20210105101417734.png" alt="堆内存改小一点"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JavaHeapSpaceDemo</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">byte</span><span class="token punctuation">[</span><span class="token punctuation">]</span> bytes <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">byte</span><span class="token punctuation">[</span><span class="token number">20</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h2 id="3、java-lang-OutOfMemoryError-GC-overhead-limit-exceeded"><a href="#3、java-lang-OutOfMemoryError-GC-overhead-limit-exceeded" class="headerlink" title="3、java.lang.OutOfMemoryError:GC overhead limit exceeded"></a>3、java.lang.OutOfMemoryError:GC overhead limit exceeded</h2><p><img src="https://img-blog.csdnimg.cn/20210105101754105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>解决方法：<br>1、增加heap堆内存<br>2、增加对内存后错误依旧,获取heap内存快照，使用Eclipse MAT工具，找出内存泄露发生的原因并进行修复<br>3、优化代码以使用更少的内存或重用对象而不是创建新的对象,从而减少垃圾收集器运行的次数。如果代码中创建了许多临时对象(例如在循环中),应该尝试重用它们<br>4、升级JDK到1.8，使用G1 GC垃圾回收算法<br>5、除了使用命令-xms -xmx设置堆内存之外,尝试在启动脚本中加入配置</p>
+<pre class=" language-shell"><code class="language-shell">-XX: +UseG1GC -XX: G1HeapRegionsize=n -XX: MaxGCPauseMillis=m
+-XX: ParallelGCThreads=n -XX: ConcGCThreads=n
+</code></pre>
+<h2 id="4、java-lang-OutOfMemoryError-Direct-buffer-memory"><a href="#4、java-lang-OutOfMemoryError-Direct-buffer-memory" class="headerlink" title="4、java.lang.OutOfMemoryError:Direct buffer memory"></a>4、java.lang.OutOfMemoryError:Direct buffer memory</h2><p><img src="https://img-blog.csdnimg.cn/20210105102347597.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210105102415844.png" alt="在这里插入图片描述"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DirectBufferMemoryDemo</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"配置的maxDirectMemory"</span> <span class="token operator">+</span> <span class="token punctuation">(</span>sun<span class="token punctuation">.</span>misc<span class="token punctuation">.</span>VM<span class="token punctuation">.</span><span class="token function">maxDirectMemory</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token punctuation">(</span><span class="token keyword">double</span><span class="token punctuation">)</span><span class="token number">1024</span> <span class="token operator">/</span> <span class="token number">1024</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token string">"MB"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ByteBuffer byteBuffer <span class="token operator">=</span> ByteBuffer<span class="token punctuation">.</span><span class="token function">allocateDirect</span><span class="token punctuation">(</span><span class="token number">6</span> <span class="token operator">*</span> <span class="token number">1024</span> <span class="token operator">*</span> <span class="token number">1024</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20210105102502633.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="5、java-lang-OutOfMemoryError-unable-to-create-new-native-thread"><a href="#5、java-lang-OutOfMemoryError-unable-to-create-new-native-thread" class="headerlink" title="5、java.lang.OutOfMemoryError:unable to create new native thread"></a>5、java.lang.OutOfMemoryError:unable to create new native thread</h2><p><img src="https://img-blog.csdnimg.cn/20210105102851255.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>非root用户登录Linux系统测试：<br>把下面这个放到Linux中执行</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">UnableCreateNewThreadDemo</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">></span> <span class="token punctuation">{</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span>Integer<span class="token punctuation">.</span>MAX_VALUE<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p><strong>服务器级别调参调优:</strong><br><img src="https://img-blog.csdnimg.cn/20210105103053577.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20210105103109362.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210105103118897.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="6、java-lang-OutOfMemoryError-Metaspace"><a href="#6、java-lang-OutOfMemoryError-Metaspace" class="headerlink" title="6、java.lang.OutOfMemoryError:Metaspace"></a>6、java.lang.OutOfMemoryError:Metaspace</h2><p><img src="https://img-blog.csdnimg.cn/20210105103245253.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MetaSpaceOOMDemo</span> <span class="token punctuation">{</span>
+
+<span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">OOMTest</span><span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">try</span> <span class="token punctuation">{</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                i<span class="token operator">++</span><span class="token punctuation">;</span>
+                Enhancer enhancer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Enhancer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                enhancer<span class="token punctuation">.</span><span class="token function">setSuperclass</span><span class="token punctuation">(</span>OOMTest<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                enhancer<span class="token punctuation">.</span><span class="token function">setUseCache</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                enhancer<span class="token punctuation">.</span><span class="token function">setCallback</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MethodInterceptor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token annotation punctuation">@Override</span>
+<span class="token keyword">public</span> Object <span class="token function">intercept</span><span class="token punctuation">(</span>Object o<span class="token punctuation">,</span> Method method<span class="token punctuation">,</span> Object<span class="token punctuation">[</span><span class="token punctuation">]</span> objects<span class="token punctuation">,</span> MethodProxy methodProxy<span class="token punctuation">)</span> <span class="token keyword">throws</span> Throwable <span class="token punctuation">{</span>
+<span class="token keyword">return</span> methodProxy<span class="token punctuation">.</span><span class="token function">invokeSuper</span><span class="token punctuation">(</span>o<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                enhancer<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Throwable</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"多少次后产生异常："</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<blockquote>
+<p>使用<code>java -XX:+PrintFlagsInitial</code>命令查看本机的初始化参数，-XX:MetaSpaceSize约为22M</p>
+</blockquote>
+<h1 id="GC垃圾回收算法和垃圾收集器的关系？分别是什么"><a href="#GC垃圾回收算法和垃圾收集器的关系？分别是什么" class="headerlink" title="GC垃圾回收算法和垃圾收集器的关系？分别是什么"></a>GC垃圾回收算法和垃圾收集器的关系？分别是什么</h1><p>GC算法（引用计数/复制/标记清除/标记整理）是内存回收的方法论，垃圾收集器是算法的落地实现</p>
+<blockquote>
+<ol>
+<li>Serial 收集器：历史最悠久，单线程工作，回收垃圾时，必须暂停所有其它线程——stop the world，采用<font color="red"><strong>复制</strong>算法；</font></li>
+<li>ParNew收集器：本质为Serial收集器的多线程版本，采用<font color="red"><strong>复制</strong>算法；</font></li>
+<li>Parallel scavenge：具备自使用调节功能，以提供最合适的暂停时间和吞吐量，采用<font color="red">复制算法；</font></li>
+<li>Serial old 收集器：是Serial 收集器的老年代版本，同样为单线程，但采用的是<font color="red">“标记-整理”算法；</font></li>
+<li>Parallel old 收集器：Parallel scavenge 收集器的老年代版本，多线程，采用的是<font color="red">“标记-整理”算法；</font></li>
+<li>CMS 收集器：即Concurrent Mark Sweep收集器，以获取最短停顿时间为目标，采用<font color="red">“标记-清除”算法；</font></li>
+<li>G1 收集器： 即Garbage-First收集器，是目前最新的收集器，采用与其它收集器完全不通的设计思想，历时十年才实现商用，采用了混合算法，<font color="red">兼有“复制”和“标记-整理”算法的特点；</font></li>
+</ol>
+</blockquote>
+<h1 id="怎么看服务器默认的垃圾收集器是哪个？生产上如何配置垃圾收集器？-谈谈你对垃圾收集器的理解"><a href="#怎么看服务器默认的垃圾收集器是哪个？生产上如何配置垃圾收集器？-谈谈你对垃圾收集器的理解" class="headerlink" title="怎么看服务器默认的垃圾收集器是哪个？生产上如何配置垃圾收集器？ 谈谈你对垃圾收集器的理解"></a>怎么看服务器默认的垃圾收集器是哪个？生产上如何配置垃圾收集器？ 谈谈你对垃圾收集器的理解</h1><p><img src="https://img-blog.csdnimg.cn/20210105103848450.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210105104250486.png" alt="在这里插入图片描述"><br><strong>Server/Client模式分别是什么意思</strong><br>适用范围:只需要掌握 Server模式即可, Client模式基本不会用</p>
+<blockquote>
+<p>32操作系统:<br>32位 Window操作系统,不论硬件如何都默认使用 Client的JVM模式<br>32位其它操作系统,2G内存同时有2个cpu以上用 Server模式,低于该配置还是 Client模式<br>64位 only server模式</p>
+<p><strong><a target="_blank" rel="noopener" href="https://sliing.blog.csdn.net/article/details/108849570">有关GC收集器的其余知识</a></strong></p>
+</blockquote>
+<p><strong><a target="_blank" rel="noopener" href="https://sliing.blog.csdn.net/article/details/108803930">垃圾收集算法的其余知识</a></strong></p>
+<h1 id="生产环境服务器变慢，诊断思路和性能评估"><a href="#生产环境服务器变慢，诊断思路和性能评估" class="headerlink" title="生产环境服务器变慢，诊断思路和性能评估"></a>生产环境服务器变慢，诊断思路和性能评估</h1><blockquote>
+<p>整机：<code>top</code></p>
+</blockquote>
+<blockquote>
+<p>CPU：<code>vmstat</code><br>查看CPU<br><img src="https://img-blog.csdnimg.cn/20210105191421157.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210105191442318.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看额外信息：<br>①查看所有cpu核信息<code>mpstat -P ALL 2 （每两秒采样一次）</code><br>②每个进程使用cpu的用量分解信息<code>pidstat -u 1 -p 进程编号</code></p>
+</blockquote>
+<blockquote>
+<p>内存：<code>free</code><br>应用程序可用内存数<br><img src="https://img-blog.csdnimg.cn/20210105191606359.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看额外：<code>pidstat -p 进程号 -r 采样间隔秒数</code></p>
+</blockquote>
+<blockquote>
+<p>硬盘：<code>df</code><br>查看磁盘剩余空间数<br><img src="https://img-blog.csdnimg.cn/20210105191646222.png" alt="在这里插入图片描述"><br>加个<code>-h</code>是为了方便我们观看</p>
+</blockquote>
+<blockquote>
+<p>磁盘io：<code>iostat </code><br>磁盘IO性能评估：<br><img src="https://img-blog.csdnimg.cn/20210105191900837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20210105191915565.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+<blockquote>
+<p>网络io：<code>ifstat</code><br>默认本地没有，需要下载ifstat<br><img src="https://img-blog.csdnimg.cn/20210105192006529.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>查看网络IO<br><img src="https://img-blog.csdnimg.cn/20210105192029855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+</blockquote>
+<h1 id="假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"><a href="#假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位" class="headerlink" title="假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"></a>假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位</h1><p>大体思路是结合JDK和Linux命令一块分析<br><strong>案例步骤：</strong><br>①先用<code>top</code>命令找出cpu占比最高的，记下PID<br><img src="https://img-blog.csdnimg.cn/20210105192127836.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>②<code>ps -ef</code>或<code>jps</code>进一步定位<br><img src="https://img-blog.csdnimg.cn/20210105192206992.png" alt="在这里插入图片描述"><br>③定位到具体的线程或代码<br><code>ps -mp 进程号 -o THREAD,tid,time</code><br><img src="https://img-blog.csdnimg.cn/20210105192311246.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>-m 显示所有的线程<br>-p pid进程使用cpu的时间<br>-o 该参数后是用户自定义的格式</p>
+</blockquote>
+<p>④将需要的线程ID转换为16进制格式（英文小写格式）<br><code>printf "%x\n" 有问题的线程ID</code><br>⑤<code>jstack 进程ID | grep tid（16进制线程ID小写英文）-A60</code><br><img src="https://img-blog.csdnimg.cn/20210105192448585.png" alt="在这里插入图片描述"></p>
+<blockquote>
+<p>-A60 打印出前60行</p>
+</blockquote>
+<h1 id="一些常用的性能监控工具"><a href="#一些常用的性能监控工具" class="headerlink" title="一些常用的性能监控工具"></a>一些常用的性能监控工具</h1><p><img src="https://img-blog.csdnimg.cn/20210105192538451.png" alt="在这里插入图片描述"></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">fFee-ops</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/01/21/jvm-gc/">http://example.com/2022/01/21/jvm-gc/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">fFee-ops</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,facebook,wechat,google,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'OdV1QUG8BtJ1mV14KFem8ifR-gzGzoHsz',
+        appKey: 'adRPdJjljlAu24UlMWjQcAdf',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/01/21/xiang-mu-xiang-guan/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="项目相关">
+                        
+                        <span class="card-title">项目相关</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/01/21/nginx-es-docker-shiro-rabbitmq/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Nginx、ES、Docker、Shiro、RabbitMQ">
+                        
+                        <span class="card-title">Nginx、ES、Docker、Shiro、RabbitMQ</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: fFee-ops<br />'
+            + '文章作者: fFee-ops<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2022</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">fFee-ops</a>
+            
+            
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">652.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "13";
+                    var startHour = "23";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fFee-ops" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shanglei-sl@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=luminoused@sina.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: luminoused@sina.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/uqhqpubq69u3ij9xel3grkla9q5wfoej.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="/js/FunnyTitle.js"></script>
+        <!--动态线条背景-->
+    <script type="text/javascript"
+    color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+</body>
+
+</html>

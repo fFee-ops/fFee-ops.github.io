@@ -1,0 +1,1794 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="SpringCloudAlibaba→Sentinel：熔断、限流、降级, fFee-ops">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>SpringCloudAlibaba→Sentinel：熔断、限流、降级 | fFee-ops</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="fFee-ops" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">fFee-ops</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">fFee-ops</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/fFee-ops" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/fFee-ops" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">SpringCloudAlibaba→Sentinel：熔断、限流、降级</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/spring-boot-java-%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                <span class="chip bg-color">spring boot java 微服务</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/SpringCloudAlibaba/" class="post-category">
+                                SpringCloudAlibaba
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-12-14
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.5k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    13 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+
+<h3 id="Sentinel熔断、限流、降级"><a href="#Sentinel熔断、限流、降级" class="headerlink" title="Sentinel熔断、限流、降级"></a>Sentinel熔断、限流、降级</h3><ul>
+<li><a href="#1_SpringBoot_9">1 SpringBoot集成</a></li>
+<li><ul>
+<li><a href="#11_SentinelResource_20">1.1 @SentinelResource注解</a></li>
+<li><a href="#12_blockHandler_24">1.2 blockHandler</a></li>
+<li><a href="#13_fallback_68">1.3 fallback</a></li>
+<li><a href="#14_defaultFallback_81">1.4 defaultFallback</a></li>
+</ul>
+</li>
+<li><a href="#2__92">2 限流、熔断规则</a></li>
+<li><ul>
+<li><a href="#21__103">2.1 流量控制</a></li>
+<li><a href="#22__140">2.2 熔断</a></li>
+<li><a href="#23__178">2.3 系统自我保护</a></li>
+<li><a href="#24__216">2.4 热点数据</a></li>
+</ul>
+</li>
+<li><a href="#3_OpenFeign_300">3 OpenFeign支持</a></li>
+<li><ul>
+<li><a href="#31_fallback_330">3.1 fallback</a></li>
+<li><a href="#32_fallbackFactory_366">3.2 fallbackFactory</a></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/ca12b91aab2249dea9f0784622b6ba8f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/e57620519546487c84fb6a82cecdebf0.png" alt="在这里插入图片描述"></p>
+<p>工程简介：<br>在我们项目中，用户请求通过 <code>hailtaxi-gateway</code>路由到 <code>hailtaxi-driver</code> 或者 <code>hailtaxi-order</code>，还有可能在 hailtaxi-order 中使用feign调用 hailtaxi-driver ，所以我们有可能在单个服务中实现熔断限流，也有可能要集成feign调用实现熔断限流，还有可能在微服务网关中实现熔断限流。我们接下来一步一步实现每一种熔断限流操作。</p>
+<h1 id="1-SpringBoot集成"><a href="#1-SpringBoot集成" class="headerlink" title="1 SpringBoot集成"></a>1 SpringBoot集成</h1><p>如果在SpringBoot项目中使用Sentinel，首先需要引入 spring-cloud-starter-alibaba-sentinel 依赖，并使用 <code>@SentinelResource</code>标识资源。</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--sentinel--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<h2 id="1-1-SentinelResource注解"><a href="#1-1-SentinelResource注解" class="headerlink" title="1.1 @SentinelResource注解"></a>1.1 @SentinelResource注解</h2><p><code>@SentinelResource</code> 用于定义资源，并提供可选的异常处理和 fallback 配置项。<br>@SentinelResource 注解包含以下属性：<br><img src="https://img-blog.csdnimg.cn/7aa0b00e7bab4c49b1e7f2dc04ee9ba9.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="1-2-blockHandler"><a href="#1-2-blockHandler" class="headerlink" title="1.2 blockHandler"></a>1.2 blockHandler</h2><p>用户在打车的时候，会查询司机信息，如果司机不存在，此时会报错，代码如下：<br><img src="https://img-blog.csdnimg.cn/dfc7014f83014950b851c6e8779e6e30.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>如果此时访问 <code>http://localhost:18081/driver/info/3</code> 查询司机信息，如果没有ID为3的司机信息，会报如下错误，这种体验非常差，我们可以集成Sentinel使用 @SentinelResource 的blockHandler 返回默认错误信息。<br><img src="https://img-blog.csdnimg.cn/dd42a4a970494db1b34ff8d6b5c88eab.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>①在 <code>hailtaxi-driver</code>工程中引入 spring-cloud-starter-alibaba-sentinel 依赖，依赖如下：</p>
+<pre class=" language-xml"><code class="language-xml">        <span class="token comment" spellcheck="true">&lt;!--sentinel--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>我们先添加一个方法 <code>blockExHandler ()</code>用来处理程序发生 BlockException 异常的时候（该方法和需要降级的方法在一个类），执行默认操作，代码如下：</p>
+<pre class=" language-java"><code class="language-java">
+    <span class="token comment" spellcheck="true">/***
+     * BlockException异常处理
+     */</span>
+    <span class="token keyword">public</span> Driver <span class="token function">blockExHandler</span><span class="token punctuation">(</span>String id<span class="token punctuation">,</span> BlockException ex<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Driver driver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"系统繁忙，请稍后再试！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> driver<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>②我们为 <code>info()</code>方法添加一个 <code>@SentinelResource</code>注解，用来标注资源，表示当前方法需要执行限流、降级。在注解中添加<code>value</code>属性，用来标注资源，说白了就是给当前资源起个名字。<br><code>blockHandler</code>用来表示当前方法发生 <code>BlockException</code> 异常的时候，将处理流程交给指定的方法 <code>blockExHandler()</code>处理,此时 blockExHandler() 方法<strong>必须和抛出异常的方法在同一个类中</strong>，这是一种降级操作，代码如下：</p>
+<p><img src="https://img-blog.csdnimg.cn/3420cf837d644cf9857e7ba9b0e3e17a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>如果此时不在同一个类中，我们可以在 @SentinelResource 中添加 <code>blockHandlerClass</code> 属性，指定降级处理类的方法所在的类，代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SentinelResource</span><span class="token punctuation">(</span>
+value <span class="token operator">=</span> <span class="token string">"info"</span><span class="token punctuation">,</span>
+blockHandler <span class="token operator">=</span><span class="token string">"blockExHandler"</span><span class="token punctuation">,</span>
+blockHandlerClass <span class="token operator">=</span> <span class="token string">"xxx.xxx.Xxxx"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>此时再访问访问<code>http://localhost:18081/driver/info/3</code>测试出错效果如下：<br><img src="https://img-blog.csdnimg.cn/0ccc8be3a58549e799ce96f8136d492c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="1-3-fallback"><a href="#1-3-fallback" class="headerlink" title="1.3 fallback"></a>1.3 fallback</h2><p>如果我们希望抛出任何异常都能处理，都能调用默认处理方法，而并非只是 BlockException 异常才调用，此时可以使用 @SentinelResource 的 <code>fallback</code>属性，代码如下：<br><img src="https://img-blog.csdnimg.cn/0633799152e0485e815d575b20401bfa.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>访问 <code>http://localhost:18081/driver/info/3</code>测试出错效果如下：<br><img src="https://img-blog.csdnimg.cn/56090f749a09464d99d8b036dbb11c16.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>如果发生异常执行的方法和当前发生异常的方法不在同一个类中，可以使用 @SentinelResource 注解的 fallbackClass 实现，代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SentinelResource</span><span class="token punctuation">(</span>
+value <span class="token operator">=</span> <span class="token string">"info"</span><span class="token punctuation">,</span>
+fallback <span class="token operator">=</span><span class="token string">"exHandler"</span> <span class="token punctuation">,</span>
+fallbackClass <span class="token operator">=</span><span class="token string">"xx.xxx.xxx.xx.Xxx"</span><span class="token punctuation">)</span>
+</code></pre>
+<h2 id="1-4-defaultFallback"><a href="#1-4-defaultFallback" class="headerlink" title="1.4 defaultFallback"></a>1.4 defaultFallback</h2><p>上面无论是 blockHandler 还是 fallback ，每个方法发生异常，都要为方法独立创建一个处理异常的方法，效率非常低，我们可以使用@SentinelResource 注解的 defaultFallback 属性，为一个类指定一个全局的处理错误的方法，代码如下：<br><img src="https://img-blog.csdnimg.cn/8bddc15179124d7e8a08b8b0e6a502d7.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>此时需要注意</p>
+<ol>
+<li> defaultFallback 属性指定的方法入参<strong>必须为空</strong>，最多可以增加一个异常对象。</li>
+<li> 返回值要和被降级方法保持一致。</li>
+<li> 虽然是全局的，但是类中的方法需要标注<code>@SentinelResource(value = "xxx")</code>，这样才能被识别</li>
+</ol>
+<p>我们访问 <code>http://localhost:18081/driver/info/3</code>效果如下：<br><img src="https://img-blog.csdnimg.cn/bff934b6f89745b4a157321a80c697ef.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="2-限流、熔断规则"><a href="#2-限流、熔断规则" class="headerlink" title="2 限流、熔断规则"></a>2 限流、熔断规则</h1><p>上面的<code>@SentinelResource</code>里的一些属性指定了发生了异常的时候的兜底方法，也就是降级。下面的限流、熔断同样可以降级。<br>简单理解：<code>@SentinelResource</code>指定属性是 发生异常后降级。<br>限流是达到设置的限流阈值后进行降级走兜底方法处理。<br>熔断是达到熔断阈值后进行降级处理。  </p>
+<p>Sentinel支持多种限流规则，规则我们可以在代码中直接定义，规则属性如下：<br><img src="https://img-blog.csdnimg.cn/8dc11a6c08ab4f419727c2fc27b5190c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="2-1-流量控制"><a href="#2-1-流量控制" class="headerlink" title="2.1 流量控制"></a>2.1 流量控制</h2><p>理解上面规则的定义之后，我们可以通过调用<code>FlowRuleManager.loadRules()</code>方法来用硬编码的方式定义流量控制规则。<br><strong>1)QPS流量控制</strong><br>我们先实现流量基于QPS控制，在<code>hailtaxi-driver</code> 的 DriverApplication 启动类上添加如下方法加载限流规则，当 DriverApplication 初始化完成之后加载规则，代码如下：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/***
+     * 初始化规则
+     */</span>
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initFlowQpsRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//规则集合</span>
+        List<span class="token operator">&lt;</span>FlowRule<span class="token operator">></span> rules <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>FlowRule<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//定义一个规则</span>
+        FlowRule rule <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FlowRule</span><span class="token punctuation">(</span><span class="token string">"info"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 设置阈值</span>
+        rule<span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//设置限流阈值类型</span>
+        rule<span class="token punctuation">.</span><span class="token function">setGrade</span><span class="token punctuation">(</span>RuleConstant<span class="token punctuation">.</span>FLOW_GRADE_QPS<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//default，代表不区分调用来源</span>
+        rule<span class="token punctuation">.</span><span class="token function">setLimitApp</span><span class="token punctuation">(</span><span class="token string">"default"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//将定义的规则添加到集合中</span>
+        rules<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//加载规则</span>
+        FlowRuleManager<span class="token punctuation">.</span><span class="token function">loadRules</span><span class="token punctuation">(</span>rules<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我们访问 <code>http://localhost:18081/driver/info/1</code>此时不会抛出异常，但是频繁刷新，则会调用降级方法，效果如下：<br><img src="https://img-blog.csdnimg.cn/71ea4441b4d8475d89cb041e2a295a0a.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p><strong>2)线程数流量控制</strong><br>我们修改限流阈值类型，代码如下：<br><img src="https://img-blog.csdnimg.cn/4d01f3e288524197aad275135516a099.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>此时再来访问<code>http://localhost:18081/driver/info/1</code> 我们发现用浏览器无论怎么访问都不会出现降级现象，但是如果用Jmeter模拟多个线程，效果就不一样了,效果如下：<br><img src="https://img-blog.csdnimg.cn/6a24470cfbea49e9a41b7be13271b467.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="2-2-熔断"><a href="#2-2-熔断" class="headerlink" title="2.2 熔断"></a>2.2 熔断</h2><p>熔断规则包含下面几个重要的属性：<br><img src="https://img-blog.csdnimg.cn/eb2b4ab2bf414cc886fd8ced7b835a69.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>同一个资源可以同时有多个降级规则。理解上面规则的定义之后，我们可以通过调用<code>DegradeRuleManager.loadRules()</code>方法来用硬编码的方式定义流量控制规则，在Driver主启动类中的规则定义如下：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/***
+     * 熔断降级规则
+     */</span>
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initDegradeRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//降级规则集合</span>
+        List<span class="token operator">&lt;</span>DegradeRule<span class="token operator">></span> rules <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span>DegradeRule<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//降级规则对象</span>
+        DegradeRule rule <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DegradeRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//设置资源</span>
+        rule<span class="token punctuation">.</span><span class="token function">setResource</span><span class="token punctuation">(</span><span class="token string">"info"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//设置触发降级阈值</span>
+        rule<span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//熔断降级策略，支持慢调用比例/异常比例/异常数策略</span>
+        <span class="token comment" spellcheck="true">//DEGRADE_GRADE_RT:平均响应时间</span>
+        <span class="token comment" spellcheck="true">//DEGRADE_GRADE_EXCEPTION_RATIO:异常比例数量</span>
+        <span class="token comment" spellcheck="true">//DEGRADE_GRADE_EXCEPTION_COUNT:异常数</span>
+        rule<span class="token punctuation">.</span><span class="token function">setGrade</span><span class="token punctuation">(</span>RuleConstant<span class="token punctuation">.</span>DEGRADE_GRADE_RT<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//熔断窗口时长，单位为 s</span>
+        rule<span class="token punctuation">.</span><span class="token function">setTimeWindow</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//将规则添加到集合中</span>
+        rules<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//加载规则</span>
+        DegradeRuleManager<span class="token punctuation">.</span><span class="token function">loadRules</span><span class="token punctuation">(</span>rules<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我们来测试一下平均响应时间,在程序中休眠10秒中，再执行访问，代码如下：<br><img src="https://img-blog.csdnimg.cn/4e077f592e2e48c4beddf9b98ccd8707.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>测试效果如下：<br><img src="https://img-blog.csdnimg.cn/a9015d7cdc904dd58f312ae044511060.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/b16ff4eebb73481db1504ab33bc54c33.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>我们可以发现只有2个访问是成功的，并且熔断降级10秒钟之后才可接着访问该方法。<br><img src="https://img-blog.csdnimg.cn/2f66f432d66b447da5ca2418a9cb4621.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="2-3-系统自我保护"><a href="#2-3-系统自我保护" class="headerlink" title="2.3 系统自我保护"></a>2.3 系统自我保护</h2><p>Sentinel 系统自适应限流从整体维度对应用入口流量进行控制，结合应用的 Load、CPU 使用率、总体平均 RT、入口 QPS 和并发线程数等几个维度的监控指标，通过自适应的流控策略，让系统的入口流量和系统的负载达到一个平衡，让系统尽可能跑在最大吞吐量的同时保证系统整体的稳定性。</p>
+<p>系统规则包含下面几个重要的属性：<br><img src="https://img-blog.csdnimg.cn/0b75342d8b0f490092d230bb7af05a4c.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>理解上面规则的定义之后，我们可以通过调用<code>SystemRuleManager.loadRules()</code> 方法来用硬编码的方式定义流量控制规则。</p>
+<p>在<code>hailtaxi-driver</code>的 主启动类中创建如下方法，代码如下：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/***
+     * 系统自我保护
+     */</span>
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">private</span> <span class="token keyword">void</span> <span class="token function">initSystemRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//系统自我保护集合</span>
+        List<span class="token operator">&lt;</span>SystemRule<span class="token operator">></span> rules <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//创建系统自我保护规则</span>
+        SystemRule rule <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SystemRule</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//CPU使用率 值为0-1,-1 (不生效)</span>
+        rule<span class="token punctuation">.</span><span class="token function">setHighestCpuUsage</span><span class="token punctuation">(</span><span class="token number">0.2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//所有入口资源的 QPS,-1 (不生效)</span>
+        rule<span class="token punctuation">.</span><span class="token function">setQps</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//入口流量的最大并发数,-1 (不生效)</span>
+        rule<span class="token punctuation">.</span><span class="token function">setMaxThread</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//所有入口流量的平均响应时间,单位：秒,-1 (不生效)</span>
+        rule<span class="token punctuation">.</span><span class="token function">setAvgRt</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//load1 触发值，用于触发自适应控制阶段,系统最高负载，建议取值 CPU cores * 2.5</span>
+        rule<span class="token punctuation">.</span><span class="token function">setHighestSystemLoad</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//将规则加入到集合</span>
+        rules<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        SystemRuleManager<span class="token punctuation">.</span><span class="token function">loadRules</span><span class="token punctuation">(</span>rules<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我们可以测试CPU使用率自我保护，如下效果：<br><img src="https://img-blog.csdnimg.cn/391fdcb48fef4e4783a496f0386d3070.png" alt="在这里插入图片描述"></p>
+<h2 id="2-4-热点数据"><a href="#2-4-热点数据" class="headerlink" title="2.4 热点数据"></a>2.4 热点数据</h2><p>何为热点？热点即经常访问的数据。很多时候我们希望统计某个热点数据中访问频次最高的 Top K 数据，并对其访问进行限制。比如：<br>1:商品 ID 为参数，统计一段时间内最常购买的商品 ID 并进行限制<br>2:用户 ID 为参数，针对一段时间内频繁访问的用户 ID 进行限制</p>
+<p>热点参数限流会统计传入参数中的热点参数，并根据配置的限流阈值与模式，对包含热点参数的资源调用进行限流。热点参数限流可以看做是一种特殊的流量控制，<strong>仅对包含热点参数的资源调用生效</strong>。<br><img src="https://img-blog.csdnimg.cn/b52444fa74ed4cb8bf39b8a2a86d0972.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>Sentinel 利用 <strong>LRU</strong> 策略统计最近最常访问的热点参数，结合令牌桶算法来进行参数级别的流控。热点参数限流支持集群模式。</p>
+<p>要使用热点参数限流功能，需要引入以下依赖：</p>
+<pre class=" language-xml"><code class="language-xml"><span class="token comment" spellcheck="true">&lt;!--热点参数--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.csp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>sentinel-parameter-flow-control<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>1.8.1<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>然后为对应的资源配置热点参数限流规则，并在 entry 的时候传入相应的参数，即可使热点参数限流生效。</p>
+<p>热点参数规则（ ParamFlowRule ）类似于流量控制规则（ FlowRule ）：<br><img src="https://img-blog.csdnimg.cn/4b3a46acdd7e44f2b2b39ebb07db6480.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>我们可以创建一个司机筛选方法，比如根据城市来筛选，在 <code>DriverController</code>中创建一个方法：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/***
+     * 搜素指定城市的司机
+     */</span>
+    <span class="token annotation punctuation">@SentinelResource</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"search"</span><span class="token punctuation">)</span>
+    <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"/search/{city}"</span><span class="token punctuation">)</span>
+    <span class="token keyword">public</span> Driver <span class="token function">search</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span><span class="token punctuation">(</span>value <span class="token operator">=</span> <span class="token string">"city"</span><span class="token punctuation">)</span> String city<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"查询的司机所在城市："</span> <span class="token operator">+</span> city<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//假设查询到了一个司机信息</span>
+        Driver driver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"张三"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span><span class="token string">"No.1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> driver<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我们可以对热门参数比如<code>下标为0</code>的参数流量进行控制，对热点数据执行特殊限流，比如参数值为<code>tj</code>的时候执行限流，在 Driver的主启动类中创建限流配置，代码如下：</p>
+<pre class=" language-java"><code class="language-java">    <span class="token comment" spellcheck="true">/***
+     * 热点参数初始化
+     */</span>
+    <span class="token annotation punctuation">@PostConstruct</span>
+    <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">initParamFlowRules</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ParamFlowRule rule <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ParamFlowRule</span><span class="token punctuation">(</span><span class="token string">"search"</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//参数下标为0</span>
+                <span class="token punctuation">.</span><span class="token function">setParamIdx</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//限流模式为QPS</span>
+                <span class="token punctuation">.</span><span class="token function">setGrade</span><span class="token punctuation">(</span>RuleConstant<span class="token punctuation">.</span>FLOW_GRADE_QPS<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//统计窗口时间长度（单位为秒）</span>
+                <span class="token punctuation">.</span><span class="token function">setDurationInSec</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//流控效果（支持快速失败和匀速排队模式）</span>
+        <span class="token comment" spellcheck="true">//CONTROL_BEHAVIOR_DEFAULT：限流行为，直接拒绝</span>
+        <span class="token comment" spellcheck="true">//CONTROL_BEHAVIOR_WARM_UP:限流行为，匀速排队</span>
+        <span class="token comment" spellcheck="true">//CONTROL_BEHAVIOR_RATE_LIMITER：限流行为，匀速排队</span>
+                <span class="token punctuation">.</span><span class="token function">setControlBehavior</span><span class="token punctuation">(</span>RuleConstant<span class="token punctuation">.</span>CONTROL_BEHAVIOR_DEFAULT<span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//最大排队等待时长（仅在匀速排队模式生效 CONTROL_BEHAVIOR_RATE_LIMITER）</span>
+        <span class="token comment" spellcheck="true">//.setMaxQueueingTimeMs(600)</span>
+        <span class="token comment" spellcheck="true">//最大阈值为5</span>
+                <span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">// 为特定参数单独设置阈值.</span>
+        <span class="token comment" spellcheck="true">//如下配置：当下标为0的参数值为tj的时候，阈值到达2的时候则执行限流</span>
+        ParamFlowItem item <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ParamFlowItem</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//参数类型为int类型</span>
+                <span class="token punctuation">.</span><span class="token function">setClassType</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//设置阈值为2</span>
+                <span class="token punctuation">.</span><span class="token function">setCount</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+        <span class="token comment" spellcheck="true">//需要统计的值</span>
+                <span class="token punctuation">.</span><span class="token function">setObject</span><span class="token punctuation">(</span>String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token string">"tj"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        rule<span class="token punctuation">.</span><span class="token function">setParamFlowItemList</span><span class="token punctuation">(</span>Collections<span class="token punctuation">.</span><span class="token function">singletonList</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck="true">//加载热点数据</span>
+        ParamFlowRuleManager<span class="token punctuation">.</span><span class="token function">loadRules</span><span class="token punctuation">(</span>Collections<span class="token punctuation">.</span><span class="token function">singletonList</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+</code></pre>
+<p>我们访问 <code>http://localhost:18081/driver/search/shenzhen</code> 的时候，连续执行5次，才会限流，效果如下：<br><img src="https://img-blog.csdnimg.cn/e5914e40834747d1af2e0b03439d3f24.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>我们访问 <a target="_blank" rel="noopener" href="http://localhost:18081/driver/search/tj">http://localhost:18081/driver/search/tj</a> 的时候，连续执行2次，就会限流，效果如下：<br><img src="https://img-blog.csdnimg.cn/7c75dc62035a4456a010ce1c24c1a71f.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h1 id="3-OpenFeign支持"><a href="#3-OpenFeign支持" class="headerlink" title="3 OpenFeign支持"></a>3 OpenFeign支持</h1><p><img src="https://img-blog.csdnimg.cn/aeecdf926bb74ad1991fff91231ab4d1.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_16,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>Sentinel 适配了 Feign 组件。如果想使用，除了引入 <code>spring-cloud-starter-alibaba-sentinel</code>的依赖外还需要 2 个步骤：</p>
+<ol>
+<li> 配置文件打开 Sentinel 对 Feign 的支持：<code>feign.sentinel.enabled=true</code></li>
+<li> 加入 <code>spring-cloud-starter-openfeign</code>依赖使 Sentinel starter 中的自动化配置类生效</li>
+</ol>
+<p><img src="https://img-blog.csdnimg.cn/66f57a7b9d5f450e8618622c90a18758.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>在上面案例中，我们可以实现用户打车成功调用<code>hailtaxi-order</code>执行下单，并且通过feign调用<code>hailtaxi-driver</code>修改司机状态，此时我们可以使用Sentinel实现Feign调用降级、限流。</p>
+<p>我们把之前的案例中 <code>@SentinelResource</code>相关注解全部注释掉，再实现Feign集成。</p>
+<p>①在 <code>hailtaxi-driver</code>、<code>hailtaxi-order</code>中引入 OpenFeign 依赖，配置如下：</p>
+<pre class=" language-xml"><code class="language-xml">        <span class="token comment" spellcheck="true">&lt;!--sentinel--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>com.alibaba.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-alibaba-sentinel<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>version</span><span class="token punctuation">></span></span>2.2.5.RELEASE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>version</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+        <span class="token comment" spellcheck="true">&lt;!--Openfeign--></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.cloud<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-cloud-starter-openfeign<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span>
+</code></pre>
+<p>②还需要在Feign调用客户端（也就是 <code>hailtaxi-order</code> ）中开启Feign的支持，配置如下：<br><img src="https://img-blog.csdnimg.cn/145c835f28084122bd2cda2b47c95eb6.png" alt="在这里插入图片描述"><br>③为了测试程序异常能实现降级操作，我们在<code>hailtaxi-order</code>中将 <code>OrderInfoController.add()</code> 方法的司机ID改成一个不存在的司机ID，让程序报错，测试降级处理，代码如下：<br><img src="https://img-blog.csdnimg.cn/c291e158b38a4305b6258323b1722dba.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="3-1-fallback"><a href="#3-1-fallback" class="headerlink" title="3.1 fallback"></a>3.1 fallback</h2><p><img src="https://img-blog.csdnimg.cn/3b6799868784486a8483cd086d0b95d2.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_15,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>①我们可以为Feign接口创建一个实现类，在实现类中处理程序异常降级处理方法，代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DriverFeignFallback</span> <span class="token keyword">implements</span> <span class="token class-name">DriverFeign</span> <span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">/**
+     * status()降级处理方法
+     */</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> Driver <span class="token function">status</span><span class="token punctuation">(</span>String id<span class="token punctuation">,</span> Integer status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        Driver driver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        driver<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"系统比较繁忙，请您稍后再试！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> driver<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>②我们还需要在Feign接口上添加 fallback 属性指定讲解处理的类，代码如下：<br><img src="https://img-blog.csdnimg.cn/eed903a26d40420f90e34bdcdf43c2fd.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p><strong>注意：</strong><br>此时运行，会发生如下问题：<code>parseAndValidatateMetadata(Ljava/lang/Class;)Ljava/util/List;</code><br>出现上面问题的主要原因是当前SpringCloud版本存在问题。</p>
+<blockquote>
+<p><code>Hoxton.SR1</code>中， fegin.context 接口方法的定义为<code>parseAndValidatateMetadata</code>  </p>
+<p><code>Hoxton.SR3</code>中， fegin.context 接口方法的定义为<code>parseAndValidateMetadata</code></p>
+</blockquote>
+<p>我们现在需要把 Hoxton.SR1 换成 Hoxton.SR3 ，因此需要在<code>hailtaxi-parent</code>修改SpringCloud版本：<br><img src="https://img-blog.csdnimg.cn/4129e46882944b319a4421f7e5e761c8.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>此时我们测试，效果如下：<br><img src="https://img-blog.csdnimg.cn/72f49043655248c5b7f8d69cddcfd188.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<h2 id="3-2-fallbackFactory"><a href="#3-2-fallbackFactory" class="headerlink" title="3.2 fallbackFactory"></a>3.2 fallbackFactory</h2><p><img src="https://img-blog.csdnimg.cn/d478b9451a2f409998658ecb4bf2b78e.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_18,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+<p>①我们可以为Feign接口创建一个降级处理的工厂对象，在工厂对象中处理程序异常降级处理方法，代码如下：</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Component</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">DriverFeignFallback</span> <span class="token keyword">implements</span> <span class="token class-name">FallbackFactory</span><span class="token operator">&lt;</span>DriverFeign<span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> DriverFeign <span class="token function">create</span><span class="token punctuation">(</span>Throwable throwable<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">DriverFeign</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">/**
+             * status()降级处理方法
+             */</span>
+            <span class="token annotation punctuation">@Override</span>
+            <span class="token keyword">public</span> Driver <span class="token function">status</span><span class="token punctuation">(</span>String id<span class="token punctuation">,</span> Integer status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                Driver driver <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Driver</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                driver<span class="token punctuation">.</span><span class="token function">setId</span><span class="token punctuation">(</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                driver<span class="token punctuation">.</span><span class="token function">setStatus</span><span class="token punctuation">(</span>status<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                driver<span class="token punctuation">.</span><span class="token function">setName</span><span class="token punctuation">(</span><span class="token string">"系统比较繁忙，请您稍后再试！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> driver<span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>②我们还需要在Feign接口上添加 fallbackFactory 属性指定讲解处理的类，代码如下：<br><img src="https://img-blog.csdnimg.cn/a1ebc90f399741cc9c983d1abbad1bfb.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"><br>③此时我们测试，效果如下：<br><img src="https://img-blog.csdnimg.cn/05d48075b80547ccaccac46218e1e576.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16" alt="在这里插入图片描述"></p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">fFee-ops</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2021/12/14/springcloudalibaba-sentinel-rong-duan-xian-liu-jiang-ji/">http://example.com/2021/12/14/springcloudalibaba-sentinel-rong-duan-xian-liu-jiang-ji/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">fFee-ops</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/spring-boot-java-%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                                    <span class="chip bg-color">spring boot java 微服务</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,facebook,wechat,google,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'OdV1QUG8BtJ1mV14KFem8ifR-gzGzoHsz',
+        appKey: 'adRPdJjljlAu24UlMWjQcAdf',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/12/15/shi-yong-charles-zhua-bu-dao-chrome-liu-lan-qi-de-bao/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="使用charles 抓不到chrome浏览器的包">
+                        
+                        <span class="card-title">使用charles 抓不到chrome浏览器的包</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/chrome-%E5%89%8D%E7%AB%AF-http/">
+                        <span class="chip bg-color">chrome 前端 http</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/12/14/springcoludalibaba-sentinel-jian-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="SpringColudAlibaba→Sentinel：简介">
+                        
+                        <span class="card-title">SpringColudAlibaba→Sentinel：简介</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-12-14
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/SpringCloudAlibaba/" class="post-category">
+                                    SpringCloudAlibaba
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java-spring-cloud-%E5%BE%AE%E6%9C%8D%E5%8A%A1/">
+                        <span class="chip bg-color">java spring cloud 微服务</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: fFee-ops<br />'
+            + '文章作者: fFee-ops<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2022</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">fFee-ops</a>
+            
+            
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">652.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "13";
+                    var startHour = "23";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fFee-ops" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shanglei-sl@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=luminoused@sina.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: luminoused@sina.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/uqhqpubq69u3ij9xel3grkla9q5wfoej.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="/js/FunnyTitle.js"></script>
+        <!--动态线条背景-->
+    <script type="text/javascript"
+    color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,1773 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="执行计划, fFee-ops">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>执行计划 | fFee-ops</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 6.0.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="fFee-ops" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">fFee-ops</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">fFee-ops</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/fFee-ops" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/fFee-ops" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">执行计划</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        height: calc(100vh - 250px);
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/MySQL/" class="post-category">
+                                MySQL
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-07-11
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    11 分
+                </div>
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <span id="more"></span>
+
+<h3 id="文章目录"><a href="#文章目录" class="headerlink" title="文章目录"></a>文章目录</h3><ul>
+<li><a href="#_3">两个问题</a></li>
+<li><a href="#_9">执行计划</a></li>
+<li><ul>
+<li><a href="#id_76">id：编号</a></li>
+<li><a href="#select_type_138">select_type:查询类型</a></li>
+<li><a href="#type_166">type:索引类型、类型</a></li>
+<li><a href="#possible_keys__251">possible_keys ：可能用到的索引，是一种预测，不准。</a></li>
+<li><a href="#key__265">key ：实际使用到的索引</a></li>
+<li><a href="#key_len___267">key_len ：索引的长度 ;</a></li>
+<li><a href="#ref__typeref_332">ref : 注意与type中的ref值区分。</a></li>
+<li><a href="#rows_____344">rows: 被索引优化查询的 数据个数 (实际通过索引而查询到的 数据个数)</a></li>
+<li><a href="#Extra_354">Extra：额外的字段</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="两个问题"><a href="#两个问题" class="headerlink" title="两个问题"></a>两个问题</h1><p>a.分析SQL的执行计划 : explain ，可以模拟SQL优化器执行SQL语句，从而让开发人员 知道自己编写的SQL状况</p>
+<p>b.MySQL查询优化其会干扰我们的优化</p>
+<h1 id="执行计划"><a href="#执行计划" class="headerlink" title="执行计划"></a>执行计划</h1><p>查询执行计划： explain +SQL语句</p>
+<pre class=" language-sql"><code class="language-sql">例如：
+<span class="token keyword">explain</span>  <span class="token keyword">select</span>  <span class="token operator">*</span> <span class="token keyword">from</span> COURSE<span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200711133156167.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>id : 编号<br>select_type ：查询类型<br>table ：表<br>type ：类型<br>possible_keys ：预测用到的索引<br>key ：实际使用的索引<br>key_len ：实际使用索引的长度<br>ref :表之间的引用<br>rows ：通过索引查询到的数据量<br>Extra :额外的信息</p>
+<hr>
+<p>下面创建三张表来进行操作，进而解释上面的各种概念：<br>1、准备数据：</p>
+<pre class=" language-sql"><code class="language-sql">COURSE表:
+<span class="token keyword">create</span> <span class="token keyword">table</span> course
+<span class="token punctuation">(</span>
+cid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+cname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+tid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+TeacherCard表:
+<span class="token keyword">create</span> <span class="token keyword">table</span> teacherCard
+<span class="token punctuation">(</span>
+tcid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+tcdesc <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+TEACHER表：
+<span class="token keyword">create</span> <span class="token keyword">table</span> teacher
+<span class="token punctuation">(</span>
+tid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+tname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+tcid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">------------------------------------------------------------</span>
+插入数据：
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> course <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'java'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> course <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'html'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> course <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'sql'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> course <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'web'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacherCard <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'tzdesc'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacherCard <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'twdesc'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacherCard <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'tldesc'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacher <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'tz'</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacher <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">'tw'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">insert</span> <span class="token keyword">into</span> teacher <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token string">'tl'</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="id：编号"><a href="#id：编号" class="headerlink" title="id：编号"></a>id：编号</h2><pre class=" language-sql"><code class="language-sql">查询课程编号为<span class="token number">2</span>  或 教师证编号为<span class="token number">3</span>  的老师信息
+<span class="token keyword">select</span> t<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> teacher t<span class="token punctuation">,</span>course <span class="token number">c</span><span class="token punctuation">,</span>teacherCard tc <span class="token keyword">where</span> 
+t<span class="token punctuation">.</span>tid<span class="token operator">=</span><span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token operator">and</span> t<span class="token punctuation">.</span>tcid<span class="token operator">=</span>tc<span class="token punctuation">.</span>tcid <span class="token operator">and</span><span class="token punctuation">(</span><span class="token number">c</span><span class="token punctuation">.</span>cid<span class="token operator">=</span><span class="token number">2</span> <span class="token operator">or</span> tc<span class="token punctuation">.</span>tcid<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200711134526312.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>可以得到如下结论：</p>
+<p><strong>1、id: id值相同，从上往下 顺序执行。</strong><br>可以发现表是按照表中的数量进行排序的<br>t3条-tc3条-c4条数据；</p>
+<p>表的执行顺序 因数量的个数改变而改变的<br>原因： 笛卡儿积<br>比如改变三张表中的数据量为： tc3–c4-t6<br>则执行顺序为tc-&gt;c-&gt;t</p>
+<pre><code>假如：三张表的数据量为4  3  2；
+        a      b   c
+        4    3     2   
+
+如果按C B A的顺序执行：
+2*3*4=6*4=24
+如果按照A B C的顺序执行：
+3*4*2=12*2=24
+
+可以发现虽然结果没变，但是过程中处理的数据量变了，第一种处理的数据量要小
+一点。
+所以得出以下结论：数据小的表 优先查询。
+</code></pre>
+<p><strong>2、id值不同：id值越大越优先查询 (本质：在嵌套子查询时，先查内层 再查外层)</strong></p>
+<pre class=" language-sql"><code class="language-sql">查询教授SQL课程的老师的描述（<span class="token keyword">desc</span>）
+<span class="token keyword">explain</span> <span class="token keyword">select</span> tc<span class="token punctuation">.</span>tcdesc <span class="token keyword">from</span> teacherCard tc<span class="token punctuation">,</span>course <span class="token number">c</span>
+<span class="token punctuation">,</span>teacher t <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token operator">=</span> t<span class="token punctuation">.</span>tid
+<span class="token operator">and</span> t<span class="token punctuation">.</span>tcid <span class="token operator">=</span> tc<span class="token punctuation">.</span>tcid <span class="token operator">and</span> <span class="token number">c</span><span class="token punctuation">.</span>cname <span class="token operator">=</span> <span class="token string">'sql'</span> <span class="token punctuation">;</span>
+
+将以上 多表查询 转为子查询形式：
+<span class="token keyword">explain</span> <span class="token keyword">select</span> tc<span class="token punctuation">.</span>tcdesc <span class="token keyword">from</span> teacherCard tc <span class="token keyword">where</span> tc<span class="token punctuation">.</span>tcid <span class="token operator">=</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> t<span class="token punctuation">.</span>tcid <span class="token keyword">from</span> teacher t <span class="token keyword">where</span>  t<span class="token punctuation">.</span>tid <span class="token operator">=</span>  
+   <span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token keyword">from</span> course <span class="token number">c</span> <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>cname <span class="token operator">=</span> <span class="token string">'sql'</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200711135658907.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>3、id值有相同，又有不同： id值越大越优先；id值相同，从上往下 顺序执行</strong></p>
+<pre><code>还是上面的语句改成子查询+多表： 
+explain select t.tname ,tc.tcdesc from teacher t,teacherCard tc where t.tcid= tc.tcid
+and t.tid = (select c.tid from course c where cname = 'sql') ;
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200711140242753.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="select-type-查询类型"><a href="#select-type-查询类型" class="headerlink" title="select_type:查询类型"></a>select_type:查询类型</h2><p><strong>PRIMARY</strong>:包含子查询SQL中的 主查询 （最外层）<br><strong>SUBQUERY</strong>：包含子查询SQL中的 子查询 （非最外层）<br><strong>simple</strong>:简单查询（不包含子查询、union）</p>
+<p><strong>derived</strong>:衍生查询(使用到了临时表)<br>a.在from子查询中只有一张表</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span>  cr<span class="token punctuation">.</span>cname     
+<span class="token keyword">from</span> <span class="token punctuation">(</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> course <span class="token keyword">where</span> tid <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">)</span> cr <span class="token punctuation">;</span>
+</code></pre>
+<p>b.在from子查询中， 如果有table1 union table2 ，则table1 就是derived,table2就是union</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span>  cr<span class="token punctuation">.</span>cname     
+<span class="token keyword">from</span> <span class="token punctuation">(</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> course <span class="token keyword">where</span> tid <span class="token operator">=</span> <span class="token number">1</span>  <span class="token keyword">union</span> <span class="token keyword">select</span> <span class="token operator">*</span> 
+<span class="token keyword">from</span> course <span class="token keyword">where</span> tid <span class="token operator">=</span> <span class="token number">2</span> <span class="token punctuation">)</span> cr <span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>union</strong>:上例情况B</p>
+<p><strong>union result</strong> :告知开发人员，那些表之间存在union查询</p>
+<h2 id="type-索引类型、类型"><a href="#type-索引类型、类型" class="headerlink" title="type:索引类型、类型"></a>type:索引类型、类型</h2><p><strong>system&gt;const&gt;eq_ref&gt;ref&gt;range&gt;index&gt;all</strong></p>
+<p>从左往右代表情况越不理想，一般优化目标到达ref和range，system,const只是理想情况。</p>
+<p><strong>system（忽略）：</strong><br>只有一条数据的系统表 ；或 衍生表只有一条数据的主查询</p>
+<p><strong>const:</strong><br>仅仅能查到一条数据的SQL ,用于Primary key 或unique索引</p>
+<p>（<strong>类型 与索引类型有关</strong>：就是假如你只查到了一条数据，但是你不是根据Primary key 或unique索引 来查询的那也达不到const）</p>
+<pre class=" language-sql"><code class="language-sql">    <span class="token number">1</span>、首先建表
+        <span class="token keyword">create</span> <span class="token keyword">table</span> test01
+<span class="token punctuation">(</span>
+    tid <span class="token keyword">int</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    tname <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">insert</span> <span class="token keyword">into</span> test01 <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token string">'a'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+     <span class="token number">2</span>、增加索引
+<span class="token keyword">create</span> <span class="token keyword">index</span> test01_index <span class="token keyword">on</span> test01<span class="token punctuation">(</span>tid<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+</code></pre>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> tid <span class="token keyword">from</span> test01 <span class="token keyword">where</span> tid <span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712145824974.png" alt="在这里插入图片描述"></p>
+<p><strong>eq_ref:</strong><br>唯一性索引：对于每个索引键的查询，返回匹配唯一行数据（有且只有1个，不能多 、不能0）常见于唯一索引 和主键索引。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> teacherCard <span class="token keyword">add</span> <span class="token keyword">constraint</span> pk_tcid <span class="token keyword">primary</span> <span class="token keyword">key</span><span class="token punctuation">(</span>tcid<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> teacher <span class="token keyword">add</span> <span class="token keyword">constraint</span> uk_tcid <span class="token keyword">unique</span> <span class="token keyword">index</span><span class="token punctuation">(</span>tcid<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> t<span class="token punctuation">.</span>tcid <span class="token keyword">from</span> teacher t<span class="token punctuation">,</span>teacherCard tc <span class="token keyword">where</span> t<span class="token punctuation">.</span>tcid <span class="token operator">=</span> tc<span class="token punctuation">.</span>tcid <span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712150831298.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>ref：</strong><br>非唯一性索引，对于每个索引键的查询，返回匹配的所有行（0，多）</p>
+<pre class=" language-sql"><code class="language-sql">准备数据：
+        <span class="token keyword">insert</span> <span class="token keyword">into</span> teacher <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'tz'</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+         <span class="token keyword">insert</span> <span class="token keyword">into</span> teacherCard <span class="token keyword">values</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token string">'tz222'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+测试：
+        <span class="token keyword">alter</span> <span class="token keyword">table</span> teacher <span class="token keyword">add</span> <span class="token keyword">index</span> index_name <span class="token punctuation">(</span>tname<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+        <span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> teacher     <span class="token keyword">where</span> tname <span class="token operator">=</span> <span class="token string">'tz'</span><span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712151318548.png" alt="在这里插入图片描述"></p>
+<p><strong>range：</strong><br>检索指定范围的行 ,where后面是一个范围查询(between ,&gt; &lt; &gt;=, 特殊:in有时候会失效 ，从而转为 无索引all)</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> teacher <span class="token keyword">add</span> <span class="token keyword">index</span> tid_index <span class="token punctuation">(</span>tid<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> t<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> teacher t <span class="token keyword">where</span> t<span class="token punctuation">.</span>tid <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> t<span class="token punctuation">.</span><span class="token operator">*</span> <span class="token keyword">from</span> teacher t <span class="token keyword">where</span> t<span class="token punctuation">.</span>tid <span class="token operator">&lt;</span><span class="token number">3</span> <span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712151522828.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><strong>index：</strong><br>查询全部<strong>索引</strong>中数据。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> tid <span class="token keyword">from</span> teacher <span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">--tid 是索引， 只需要扫描索引表，不需要所有表中的所有数据</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712151636551.png" alt="在这里插入图片描述"></p>
+<p><strong>all：</strong><br>查询全部<strong>表</strong>中的数据。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> cid <span class="token keyword">from</span> course <span class="token punctuation">;</span> 
+ <span class="token comment" spellcheck="true">--cid不是索引，需要全表所有，即需要所有表中的所有数据</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/2020071215172260.png" alt="在这里插入图片描述"></p>
+<h2 id="possible-keys-：可能用到的索引，是一种预测，不准。"><a href="#possible-keys-：可能用到的索引，是一种预测，不准。" class="headerlink" title="possible_keys ：可能用到的索引，是一种预测，不准。"></a>possible_keys ：可能用到的索引，是一种预测，不准。</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span>  course <span class="token keyword">add</span> <span class="token keyword">index</span> cname_index <span class="token punctuation">(</span>cname<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> t<span class="token punctuation">.</span>tname <span class="token punctuation">,</span>tc<span class="token punctuation">.</span>tcdesc <span class="token keyword">from</span> teacher t<span class="token punctuation">,</span>teacherCard 
+tc <span class="token keyword">where</span> t<span class="token punctuation">.</span>tcid<span class="token operator">=</span> tc<span class="token punctuation">.</span>tcidand t<span class="token punctuation">.</span>tid <span class="token operator">=</span> 
+<span class="token punctuation">(</span><span class="token keyword">select</span> <span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token keyword">from</span> course <span class="token number">c</span> <span class="token keyword">where</span> cname <span class="token operator">=</span> <span class="token string">'sql'</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712152022417.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><strong>如果 possible_key/key是NULL，则说明没用索引如果 possible_key/key都是NULL，则说明没用索引</strong></p>
+<h2 id="key-：实际使用到的索引"><a href="#key-：实际使用到的索引" class="headerlink" title="key ：实际使用到的索引"></a>key ：实际使用到的索引</h2><h2 id="key-len-：索引的长度"><a href="#key-len-：索引的长度" class="headerlink" title="key_len ：索引的长度 ;"></a>key_len ：索引的长度 ;</h2><p>作用：用于判断复合索引是否被完全使用 （a,b,c）。</p>
+<pre class=" language-sql"><code class="language-sql">准备数据：
+<span class="token keyword">create</span> <span class="token keyword">table</span> test_kl
+<span class="token punctuation">(</span>
+   name char<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token operator">not</span> <span class="token boolean">null</span> <span class="token keyword">default</span> <span class="token string">''</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">index</span> index_name<span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test_kl <span class="token keyword">where</span> name <span class="token operator">=</span><span class="token string">''</span> <span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">-- key_len :60</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712152402978.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>明明name是char(20)但是key_len 是60。这是因为在utf8：1个字符占3个字节。</p>
+<hr>
+<pre class=" language-sql"><code class="language-sql">
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">column</span> name1 char<span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">;</span> 
+ <span class="token comment" spellcheck="true">--name1可以为null</span>
+
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">index</span> index_name1<span class="token punctuation">(</span>name1<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test_kl <span class="token keyword">where</span> name1 <span class="token operator">=</span><span class="token string">''</span> <span class="token punctuation">;</span> 
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712152623255.png" alt="在这里插入图片描述"><br>此时可以看到key_len 为61.这是因为<strong>如果索引字段可以为Null,则会使用1个字节用于标识。</strong></p>
+<hr>
+<pre class=" language-sql"><code class="language-sql">增加一个复合索引 :
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">index</span> name_name1_index <span class="token punctuation">(</span>name<span class="token punctuation">,</span>name1<span class="token punctuation">)</span> <span class="token punctuation">;</span> 
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test_kl <span class="token keyword">where</span> name1 <span class="token operator">=</span> <span class="token string">''</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--121</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test_kl <span class="token keyword">where</span> name <span class="token operator">=</span> <span class="token string">''</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--60</span>
+</code></pre>
+<p>key_len 为60的情况：和之前utf8一样，不用多讲。</p>
+<p>key_len 为121的情况：是因为首先用了name索引，再用了name1，二者长度之和。</p>
+<hr>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">column</span> name2 <span class="token keyword">varchar</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">--可以为Null </span>
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test_kl <span class="token keyword">add</span> <span class="token keyword">index</span> name2_index <span class="token punctuation">(</span>name2<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test_kl <span class="token keyword">where</span> name2 <span class="token operator">=</span> <span class="token string">''</span> <span class="token punctuation">;</span> 
+ <span class="token comment" spellcheck="true">--63</span>
+</code></pre>
+<p><strong>20*3=60 + 1(null) +2(用2个字节 标识可变长度) =63</strong></p>
+<p>PS：<br>1、在mysql中char与varchar的区别呢，都是用来存储字符串的，只是他们的保存方式不一样罢了，char有固定的长度，而varchar属于可变长的字符类型。<br>2、<br>utf8:1个字符3个字节<br>gbk:1个字符2个字节<br>latin:1个字符1个字节  </p>
+<h2 id="ref-注意与type中的ref值区分。"><a href="#ref-注意与type中的ref值区分。" class="headerlink" title="ref : 注意与type中的ref值区分。"></a>ref : 注意与type中的ref值区分。</h2><p>作用： 指明当前表所 参照的 字段。</p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">select</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token keyword">where</span> <span class="token number">a</span><span class="token punctuation">.</span><span class="token number">c</span> <span class="token operator">=</span> <span class="token number">b</span><span class="token punctuation">.</span>x <span class="token punctuation">;</span><span class="token punctuation">(</span>其中<span class="token number">b</span><span class="token punctuation">.</span>x可以是常量，const<span class="token punctuation">)</span>
+
+<span class="token keyword">alter</span> <span class="token keyword">table</span> course  <span class="token keyword">add</span> <span class="token keyword">index</span> tid_index <span class="token punctuation">(</span>tid<span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> course <span class="token number">c</span><span class="token punctuation">,</span>teacher t <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token operator">=</span> t<span class="token punctuation">.</span>tid 
+ <span class="token operator">and</span> t<span class="token punctuation">.</span>tname <span class="token operator">=</span><span class="token string">'tw'</span> <span class="token punctuation">;</span>
+</code></pre>
+<h2 id="rows-被索引优化查询的-数据个数-实际通过索引而查询到的-数据个数"><a href="#rows-被索引优化查询的-数据个数-实际通过索引而查询到的-数据个数" class="headerlink" title="rows: 被索引优化查询的 数据个数 (实际通过索引而查询到的 数据个数)"></a>rows: 被索引优化查询的 数据个数 (实际通过索引而查询到的 数据个数)</h2><pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> course <span class="token number">c</span><span class="token punctuation">,</span>teacher t  <span class="token keyword">where</span> <span class="token number">c</span><span class="token punctuation">.</span>tid <span class="token operator">=</span> t<span class="token punctuation">.</span>tid
+<span class="token operator">and</span> t<span class="token punctuation">.</span>tname <span class="token operator">=</span> <span class="token string">'tz'</span> <span class="token punctuation">;</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200712153650232.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20200712153659155.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h2 id="Extra：额外的字段"><a href="#Extra：额外的字段" class="headerlink" title="Extra：额外的字段"></a>Extra：额外的字段</h2><p><strong>(i).using filesort ： 性能消耗大；需要“额外”的一次排序（查询） 。常见于 order by 语句中。</strong></p>
+<pre class=" language-sql"><code class="language-sql">准备数据：
+        <span class="token keyword">create</span> <span class="token keyword">table</span> test02
+<span class="token punctuation">(</span>
+    <span class="token number">a1</span> char<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token number">a2</span> char<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token number">a3</span> char<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">index</span> idx_a1<span class="token punctuation">(</span><span class="token number">a1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">index</span> idx_a2<span class="token punctuation">(</span><span class="token number">a2</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token keyword">index</span> idx_a3<span class="token punctuation">(</span><span class="token number">a3</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span> <span class="token operator">=</span><span class="token string">''</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a2</span> <span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">--using filesort</span>
+</code></pre>
+<p><img src="https://img-blog.csdnimg.cn/20200713114108978.png" alt="在这里插入图片描述"><br>语句中查询是根据a1来的，但是需要根据a2排序，所以得再把a2查一遍再进行排序。</p>
+<p>总之：<br>对于单索引， 如果排序和查找是同一个字段，则不会出现using filesort；如果排序和查找不是同一个字段，则会出现using filesort；</p>
+<p><strong>避免：</strong> where哪些字段，就order by那些字段</p>
+<hr>
+<p><strong>复合索引：不能跨列（最佳左前缀）</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">drop</span> <span class="token keyword">index</span> idx_a1 <span class="token keyword">on</span> test02<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">index</span> idx_a2 <span class="token keyword">on</span> test02<span class="token punctuation">;</span>
+<span class="token keyword">drop</span> <span class="token keyword">index</span> idx_a3 <span class="token keyword">on</span> test02<span class="token punctuation">;</span>
+
+<span class="token keyword">alter</span> <span class="token keyword">table</span> test02 <span class="token keyword">add</span> <span class="token keyword">index</span> idx_a1_a2_a3 <span class="token punctuation">(</span><span class="token number">a1</span><span class="token punctuation">,</span><span class="token number">a2</span><span class="token punctuation">,</span><span class="token number">a3</span><span class="token punctuation">)</span> <span class="token punctuation">;</span>
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span><span class="token operator">=</span><span class="token string">''</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a3</span> <span class="token punctuation">;</span> 
+ <span class="token comment" spellcheck="true">--using filesort</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a2</span><span class="token operator">=</span><span class="token string">''</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a3</span> <span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">--using filesort</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span><span class="token operator">=</span><span class="token string">''</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a2</span> <span class="token punctuation">;</span>
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token operator">*</span><span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a2</span><span class="token operator">=</span><span class="token string">''</span> <span class="token keyword">order</span> <span class="token keyword">by</span> <span class="token number">a1</span> <span class="token punctuation">;</span> 
+<span class="token comment" spellcheck="true">--using filesort</span>
+</code></pre>
+<p>所谓的跨列就是说复合索引(a1,a2,a3)从左往右，a1,a2不算跨列，a1，a3算跨列。只要跨列就会出现–using filesort。</p>
+<p><strong>避免：</strong> where和order by 按照复合索引的顺序使用，不要跨列或无序使用。</p>
+<p><strong>(ii). using temporary:性能损耗大 ，用到了临时表。一般出现在group by 语句中。</strong></p>
+<pre class=" language-sql"><code class="language-sql"><span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token number">a1</span> <span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'2'</span><span class="token punctuation">,</span><span class="token string">'3'</span><span class="token punctuation">)</span> 
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">a1</span> <span class="token punctuation">;</span>
+    
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token number">a1</span> <span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span> <span class="token operator">in</span> <span class="token punctuation">(</span><span class="token string">'1'</span><span class="token punctuation">,</span><span class="token string">'2'</span><span class="token punctuation">,</span><span class="token string">'3'</span><span class="token punctuation">)</span> 
+<span class="token keyword">group</span> <span class="token keyword">by</span> <span class="token number">a2</span> <span class="token punctuation">;</span> <span class="token comment" spellcheck="true">--using temporary</span>
+</code></pre>
+<p><strong>避免：查询那些列，就根据那些列 group by .</strong></p>
+<p><strong>(iii). using index :性能提升; 索引覆盖（覆盖索引）。</strong><br>原因：不读取原文件，只从索引文件中获取数据 （不需要回表查询）<br>只要使用到的列 全部都在索引中，就是索引覆盖using index</p>
+<pre class=" language-sql"><code class="language-sql">例如：test02表中有一个复合索引<span class="token punctuation">(</span><span class="token number">a1</span><span class="token punctuation">,</span><span class="token number">a2</span><span class="token punctuation">,</span><span class="token number">a3</span><span class="token punctuation">)</span>
+
+<span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token number">a1</span><span class="token punctuation">,</span><span class="token number">a2</span> <span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span><span class="token operator">=</span><span class="token string">''</span> <span class="token operator">or</span> <span class="token number">a2</span><span class="token operator">=</span> <span class="token string">''</span> <span class="token punctuation">;</span>
+ <span class="token comment" spellcheck="true">--using index   </span>
+</code></pre>
+<p>所查询的数据都在索引中。<br><img src="https://img-blog.csdnimg.cn/20200713121154334.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>比如只查询age，那么所有的age都在索引中，只需要去索引中查找就行了，不需要回表查询。</p>
+<pre class=" language-sql"><code class="language-sql">如果用到了索引覆盖<span class="token punctuation">(</span><span class="token keyword">using</span> <span class="token keyword">index</span>时<span class="token punctuation">)</span>，会对 possible_keys和<span class="token keyword">key</span>造成影响：
+        <span class="token number">a</span><span class="token punctuation">.</span>如果没有<span class="token keyword">where</span>，则索引只出现在<span class="token keyword">key</span>中；
+        <span class="token number">b</span><span class="token punctuation">.</span>如果有<span class="token keyword">where</span>，则索引 出现在<span class="token keyword">key</span>和possible_keys中。
+
+        <span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token number">a1</span><span class="token punctuation">,</span><span class="token number">a2</span> <span class="token keyword">from</span> test02 <span class="token keyword">where</span> <span class="token number">a1</span><span class="token operator">=</span><span class="token string">''</span> <span class="token operator">or</span> <span class="token number">a2</span><span class="token operator">=</span> <span class="token string">''</span> <span class="token punctuation">;</span>
+        <span class="token keyword">explain</span> <span class="token keyword">select</span> <span class="token number">a1</span><span class="token punctuation">,</span><span class="token number">a2</span> <span class="token keyword">from</span> test02  <span class="token punctuation">;</span>
+</code></pre>
+<hr>
+<p><strong>(iii).using where （需要回表查询）</strong><br>假设age是索引列<br>但查询语句select age,name from …where age =…,此语句中必须回原表查Name，因此会显示using where.</p>
+<p><strong>(iv). impossible where ： where子句永远为false</strong><br>例如<br>explain select * from test02 where a1=‘x’ and a1=‘y’ ;</p>
+
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">fFee-ops</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2020/07/11/zhi-xing-ji-hua/">http://example.com/2020/07/11/zhi-xing-ji-hua/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">fFee-ops</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="qq,facebook,wechat,google,twitter" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'OdV1QUG8BtJ1mV14KFem8ifR-gzGzoHsz',
+        appKey: 'adRPdJjljlAu24UlMWjQcAdf',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/07/11/unknown-column-entrytime-in-field-list/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Unknown column ‘EntryTime‘ in ‘field list‘">
+                        
+                        <span class="card-title">Unknown column ‘EntryTime‘ in ‘field list‘</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/07/10/suo-yin/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="索引">
+                        
+                        <span class="card-title">索引</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'CODE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: fFee-ops<br />'
+            + '文章作者: fFee-ops<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1,h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1,h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2022</span>
+            
+            <span id="year">2020</span>
+            <a href="/about" target="_blank">fFee-ops</a>
+            
+            
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">652.3k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2020";
+                    var startMonth = "11";
+                    var startDate = "13";
+                    var startHour = "23";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/fFee-ops" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:shanglei-sl@foxmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=luminoused@sina.com" class="tooltipped" target="_blank" data-tooltip="QQ联系我: luminoused@sina.com" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+        <script src="//code.tidio.co/uqhqpubq69u3ij9xel3grkla9q5wfoej.js"></script>
+        <script>
+            $(document).ready(function () {
+                setInterval(change_Tidio, 50);
+                function change_Tidio() {
+                    var tidio=$("#tidio-chat iframe");
+                    if(tidio.css("display")=="block"&& $(window).width()>977 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" &&$(window).width()>977)>0? "-40px" : ($("div.toc-title").length&&$(window).width()>977)>0?"85px":"20px";
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.height=parseInt(tidio.css("height"))>=520?"520px":tidio.css("height");
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()>601 &&$(window).width()<992 ){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && 601< $(window).width()<992)>0? "-40px":"20px" ;
+                        document.getElementById("tidio-chat-iframe").style.right="-15px";
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    else if(tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))<230){
+                        document.getElementById("tidio-chat-iframe").style.bottom= ($("div#backTop.top-scroll").css("display")=="none" && $(window).width()<601)>0? "-10px":"45px" ;
+                        document.getElementById("tidio-chat-iframe").style.zIndex="997";
+                    }
+                    if( tidio.css("display")=="block"&&$(window).width()<601 && parseInt(tidio.css("height"))>=230){
+                        document.getElementById("tidio-chat-iframe").style.zIndex="998";
+                    }
+                }
+            });
+        </script>
+    
+
+    
+
+	
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+    <script src="/js/FunnyTitle.js"></script>
+        <!--动态线条背景-->
+    <script type="text/javascript"
+    color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+</body>
+
+</html>
