@@ -5,78 +5,56 @@ tags:
 categories: Redis
 ---
 
-<!--more-->
+# 1. 主从 + 哨兵 问题分析
+![在这里插入图片描述](https://img-blog.csdnimg.cn/e281ef63733b450097f109eeab5aca04.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+（1）在主从 + 哨兵模式中，仍然只有一个Master节点。当并发写请求较大时，哨兵模式并不能缓解写压力
+（2） 在Redis Sentinel模式中，每个节点需要保存全量数据，冗余比较多
 
-### Redis Cluster集群的简介
 
-- [简介](#_1)
-- [Redis Cluster集群特点](#Redis_Cluster_11)
-- [Redis Cluster容错](#Redis_Cluster_24)
-- [redis-cluster节点分配](#rediscluster_39)
-- [Redis Cluster高可用（Redis Cluster主从模式）](#Redis_ClusterRedis_Cluster_55)
-- [Redis Cluster总结](#Redis_Cluster_68)
+# 2. Cluster概念
+从3.0版本之后，官方推出了Redis Cluster，它的主要用途是实现数据分片(Data Sharding)，不过同样可以实现HA，是官方当前推荐的方案。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/bb328d08492f4ae6a793e274fa407c62.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_16,color_FFFFFF,t_70,g_se,x_16)
+1.Redis-Cluster采用无中心结构
+2.只有当集群中的大多数节点同时fail整个集群才fail。
+3.整个集群有**16384**个slot，当需要在 Redis 集群中放置一个 key-value 时，根据 `CRC16(key) mod16384`的值，决定将一个key放到哪个桶中。读取一个key时也是相同的算法。
+4.当主节点fail时从节点会升级为主节点，fail的主节点online之后自动变成了从节点
 
-# 简介
 
-• 为什么使用redis-cluster？  
-      为了在大流量访问下提供稳定的业务，集群化是存储的必然形态
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200908220237852.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIxMDQwNTU5,size_16,color_FFFFFF,t_70#pic_center)
+# 3. 故障转移
+![在这里插入图片描述](https://img-blog.csdnimg.cn/bd0afbe6c1904549b16973a771c3956b.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16)
 
-Redis集群搭建的方式有多种，但从**redis 3.0**之后版本支持redis-cluster集群，**至少需要3\(Master\)+3\(Slave\)才能建立集群**。Redis-Cluster采用无中心结构，每个节点保存数据和整个集群状态,每个节点都和其他所有 节点连接。
+Redis集群的主节点内置了类似Redis Sentinel的节点故障检测和自动故障转移功能，当集群中的某个主节点下线时，集群中的其他在线主节点会注意到这一点，并对已下线的主节点进行故障转移。
 
-# Redis Cluster集群特点
 
-1、所有的redis节点彼此互联\(PING-PONG机制\),内部使用二进制协议优化传输速度和带宽。
 
-2、节点的fail是通过集群中**超过半数的节点**检测失效时才生效。
+# 4. 集群分片策略
+Redis-cluster分片策略，是用来解决key存储位置的
+常见的数据分布的方式：顺序分布、哈希分布、节点取余哈希、一致性哈希
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ca060414bf284cc6b839a7df854c71b3.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16)
 
-3、客户端与redis节点直连,不需要中间proxy层.客户端不需要连接集群所有节点,连接集群中任何一个可用节点即可。
+# 5. Redis 集群的数据分片
+Redis 集群没有使用一致性hash, 而是引入了 哈希槽的概念。
+预设虚拟槽，每个槽就相当于一个数字，有一定范围。
+>Redis Cluster中预设虚拟槽的范围为0到16383
 
-4、redis-cluster把所有的物理节点映射到\[0-16383\]插槽上（不一定是平均分配）,cluster 负责维护
+![在这里插入图片描述](https://img-blog.csdnimg.cn/474a27ddcc184a0b97c0061c3f656480.png?x-oss-process=image/watermark,type_d3F5LXplbmhlaQ,shadow_50,text_Q1NETiBAZkZlZS1vcHM=,size_20,color_FFFFFF,t_70,g_se,x_16)
+步骤：
+1. 把16384槽按照节点数量进行平均分配，由节点进行管理
+2. 对每个key按照CRC16规则进行hash运算
+3. 把hash结果对16383进行取余
+4. 把余数发送给Redis节点
+5. 节点接收到数据，验证是否在自己管理的槽编号的范围
+  - 如果在自己管理的槽编号范围内，则把数据保存到数据槽中，然后返回执行结果
+  - 如果在自己管理的槽编号范围外，则会把数据发送给正确的节点，由正确的节点来把数据保存在对应的槽中
 
-5、Redis集群预分好16384个哈希槽，当需要在 Redis 集群中放置一个 key-value 时， redis 先对key 使用 crc16 算法算出一个结果，然后把结果对 16384 求余数，这样每个 key 都会对应一个编号在 0-16383 之间的哈希槽，redis 会根据节点数量大致均等的将哈希槽映射到不同的节
+> 需要注意的是：Redis Cluster的节点之间会共享消息，每个节点都会知道是哪个节点负责哪个范围内的数据槽
 
-# Redis Cluster容错
+虚拟槽分布方式中，由于每个节点管理一部分数据槽，数据保存到数据槽中。当节点扩容或者缩容时，对数据槽进行重新分配迁移即可，数据不会丢失。
 
-**容错性**，是指软件检测应用程序所运行的软件或硬件中发生的错误并从错误中恢复的能力，通常可以从系统的可靠性、可用性、可测性等几个方面来衡量。
 
-**redis-cluster投票:容错**  
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200908221437958.png#pic_center)  
-①投票过程是集群中所有master参与,如果半数以上master节点与master节点通信超时\(cluster-node-timeout\),认为当前master节点挂掉.
-
-②**什么时候整个集群不可用\(cluster\_state:fail\)\?**
-
-如果集群任意master挂掉,且当前master没有slave.集群进入fail状态,也可以理解成集群的slot映射\[0-16383\]不完整时进入fail状态. 如果集群超过半数以上master挂掉，无论是否有slave，集群进入fail状态.
-
-# redis-cluster节点分配
-
-**（官方推荐）** 三个主节点分别是：A, B, C 三个节点，它们可以是一台机器上的三个端口，也可以是三台不同的服务器。那么，采用哈希槽 \(hash slot\)的方式来分配16384个slot 的话，它们三个节点分别承担的slot 区间是  
-节点A覆盖0－5460;  
-节点B覆盖5461－10922;  
-节点C覆盖10923－16383
-
-还有新增一个主节点：
-
-新增一个节点D, redis cluster的这种做法是从各个节点的前面各拿取一部分slot到D上。  
-节点A覆盖1365-5460  
-节点B覆盖6827- 10922  
-节点C覆盖12288-16383  
-节点D覆盖0-1364, 5461-6826,10923-12287
-
-# Redis Cluster高可用（Redis Cluster主从模式）
-
-redis cluster 为了保证数据的高可用性，加入了主从模式，一个主节点对应一个或多个从节点，主节点提供数据存取，从节点则是从主节点拉取数据备份，当这个主节点挂掉后，就会有这个从节点选取一个来充当主节点，从而保证集群不会挂掉。
-
-集群有ABC三个主节点, 如果这3个节点都没有加入从节点，如果B挂掉了，我们就无法访问整个集群了。A和C的slot也无法访问。
-
-所以在集群建立的时候，**一定要为每个主节点都添加从节点**, 比如像这样, 集群包含主节点A、B、C, 以及从节点A1、B1、C1, 那么即使B挂掉系统也可以继续正确工作。
-
-B1节点替代了B节点，所以Redis集群将会选择B1节点作为新的主节点，集群将会继续正确地提供服务。 当B重新开启后，它就会变成B1的从节点。
-
-不过需要注意，如果节点B和B1同时挂了，Redis集群就无法继续正确地提供服务了。
-
-# Redis Cluster总结
-
-①拥有将数据自动切分到多个节点的能力。  
-②当集群中的一部分节点失效或者无法进行通讯时， 仍然可以继续处理命令请求的能力
+# 6. Redis Cluster步骤分析
+- 启动节点：将节点以集群方式启动，此时节点是独立的。
+- 节点握手：将独立的节点连成网络。
+- 槽指派：将16384个槽位分配给主节点，以达到分片保存数据库键值对的效果。
+- 主从复制：为从节点指定主节点。
