@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>fFee-ops</title>
+  
+  <subtitle>fFee-ops&#39;s Blog</subtitle>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-07-30T06:56:50.374Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>fFee-ops</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>com.sun.mail.util.MailConnectException:Couldn&#39;t connect to host, port:smtp.aliyun.com, 25; timeout</title>
+    <link href="http://example.com/2022/03/20/com-sun-mail-util-mailconnectexception-couldn-t-connect-to-host-port-smtp-aliyun-com-25-timeout/"/>
+    <id>http://example.com/2022/03/20/com-sun-mail-util-mailconnectexception-couldn-t-connect-to-host-port-smtp-aliyun-com-25-timeout/</id>
+    <published>2022-03-20T12:45:40.000Z</published>
+    <updated>2022-07-30T06:56:50.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Lombok的@Builder.Default失效</title>
+    <link href="http://example.com/2022/03/19/lombok-de-builder-default-shi-xiao/"/>
+    <id>http://example.com/2022/03/19/lombok-de-builder-default-shi-xiao/</id>
+    <published>2022-03-19T04:49:52.000Z</published>
+    <updated>2022-07-30T06:56:50.359Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;今天有一个类，有两个字段用了&lt;code&gt;@Builder.Default&lt;/code&gt; 来修饰。&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>postman发送x-www-form-urlencoded格式的参数后端接收不到</title>
+    <link href="http://example.com/2022/03/19/postman-fa-song-x-www-form-urlencoded-ge-shi-de-can-shu-hou-duan-jie-shou-bu-dao/"/>
+    <id>http://example.com/2022/03/19/postman-fa-song-x-www-form-urlencoded-ge-shi-de-can-shu-hou-duan-jie-shou-bu-dao/</id>
+    <published>2022-03-19T04:49:26.000Z</published>
+    <updated>2022-07-30T06:56:50.377Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>charles没有显示request和response</title>
+    <link href="http://example.com/2022/03/19/charles-mei-you-xian-shi-request-he-response/"/>
+    <id>http://example.com/2022/03/19/charles-mei-you-xian-shi-request-he-response/</id>
+    <published>2022-03-19T04:48:56.000Z</published>
+    <updated>2022-07-30T06:56:50.373Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>xx available:expected single matching bean but found 2:xx,xx</title>
+    <link href="http://example.com/2022/03/19/xx-available-expected-single-matching-bean-but-found-2-xx-xx/"/>
+    <id>http://example.com/2022/03/19/xx-available-expected-single-matching-bean-but-found-2-xx-xx/</id>
+    <published>2022-03-19T04:48:30.000Z</published>
+    <updated>2022-07-30T06:56:50.380Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;今天部署环境的时候一直部署失败，出现报错如下：&lt;br&gt;&lt;font</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>用Lombok注解class后发现class的boolean属性没有get方法</title>
+    <link href="http://example.com/2022/03/19/yong-lombok-zhu-jie-class-hou-fa-xian-class-de-boolean-shu-xing-mei-you-get-fang-fa/"/>
+    <id>http://example.com/2022/03/19/yong-lombok-zhu-jie-class-hou-fa-xian-class-de-boolean-shu-xing-mei-you-get-fang-fa/</id>
+    <published>2022-03-19T04:46:51.000Z</published>
+    <updated>2022-07-30T06:56:50.396Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;今天有这么一段代码&lt;/p&gt;
+&lt;pre class=&quot; language-java&quot;&gt;&lt;code</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java8新特性之双冒号（::）</title>
+    <link href="http://example.com/2022/03/13/java8-xin-te-xing-zhi-shuang-mou-hao/"/>
+    <id>http://example.com/2022/03/13/java8-xin-te-xing-zhi-shuang-mou-hao/</id>
+    <published>2022-03-13T13:05:53.000Z</published>
+    <updated>2022-07-30T06:56:50.358Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h1&gt;&lt;p&gt;双冒号运算操作符是类方法的句柄，lambda表达式的一种简写。双冒号（::）运算符在Java</summary>
+        
+      
+    
+    
+    
+    <category term="java" scheme="http://example.com/categories/java/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SNAPSHOT打包问题</title>
+    <link href="http://example.com/2022/03/12/snapshot-da-bao-wen-ti/"/>
+    <id>http://example.com/2022/03/12/snapshot-da-bao-wen-ti/</id>
+    <published>2022-03-12T11:26:04.000Z</published>
+    <updated>2022-07-30T06:56:50.365Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis性能压测</title>
+    <link href="http://example.com/2022/03/12/redis-xing-neng-ya-ce/"/>
+    <id>http://example.com/2022/03/12/redis-xing-neng-ya-ce/</id>
+    <published>2022-03-12T11:23:26.000Z</published>
+    <updated>2022-07-30T06:56:50.364Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Redis 的性能测试工具，目前主流使用的是 &lt;code&gt;redis-benchmark&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;Redis 官方提供</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>IDEA checkstyle插件安装及使用</title>
+    <link href="http://example.com/2022/03/08/idea-checkstyle-cha-jian-an-zhuang-ji-shi-yong/"/>
+    <id>http://example.com/2022/03/08/idea-checkstyle-cha-jian-an-zhuang-ji-shi-yong/</id>
+    <published>2022-03-08T13:43:07.000Z</published>
+    <updated>2022-07-30T06:56:50.356Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;流程&quot;&gt;&lt;a href=&quot;#流程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="杂" scheme="http://example.com/categories/%E6%9D%82/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>lua脚本以及redis慢查询日志</title>
+    <link href="http://example.com/2022/02/20/lua-jiao-ben-yi-ji-redis-man-cha-xun-ri-zhi/"/>
+    <id>http://example.com/2022/02/20/lua-jiao-ben-yi-ji-redis-man-cha-xun-ri-zhi/</id>
+    <published>2022-02-20T07:27:03.000Z</published>
+    <updated>2022-07-30T06:56:50.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;lua脚本&quot;&gt;&lt;a href=&quot;#lua脚本&quot; class=&quot;headerlink&quot; title=&quot;lua脚本&quot;&gt;&lt;/a&gt;lua脚本&lt;/h1&gt;&lt;p&gt;lua是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放，</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>geo类型</title>
+    <link href="http://example.com/2022/02/19/geo-lei-xing/"/>
+    <id>http://example.com/2022/02/19/geo-lei-xing/</id>
+    <published>2022-02-19T12:36:12.000Z</published>
+    <updated>2022-07-30T06:56:50.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;概述&quot;&gt;&lt;a href=&quot;#概述&quot; class=&quot;headerlink&quot; title=&quot;概述&quot;&gt;&lt;/a&gt;概述&lt;/h2&gt;&lt;p&gt;Redis 3.2</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>bitmap类型</title>
+    <link href="http://example.com/2022/02/19/bitmap-lei-xing/"/>
+    <id>http://example.com/2022/02/19/bitmap-lei-xing/</id>
+    <published>2022-02-19T12:23:34.000Z</published>
+    <updated>2022-07-30T06:56:50.373Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;bitmap 存储的是连续的二进制数字（0 和 1），通过 bitmap, 只需要一个 bit 位来表示某个元素对应的值或者状态，key</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hash类型</title>
+    <link href="http://example.com/2022/02/19/hash-lei-xing/"/>
+    <id>http://example.com/2022/02/19/hash-lei-xing/</id>
+    <published>2022-02-19T10:58:38.000Z</published>
+    <updated>2022-07-30T06:56:50.374Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;介绍&quot;&gt;&lt;a href=&quot;#介绍&quot; class=&quot;headerlink&quot; title=&quot;介绍&quot;&gt;&lt;/a&gt;介绍&lt;/h2&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>string类型</title>
+    <link href="http://example.com/2022/02/19/string-lei-xing/"/>
+    <id>http://example.com/2022/02/19/string-lei-xing/</id>
+    <published>2022-02-19T10:48:20.000Z</published>
+    <updated>2022-07-30T06:56:50.379Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Redis的Key的设计&quot;&gt;&lt;a href=&quot;#Redis的Key的设计&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>redis启动成功但无法用UI连接</title>
+    <link href="http://example.com/2022/02/19/redis-qi-dong-cheng-gong-dan-wu-fa-yong-ui-lian-jie/"/>
+    <id>http://example.com/2022/02/19/redis-qi-dong-cheng-gong-dan-wu-fa-yong-ui-lian-jie/</id>
+    <published>2022-02-19T10:41:05.000Z</published>
+    <updated>2022-07-30T06:56:50.378Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;strong&gt;问题描述：&lt;/strong&gt;&lt;br&gt;系统为CentOS7.9，已经启动了redis，并且用命令行能够成功进入到客户端。&lt;br&gt;但是无法使用图形化界面进行远程链接。&lt;br&gt;一直报错&lt;br&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>修改IDEA提交到git的昵称</title>
+    <link href="http://example.com/2022/02/17/xiu-gai-idea-ti-jiao-dao-git-de-ni-cheng/"/>
+    <id>http://example.com/2022/02/17/xiu-gai-idea-ti-jiao-dao-git-de-ni-cheng/</id>
+    <published>2022-02-17T13:14:04.000Z</published>
+    <updated>2022-07-30T06:56:50.382Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;1、在idea的terminal输入&lt;/p&gt;
+&lt;pre class=&quot; language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt; git config user.name</summary>
+        
+      
+    
+    
+    
+    <category term="Git" scheme="http://example.com/categories/Git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>kong网关</title>
+    <link href="http://example.com/2022/02/16/kong-wang-guan/"/>
+    <id>http://example.com/2022/02/16/kong-wang-guan/</id>
+    <published>2022-02-16T08:49:01.000Z</published>
+    <updated>2022-07-30T06:56:50.376Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-kong网关简介&quot;&gt;&lt;a href=&quot;#1-kong网关简介&quot; class=&quot;headerlink&quot; title=&quot;1.  kong网关简介&quot;&gt;&lt;/a&gt;1.  kong网关简介&lt;/h1&gt;&lt;p&gt;Kong是一款基于OpenResty（Nginx +</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="http://example.com/categories/Nginx/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Redis安装布隆过滤器</title>
+    <link href="http://example.com/2022/02/16/redis-an-zhuang-bu-long-guo-lu-qi/"/>
+    <id>http://example.com/2022/02/16/redis-an-zhuang-bu-long-guo-lu-qi/</id>
+    <published>2022-02-16T03:30:44.000Z</published>
+    <updated>2022-07-30T06:56:50.364Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;关于布隆过滤器的简介请看这篇文章 ：&lt;a href=&quot;https://juejin.cn/post/6844904013419249678&quot;&gt;https://juejin.cn/post/6844904013419249678&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;安装&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="Redis" scheme="http://example.com/categories/Redis/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>OpenResty应用</title>
+    <link href="http://example.com/2022/02/15/openresty-ying-yong/"/>
+    <id>http://example.com/2022/02/15/openresty-ying-yong/</id>
+    <published>2022-02-15T10:14:51.000Z</published>
+    <updated>2022-07-30T06:56:50.362Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;1-OpenResty-命令详解&quot;&gt;&lt;a href=&quot;#1-OpenResty-命令详解&quot; class=&quot;headerlink&quot; title=&quot;1. OpenResty 命令详解&quot;&gt;&lt;/a&gt;1. OpenResty 命令详解&lt;/h1&gt;&lt;pre class=&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Nginx" scheme="http://example.com/categories/Nginx/"/>
+    
+    
+  </entry>
+  
+</feed>
