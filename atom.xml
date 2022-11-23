@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-07-30T06:56:50.374Z</updated>
+  <updated>2022-11-23T02:42:38.740Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我是测试</title>
+    <link href="http://example.com/2022/11/23/wo-shi-ce-shi/"/>
+    <id>http://example.com/2022/11/23/wo-shi-ce-shi/</id>
+    <published>2022-11-23T02:42:01.000Z</published>
+    <updated>2022-11-23T02:42:38.740Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;我是测试啊&lt;/p&gt;
+</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>com.sun.mail.util.MailConnectException:Couldn&#39;t connect to host, port:smtp.aliyun.com, 25; timeout</title>
@@ -453,29 +475,6 @@
     
     
     <category term="Redis" scheme="http://example.com/categories/Redis/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>OpenResty应用</title>
-    <link href="http://example.com/2022/02/15/openresty-ying-yong/"/>
-    <id>http://example.com/2022/02/15/openresty-ying-yong/</id>
-    <published>2022-02-15T10:14:51.000Z</published>
-    <updated>2022-07-30T06:56:50.362Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h1 id=&quot;1-OpenResty-命令详解&quot;&gt;&lt;a href=&quot;#1-OpenResty-命令详解&quot; class=&quot;headerlink&quot; title=&quot;1. OpenResty 命令详解&quot;&gt;&lt;/a&gt;1. OpenResty 命令详解&lt;/h1&gt;&lt;pre class=&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="Nginx" scheme="http://example.com/categories/Nginx/"/>
     
     
   </entry>
