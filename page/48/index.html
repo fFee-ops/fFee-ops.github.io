@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/21/gu-zhang-xian-xiang-he-dao-zhi-yuan-yin-yi-ji-ru-he-jie-jue/">
+                    <a href="/2020/10/24/springcloud-config-ke-hu-duan-zhi-dong-tai-shua-xin/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="故障现象和导致原因以及如何解决">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Springcloud-Config客户端之动态刷新">
                             
-                            <span class="card-title">故障现象和导致原因以及如何解决</span>
+                            <span class="card-title">Springcloud-Config客户端之动态刷新</span>
                         </div>
                     </a>
 
@@ -380,21 +380,27 @@
                             
                                 
 
-故障现象和导致原因以及如何解决1、8001同一层次的其他接口服务被困死，因为tomcat线程里面的工作线程已经被挤占完毕
-2、80此时调用8001，客户端访问响应缓慢，转圈圈
-正因为有上述故障或不佳表现，才有我们的降级/容错/限流等技术
+Config客户端之动态刷新
+环境搭建及测试
+随之而来的问题
+
+环境搭建及测试为了避免每次更新配置都要重启客户端微服务3355。
+修改3355模块：
+1、POM引入actuator监控
+&lt;dependency>
+    &lt;g
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Hystrix/" class="post-category">
-                                    Hystrix
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
                                 </a>
                                 
                                 
@@ -403,67 +409,26 @@
                     </div>
 
                     
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/21/dui-ji-chu-module-gao-bing-fa-ce-shi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="对基础module高并发测试">
-                            
-                            <span class="card-title">对基础module高并发测试</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-对基础module高并发测试
-
-Jmeter压测测试
-Jmeter压测结论
-80新建加入
-
-
-
-Jmeter压测测试①开启Jmeter，来20000个并发压死8001，20000个请求都去访问paymentInfo_TimeOut服务。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Hystrix/" class="post-category">
-                                    Hystrix
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">1024程序员节</span>
+                        </a>
+                        
                     </div>
-
                     
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/21/hystrix-an-li-gou-jian-ji-chu-module/">
+                    <a href="/2020/10/24/springcloud-config-ke-hu-duan-pei-zhi-yu-ce-shi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="hystrix案例构建基础module">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Springcloud-Config客户端配置与测试">
                             
-                            <span class="card-title">hystrix案例构建基础module</span>
+                            <span class="card-title">Springcloud-Config客户端配置与测试</span>
                         </div>
                     </a>
 
@@ -472,25 +437,197 @@ Jmeter压测测试①开启Jmeter，来20000个并发压死8001，20000个请求
                             
                                 
 
-hystrix案例构建基础module1、新建cloud-provider-hystrix-payment8001
-2、改POM
+Config客户端配置与测试
+环境搭建
+问题随时而来，分布式配置的动态刷新
+
+环境搭建1、新建cloud-config-client-3355
+2、pom
   &lt;dependencies>
-        &lt;!--新增hystrix-->
-     
+
+        &lt;depende
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-24
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Hystrix/" class="post-category">
-                                    Hystrix
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
                                 </a>
                                 
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">1024程序员节</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/24/springcloudconfig-fu-wu-duan-pei-zhi-yu-ce-shi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="SpringCloudConfig服务端配置与测试">
+                            
+                            <span class="card-title">SpringCloudConfig服务端配置与测试</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+SpringCloudConfig服务端配置与测试
+基本环境搭建
+配置读取规则
+
+基本环境搭建1、用你自己的Github账号在github上建立一个名为springcloud-config的仓库。
+2、往仓库上上传三个yml文件(文件名
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">1024程序员节</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/24/springcloud-config-fen-bu-shi-pei-zhi-zhong-xin-gai-shu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="SpringCloud config分布式配置中心概述">
+                            
+                            <span class="card-title">SpringCloud config分布式配置中心概述</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+SpringCloud config分布式配置中心概述
+目前分布式系统面临的配置问题
+是什么
+能干嘛
+
+官网
+由于SpringCloud Config默认使用Git来存储配置文件（也有其它方式，比如支持svn和本地文件，但最推荐的还是G
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">1024程序员节</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/22/filter-de-shi-yong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Filter的使用">
+                            
+                            <span class="card-title">Filter的使用</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Filter的使用
+是什么
+Spring Cloud Gateway的Filter
+
+常用的GatewayFilter
+
+
+自定义过滤器
+
+测试
+
+
+
+是什么
+路由过滤器可用于修改进入的HTTP请求和返回的HTTP响应,路由过滤器只能指
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                fFee-ops
                                 
                             </span>
                         </div>
@@ -502,13 +639,13 @@ hystrix案例构建基础module1、新建cloud-provider-hystrix-payment8001
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/21/hystrix-duan-lu-qi-gai-shu/">
+                    <a href="/2020/10/22/predicate-de-shi-yong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Hystrix断路器概述">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Predicate的使用">
                             
-                            <span class="card-title">Hystrix断路器概述</span>
+                            <span class="card-title">Predicate的使用</span>
                         </div>
                     </a>
 
@@ -517,33 +654,26 @@ hystrix案例构建基础module1、新建cloud-provider-hystrix-payment8001
                             
                                 
 
-Hystrix断路器概述
-分布式系统面临的问题
-Hystrix是什么
-Hystrix能干嘛
-Hystrix重要概念
+Predicate的使用
 
-服务降级
-服务熔断
-服务限流
+常用的Route Predicate
 
 
 
-Hystrix官宣，停更进维 即：1、被动修复bugs2、不再接受合并请求3、不再
+每次启动9527的时候都能看到
+
+什么是Route Predicate Factories呢？
+常用的Route Predicate这里只挑几个来介绍由于太多 所以
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
                             </span>
                             <span class="publish-author">
                                 
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Hystrix/" class="post-category">
-                                    Hystrix
-                                </a>
-                                
+                                <i class="fas fa-user fa-fw"></i>
+                                fFee-ops
                                 
                             </span>
                         </div>
@@ -555,13 +685,13 @@ Hystrix官宣，停更进维 即：1、被动修复bugs2、不再接受合并请
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/10/20/392.pan-duan-zi-xu-lie-shuang-zhi-zhen/">
+                    <a href="/2020/10/22/tong-guo-wei-fu-wu-ming-shi-xian-dong-tai-lu-you/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="392. 判断子序列（双指针）">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="通过微服务名实现动态路由">
                             
-                            <span class="card-title">392. 判断子序列（双指针）</span>
+                            <span class="card-title">通过微服务名实现动态路由</span>
                         </div>
                     </a>
 
@@ -570,18 +700,265 @@ Hystrix官宣，停更进维 即：1、被动修复bugs2、不再接受合并请
                             
                                 
 
-392. 判断子序列
+通过微服务名实现动态路由默认情况下Gateway会根据注册中心的服务列表，以注册中心上微服务名为路径创建动态路由进行转发，从而实现动态路由的功能。
+1、修改9527的yml
+
+①需要注意的是uri的协议为lb，表示启用Gateway的负
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                fFee-ops
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/22/ru-men-pei-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="入门配置">
+                            
+                            <span class="card-title">入门配置</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+入门配置
+
+测试
+Gateway网关路由有两种配置方式
+
+
+
+1、cloud-gateway-gateway95272、POM
+  &lt;dependencies>
+        &lt;!--新增gateway-->
+      
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                fFee-ops
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/22/springcloud-gateway-gateway-gong-zuo-yuan-li/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="springCloud→Gateway：Gateway工作原理">
+                            
+                            <span class="card-title">springCloud→Gateway：Gateway工作原理</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Gateway工作原理工作流程图如下：Gateway的执行流程如下：
+
+ Gateway的客户端会向Spring Cloud Gateway发起请求，请求首先会被 HttpWebHandlerAdapter进行提取组装成网关的上下文，然
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/zk-zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F/">
+                            <span class="chip bg-color">zk zookeeper 分布式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/22/san-da-he-xin-gai-nian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="三大核心概念">
+                            
+                            <span class="card-title">三大核心概念</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+三大核心概念
+Route(路由)
+Predicate（断言）
+Filter(过滤)
+总体
+
+Route(路由)路由是构建网关的基本模块，它由ID，目标URI，一系列的断言和过滤器组成，如果断言为true则匹配该路由
+Predicate（
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-user fa-fw"></i>
+                                fFee-ops
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/22/springcloud-gateway-gateway-xin-yi-dai-wang-guan-gai-shu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="springCloud→Gateway：Gateway新一代网关概述">
+                            
+                            <span class="card-title">springCloud→Gateway：Gateway新一代网关概述</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Gateway新一代网关概述
+官网
+gateway是什么
+
+概述
+源码架构
+
+
+gateway能干嘛
+微服务架构中网关的位置
+有了Zuul了怎么又出来了gateway
+
+为什么选择Gatway
+Zuul1.x模型
+GateWay模型
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/SpringCloud/" class="post-category">
+                                    SpringCloud
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/zk-zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F/">
+                            <span class="chip bg-color">zk zookeeper 分布式</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/10/21/665.fei-di-jian-shu-lie-tan-xin-suan-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="665. 非递减数列（贪心算法）">
+                            
+                            <span class="card-title">665. 非递减数列（贪心算法）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+665. 非递减数列
 题目
 解题思路
 代码
 
-题目给定字符串 s 和 t ，判断 s 是否为 t 的子序列。
-你可以认为 s 和 t 中仅包含英文小写字母。字符串 t 可能会很长（长度 ~= 500,000），而 s 是个短字符串（长度
+题目给你一个长度为 n 的整数数组，请你判断在 最多 改变 1 个元素的情况下，该数组能否变成一个非递减数列。
+我们是这样定义一个非递减数列的： 对于数组中所有的 i (0 &lt;= i 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-21
                             </span>
                             <span class="publish-author">
                                 
@@ -596,365 +973,6 @@ Hystrix官宣，停更进维 即：1、被动修复bugs2、不再接受合并请
                         </div>
                     </div>
 
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/20/springcloud-openfeign-ri-zhi-pei-zhi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="springCloud→OpenFeign：日志配置">
-                            
-                            <span class="card-title">springCloud→OpenFeign：日志配置</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-OpenFeign日志配置
-
-普通日志等级配置
-Feign日志等级配置
-
-
-
-通过loggin.level.xx=debug来设置日志级别。然而这个对Feign客户端不会产生效果。因为@FeignClient注解修饰的客户端在被代理时，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/SpringCloud/" class="post-category">
-                                    SpringCloud
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zk-zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F/">
-                            <span class="chip bg-color">zk zookeeper 分布式</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/20/openfeign-chao-shi-kong-zhi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="OpenFeign超时控制">
-                            
-                            <span class="card-title">OpenFeign超时控制</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-OpenFeign超时控制
-超时设置，故意设置超时演示出错情况
-什么是超时控制
-YML文件里开启OpenFeign客户端超时控制
-
-为了方便只演示7001/8001，不使用集群，但是是同理的
-超时设置，故意设置超时演示出错情况1、服务提
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                fFee-ops
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/20/springcloud-openfeign-shi-yong-bu-zou/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="springCloud→OpenFeign：使用步骤">
-                            
-                            <span class="card-title">springCloud→OpenFeign：使用步骤</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-OpenFeign使用步骤
-
-1)导入依赖
-2)创建Feign客户端接口
-3)Controller调用
-4)启用OpenFeign
-5)测试
-
-
-
-使用OpenFeign实现服务之间调用，可以按照如下步骤实现：
-
-1:导入feign依赖
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/SpringCloud/" class="post-category">
-                                    SpringCloud
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F-java/">
-                            <span class="chip bg-color">zookeeper 分布式 java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/20/springcloud-openfeign-gai-shu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="springCloud→OpenFeign：概述">
-                            
-                            <span class="card-title">springCloud→OpenFeign：概述</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-OpenFeign概述
-是什么
-能干嘛
-Feign和OpenFeign两者区别
-
-是什么Feign [feɪn] 译文 伪装。Feign是一个轻量级的Http封装工具对象,大大简化了Http请求,它的使用方法是定义一个接口，然后在上面添
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/SpringCloud/" class="post-category">
-                                    SpringCloud
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F-java/">
-                            <span class="chip bg-color">zookeeper 分布式 java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/19/ribbon-fu-zai-jun-heng-suan-fa/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Ribbon负载均衡算法">
-                            
-                            <span class="card-title">Ribbon负载均衡算法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Ribbon负载均衡算法
-原理
-手写一个本地负载均衡器
-
-原理
-手写一个本地负载均衡器1、给8001、8002的Controller加一个方法
-@GetMapping(value = "/payment/lb")
-public Stri
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                fFee-ops
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/19/ribbon-he-xin-zu-jian-irule/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Ribbon核心组件IRule">
-                            
-                            <span class="card-title">Ribbon核心组件IRule</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Ribbon核心组件IRule
-IRule:根据特定算法从服务列表中选取一个要访问的服务
-如何替换 默认的轮询算法
-
-IRule:根据特定算法从服务列表中选取一个要访问的服务总共有这么多类型。
-如何替换 默认的轮询算法1、修改cloud
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-user fa-fw"></i>
-                                fFee-ops
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/10/19/springcloud-ribbon-shi-yong-bu-zou-ji-fu-zai-jun-heng-suan-fa/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="springCloud→Ribbon：使用步骤及负载均衡算法">
-                            
-                            <span class="card-title">springCloud→Ribbon：使用步骤及负载均衡算法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Ribbon使用步骤及负载均衡算法
-使用步骤
-
-1)业务分析
-2)调用测试
-
-
-算法
-
-什么是Ribbon？
-Ribbon是Netflix发布的负载均衡器，有助于控制HTTP客户端行为。为Ribbon配置服务提供者地址列表后，Ribbo
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/SpringCloud/" class="post-category">
-                                    SpringCloud
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zk-zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F/">
-                            <span class="chip bg-color">zk zookeeper 分布式</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -976,7 +994,7 @@ Ribbon是Netflix发布的负载均衡器，有助于控制HTTP客户端行为。
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">48 / 69</div>
+            <div class="center-align b-text-gray">48 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1007,7 +1025,7 @@ Ribbon是Netflix发布的负载均衡器，有助于控制HTTP客户端行为。
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

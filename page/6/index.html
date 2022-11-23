@@ -365,34 +365,35 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/21/jvm-gc/">
+                    <a href="/2022/02/01/rocketmq-shun-xu-xiao-xi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JVM、GC">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="RocketMQ顺序消息">
                             
-                            <span class="card-title">JVM、GC</span>
+                            <span class="card-title">RocketMQ顺序消息</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                @toc
-CMS错标对象的修正算法(三色标记算法)fields：属性
-但是这个方法有个问题，在我扫描完A将其标记成黑色后，再去扫描B，发现B-D连接消失了，但是此时A-D又建立了连接，但是因为A已经被标记成黑色了，就不会回头再扫描和A相连的
+                                顺序类型无序消息无序消息也指普通的消息，Producer 只管发送消息，Consumer 只管接收消息，至于消息和消息之间的顺序并没有保证。
+
+ Producer 依次发送 orderId 为 1、2、3 的消息
+Consumer 接到的消
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
+                                <a href="/categories/RocketMQ/" class="post-category">
+                                    RocketMQ
                                 </a>
                                 
                                 
@@ -406,34 +407,34 @@ CMS错标对象的修正算法(三色标记算法)fields：属性
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/21/nginx-es-docker-shiro-rabbitmq/">
+                    <a href="/2022/01/31/springboot-zheng-he-rocketmq/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Nginx、ES、Docker、Shiro、RabbitMQ">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="SpringBoot整合RocketMQ">
                             
-                            <span class="card-title">Nginx、ES、Docker、Shiro、RabbitMQ</span>
+                            <span class="card-title">SpringBoot整合RocketMQ</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                @toc
-Nginx👇👇👇1、什么是Nginx?Nginx 是一个 轻量级/高性能的反向代理Web服务器，他实现非常高效的反向代理、负载均衡
-2、为什么Nginx性能这么高？因为他的事件处理机制：异步非阻塞事件处理机制：运用了epol
+                                0. 启动Name Server与 Broker1. 引入依赖添加 RocketMQ 客户端访问支持，具体版本和安装的 RocketMQ 版本一致即可。
+&lt;dependency>
+    &lt;groupId>org.apache.
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-31
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
+                                <a href="/categories/RocketMQ/" class="post-category">
+                                    RocketMQ
                                 </a>
                                 
                                 
@@ -447,281 +448,25 @@ Nginx👇👇👇1、什么是Nginx?Nginx 是一个 轻量级/高性能的反向
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/21/duo-xian-cheng-gao-bing-fa-xiang-guan/">
+                    <a href="/2022/01/31/qi-dong-rocketmq-sheng-chan-zhe-bao-cuo-rocketmq-remoting-exception-remotingtoomuchrequestexception-senddefaultimpl-call-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="多线程高并发相关">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="启动RocketMQ生产者报错:rocketmq.remoting.exception.RemotingTooMuchRequestException:sendDefaultImpl call timeout">
                             
-                            <span class="card-title">多线程高并发相关</span>
+                            <span class="card-title">启动RocketMQ生产者报错:rocketmq.remoting.exception.RemotingTooMuchRequestException:sendDefaultImpl call timeout</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                @toc
-ThreadLocal中只能线程独享
-看看set方法的源码
-ThreadLocal为啥要用弱引用看看mao的set方法中的源码
-
-
-可以看到ThreadLocal有一个强引用tl指向它，还有一个弱引用key指向它，假如key是强引
+                                问题复现学习完rocketmq之后想测试一下生产与消费。刚启动生产者就报错：rocketmq.remoting.exception.RemotingTooMuchRequestException: sendDefaultImpl call 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/java-ji-chu-ji-he-pian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java基础、集合篇">
-                            
-                            <span class="card-title">Java基础、集合篇</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @toc
-Java基础1、关于自动装箱、拆箱简单一点说，装箱就是  自动将基本数据类型转换为包装器类型；拆箱就是  自动将包装器类型转换为基本数据类型。
-装箱和拆箱是如何实现的：
-用一句话来总结：　装箱过程是通过调用包装器的valueOf方
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/qing-niao-wei-shang-cheng-xi-tong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="青鸟微商城系统">
-                            
-                            <span class="card-title">青鸟微商城系统</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @toc
-电商系统分类
-一般电商项目的架构图
-介绍 面试官你好，我最近参与的项目是青鸟微商城系统，这个项目是我们学校创新学院孵化的项目之一，我从去年开始到现在一直参与这个微商城系统的开发我们研发的这个微商城系统是B/C模式的电商系统，将来会
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/mian-jing-hui-zong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面经汇总">
-                            
-                            <span class="card-title">面经汇总</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @toc
-Java八股👇👇👇1、Object类下面有哪些方法object构造方法、getClass、hashCode、equals、clone、toString、notify、notifyAll、wait
-2、HashMap的put过
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/zookeeper-yu-dubbo/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Zookeeper与Dubbo">
-                            
-                            <span class="card-title">Zookeeper与Dubbo</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @toc
-常见关系对比：
-
-Dubbo是个微服务整体架构的框架，提供的功能包括服务注册发现，远程调用，监控等等。对标的项目大概是spring cloud。Dubbo的服务发现模块基于zookeeper实现。Zookeeper。是用来保证分布
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/qing-liang-ji-rpc-kuang-jia/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="轻量级RPC框架">
-                            
-                            <span class="card-title">轻量级RPC框架</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                @toc
-
-1、负载均衡怎么做的？我们可以从Nacos中获得所有提供这个服务的列表，要从中选择一个，那就涉及到客户端侧的负载均衡，所以只要创建一个负载均衡的接口，再去实现它就行了，目前就实现了随机、轮询两种，在创建客户端的时候可以指定，如果
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
-                                    私密文章
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/21/hexo-bu-shu-dao-github-bu-neng-yong-zhang-hao-mi-ma/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="hexo部署到github不能用账号密码">
-                            
-                            <span class="card-title">hexo部署到github不能用账号密码</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                github新规规定再从hexo提交代码只能用token。
-解决：
-
-去Seqttings-&gt;Developer settings-&gt;Personal access tokens-&gt;Personal access toke
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-31
                             </span>
                             <span class="publish-author">
                                 
@@ -742,27 +487,26 @@ Dubbo是个微服务整体架构的框架，提供的功能包括服务注册发
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/21/hexo-yue-du-wen-zhang-chu-xian-404-ye-mian/">
+                    <a href="/2022/01/27/qi-dong-kafka-shi-bao-cuo-java-nio-file-filesystemexception-ling-yi-ge-cheng-xu-zheng-zai-shi-yong-ci-wen-jian-jin-cheng-wu-fa-fang-wen/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Hexo阅读文章出现404页面">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="启动kafka时报错:java.nio.file.FileSystemException，另一个程序正在使用此文件，进程无法访问。">
                             
-                            <span class="card-title">Hexo阅读文章出现404页面</span>
+                            <span class="card-title">启动kafka时报错:java.nio.file.FileSystemException，另一个程序正在使用此文件，进程无法访问。</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                @toc
-问题描述：推送文章出现 404，而在本地通过hexo s能够正常打开。但是hexo d之后再去访问就是404
-解决：将md文件名重新换一个名字，md文档里面的title也要更换。再进行hexo cl、hexo g 、hexo d。
+                                解决删除红框中文件夹下的所有内容再重新启动kafka。但是不要删除掉红框这个文件夹。
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-27
                             </span>
                             <span class="publish-author">
                                 
@@ -783,51 +527,33 @@ Dubbo是个微服务整体架构的框架，提供的功能包括服务注册发
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/19/istio-jin-jie/">
+                    <a href="/2022/01/26/an-zhuang-rockermq-bao-cuo-error-please-set-the-java-home-variable-in-your-environment-we/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Istio进阶">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="安装rockermq报错error:please set the java_home variable in your environment, we">
                             
-                            <span class="card-title">Istio进阶</span>
+                            <span class="card-title">安装rockermq报错error:please set the java_home variable in your environment, we</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-Istio进阶
-1. Sidecar流量接管原理
-
-1.1 Init 容器解析
-1.2 iptables 注⼊解析
-
-
-2. 超时与重试
-
-2.1 超时
-2.2 重试
-
-
-3. 熔断器
-
-3.1 部署httpbin
-3.2 配置熔断器
-
+                                问题描述今天安装RocketMQ，到启动Nameserver就报错：ERROR: Please set the JAVA_HOME variable in your environment, We need java(x64)! !!
+网上
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-26
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/ServiceMesh/" class="post-category">
-                                    ServiceMesh
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -835,62 +561,38 @@ Istio进阶
                         </div>
                     </div>
 
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/linux-kubernetes-docker/">
-                            <span class="chip bg-color">linux kubernetes docker</span>
-                        </a>
-                        
-                    </div>
                     
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/19/bookinfo-shi-li-fen-xi/">
+                    <a href="/2022/01/26/rocketmq-an-zhuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="BookInfo示例分析">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="RocketMQ安装">
                             
-                            <span class="card-title">BookInfo示例分析</span>
+                            <span class="card-title">RocketMQ安装</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-BookInfo示例分析
-1. 为什么要配置⽹关、虚拟服务？
-
-1.1 概念
-1.2 IngressGateway
-
-
-2. 服务之间是如何通信的？
-
-2.1 K8S四层⽹络架构
-2.2 服务间的通信
-
-
-
-前⾯已经将BookInfo进
+                                Linux安装环境说明对于 RocketMQ 4.3.0版本，官方要求环境如下，其中 Git 用于从 GitHub 获取源码，没有安装也没关系，可以直接下载。官方推荐的流程是：Linux 系统上安装 Git 工具 、Maven、Java J
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-26
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/ServiceMesh/" class="post-category">
-                                    ServiceMesh
+                                <a href="/categories/RocketMQ/" class="post-category">
+                                    RocketMQ
                                 </a>
                                 
                                 
@@ -899,13 +601,257 @@ BookInfo示例分析
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java-http-%E7%BD%91%E7%BB%9C/">
-                            <span class="chip bg-color">java http 网络</span>
-                        </a>
-                        
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/26/rocketmq-jie-shao-ji-ji-ben-gai-nian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="RocketMQ 介绍及基本概念">
+                            
+                            <span class="card-title">RocketMQ 介绍及基本概念</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1 介绍RocketMQ作为一款纯java、分布式、队列模型的开源消息中间件，支持事务消息、顺序消息、批量消息、定时消息、消息回溯等。
+1.1 RocketMQ 特点
+支持发布/订阅（Pub/Sub）和点对点（P2P）消息模型
+
+在一个队列
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-26
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/RocketMQ/" class="post-category">
+                                    RocketMQ
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/24/org-quartz-jobpersistenceexception-couldn-t-retrieve-job-because-a-required-class-was-not-found/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="org.quartz.JobPersistenceException:Couldn‘t retrieve job because a required class was not found">
+                            
+                            <span class="card-title">org.quartz.JobPersistenceException:Couldn‘t retrieve job because a required class was not found</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题描述springboot 使用定时任务quartz，我修改了包名路径。调整了位置导致报错。结果quartz就不认识了，启动就报错。我排查后工程不可能有问题，因为相关的名字都改了，那就只可能是数据库的问题了。
+原因因为quartz在job
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/23/hexo-matery-zhu-ti-dai-ma-kuai-fu-zhi-nei-rong-bu-huan-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Hexo Matery主题代码块复制内容不换行">
+                            
+                            <span class="card-title">Hexo Matery主题代码块复制内容不换行</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题在hexo中使用matery主题时，复制代码然后粘贴就会丢失格式。粘贴后就会丢失格式
+解决修改Matery源代码找到添加copyright的复制版权信息的文件位置themes\matery\layout\_partial\post-de
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/23/rabbitmq-xiao-xi-ke-kao-xing-bao-zhang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="RabbitMQ消息可靠性保障">
+                            
+                            <span class="card-title">RabbitMQ消息可靠性保障</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                从上面的图可以看到，消息的投递有三个对象参与：生产者、broker、消费者
+生产者保证生产者发送消息到broker时，要保证消息的可靠性，主要的方案有以下2种
+
+发送发确认
+失败通知
+
+在不做任何配置的情况下，生产者是不知道消息是否真正到达
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/RabbitMQ/" class="post-category">
+                                    RabbitMQ
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/23/rabbitmq-si-xin-dui-lie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="RabbitMQ死信队列">
+                            
+                            <span class="card-title">RabbitMQ死信队列</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、什么是死信队列先从概念解释上搞清楚这个定义，死信，顾名思义就是无法被消费的消息，字面意思可以这样理解，一般来说，producer将消息投递到broker或者直接到queue里了，consumer从queue取出消息进行消费，但某些时候由
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/RabbitMQ/" class="post-category">
+                                    RabbitMQ
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/23/rabbitmq-yan-shi-dui-lie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="RabbitMQ延时队列">
+                            
+                            <span class="card-title">RabbitMQ延时队列</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                延时队列1.1  什么是延时队列在开发中，往往会遇到一些关于延时任务的需求。例如
+
+生成订单30分钟未支付，则自动取消
+生成订单60秒后,给用户发短信
+滴滴打车订单完成后，如果用户一直不评价，48小时后会将自动评价为5星。
+
+和定时任务区别
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/RabbitMQ/" class="post-category">
+                                    RabbitMQ
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
                     
                 </div>
             </div>
@@ -927,7 +873,7 @@ BookInfo示例分析
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">6 / 69</div>
+            <div class="center-align b-text-gray">6 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -958,7 +904,7 @@ BookInfo示例分析
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

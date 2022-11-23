@@ -365,584 +365,29 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/18/istio-kuai-su-men/">
+                    <a href="/2022/01/23/springboot-xiang-mu-qi-dong-cheng-gong-dan-mei-you-duan-kou-wu-fa-fang-wen/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Istio快速⼊门">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="springboot项目启动成功但没有端口无法访问">
                             
-                            <span class="card-title">Istio快速⼊门</span>
+                            <span class="card-title">springboot项目启动成功但没有端口无法访问</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-Istio快速⼊门
-1. 搭建kubernetes集群
-
-1.1 环境准备
-1.2 前置⼯作
-1.3 搭建集群
-
-
-2. 搭建Istio环境
-
-2.1 下载 Istio
-2.2 安装Istio
-
-
-3. Bookinfo示例
-
-3.1 
+                                记录一下很笨比的错误。
+原因：忘记引入web依赖了。。。
+解决：在pom.xml中添加如下依赖
+        &lt;dependency>
+            &lt;groupId>org.springframework.boot
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ServiceMesh/" class="post-category">
-                                    ServiceMesh
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/docker-kubernetes-%E5%AE%B9%E5%99%A8/">
-                            <span class="chip bg-color">docker kubernetes 容器</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/18/kube-flannel.yml/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="kube-flannel.yml">
-                            
-                            <span class="card-title">kube-flannel.yml</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
----
-apiVersion: policy/v1beta1
-kind: PodSecurityPolicy
-metadata:
-  name: psp.flannel.unprivileged
-  annotations:
-    s
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%A2%AB%E5%BC%95%E7%94%A8/" class="post-category">
-                                    被引用
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/kubernetes-docker-%E5%AE%B9%E5%99%A8/">
-                            <span class="chip bg-color">kubernetes docker 容器</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/18/istio-jian-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Istio简介">
-                            
-                            <span class="card-title">Istio简介</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Istio简介
-istio架构
-为什么使⽤ Istio？
-核心特性
-
-流量管理
-安全
-可观察性
-
-
-平台⽀持
-
-istio架构实际上Istio 就是 Service Mesh 架构的⼀种实现，服务之间的通信（⽐如这⾥的 Service 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ServiceMesh/" class="post-category">
-                                    ServiceMesh
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/kubernetes-java-%E5%AE%B9%E5%99%A8/">
-                            <span class="chip bg-color">kubernetes java 容器</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/16/service-mesh-jian-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Service Mesh简介">
-                            
-                            <span class="card-title">Service Mesh简介</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Service Mesh简介
-目前微服务架构面临的一些挑战
-技术架构演进
-
-发展历史时间轴
-单机小型机时代
-垂直拆分
-集群化负载均衡架构
-服务化改造架构
-服务治理
-微服务时代
-服务⽹格新时期 （Service Mesh）
-
-
-什么是Se
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ServiceMesh/" class="post-category">
-                                    ServiceMesh
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/mesh-%E4%BA%91%E5%8E%9F%E7%94%9F-cloud-native/">
-                            <span class="chip bg-color">mesh 云原生 cloud native</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/14/apollo-yuan-ma-pou-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Apollo源码剖析">
-                            
-                            <span class="card-title">Apollo源码剖析</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Apollo源码剖析
-1. Portal创建APP
-
-1.1 创建APP
-
-1.1.1 实体Bean
-1.1.2 业务执行流程
-
-
-1.2 数据同步
-
-1.2.1 观察者模式
-1.2.2 事件监听
-1.2.3 同步业务执行流程
-
-
-
-
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Apollo/" class="post-category">
-                                    Apollo
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java-%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80-%E5%90%8E%E7%AB%AF/">
-                            <span class="chip bg-color">java 开发语言 后端</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/13/apollo-yuan-ma-pou-xi-huan-jing-da-jian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Apollo源码剖析环境搭建">
-                            
-                            <span class="card-title">Apollo源码剖析环境搭建</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Apollo源码剖析环境搭建
-1 源码下载
-2 导入数据库
-3 apollo-assembly启动服务
-4 服务测试
-
-1 源码下载我们使用git从https://github.com/ctripcorp/apollo下载源码，下载后的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Apollo/" class="post-category">
-                                    Apollo
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/11/springboot-ji-cheng-apollo/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="SpringBoot集成Apollo">
-                            
-                            <span class="card-title">SpringBoot集成Apollo</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-SpringBoot集成Apollo
-1. 集成Apollo
-2. 测试是否集成成功
-
-项目结构图：
-1. 集成Apollo集成Apollo有2个步骤，首先是要引入Apollo的客户端，接着需要在springboot核心配置文件中引入需
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Apollo/" class="post-category">
-                                    Apollo
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/spring-boot-java-%E5%90%8E%E7%AB%AF/">
-                            <span class="chip bg-color">spring boot java 后端</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/11/apollo-de-shi-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Apollo的使用">
-                            
-                            <span class="card-title">Apollo的使用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Apollo的使用
-项目配置托管
-
-1. 配置创建
-
-默认配置
-公共配置创建
-配置关联
-私有配置
-
-
-
-
-Apollo实用功能
-
-1. 自动刷新
-2. Apollo监听器
-3. 配置加密
-4. 配置加载顺序
-5. 灰度发布
-
-
-
-项目配
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Apollo/" class="post-category">
-                                    Apollo
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/10/apollo-jian-jie-ji-an-zhuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Apollo简介及安装">
-                            
-                            <span class="card-title">Apollo简介及安装</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Apollo简介及安装
-简介
-
-核心功能
-谁在用它
-
-
-Apollo单机部署
-
-快速安装
-Docker容器安装
-
-
-
-
-简介Apollo（阿波罗）是携程框架部门研发的分布式配置中心，能够集中化管理应用不同环境、不同集群的配置，配置修改后
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Apollo/" class="post-category">
-                                    Apollo
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/java-spring-spring-boot/">
-                            <span class="chip bg-color">java spring spring boot</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/01/10/com.mysql.cj.jdbc.exceptions.communicationsexception-communications-link-failure/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="com.mysql.cj.jdbc.exceptions.CommunicationsException:Communications link failure">
-                            
-                            <span class="card-title">com.mysql.cj.jdbc.exceptions.CommunicationsException:Communications link failure</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-解决：在连接末尾加上&amp;useSSL=false
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-23
                             </span>
                             <span class="publish-author">
                                 
@@ -958,58 +403,38 @@ Docker容器安装
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-sql/">
-                            <span class="chip bg-color">数据库 sql</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/07/springcloudalibaba-seata-ji-cheng-springboot/">
+                    <a href="/2022/01/21/hexo-bu-shu-zai-github-bing-qie-tong-guo-zi-ji-de-yu-ming-fang-wen/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringCloudAlibaba→Seata：集成SpringBoot">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hexo部署在github并且通过自己的域名访问">
                             
-                            <span class="card-title">SpringCloudAlibaba→Seata：集成SpringBoot</span>
+                            <span class="card-title">hexo部署在github并且通过自己的域名访问</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-Seata集成SpringBoot
-详细步骤
-
-1）依赖引入
-2）配置Seata
-3）代理数据源
-4）全局事务控制
-5）分布式事务测试
-
-
-
-详细步骤集成SpringBoot可以按照如下步骤实现(默认seataServer已经安装好了并
+                                步骤默认已经可以通过xxxx.github.io访问到页面了
+1、来到域名解析页面，点击解析设置2、添加两条如下记录。@对应的ip获得方法：cmd中去ping：xxx.github.io3、去你hexo博客的source目录下新建一个CNA
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/SpringCloudAlibaba/" class="post-category">
-                                    SpringCloudAlibaba
+                                <a href="/categories/%E6%9D%82/" class="post-category">
+                                    杂
                                 </a>
                                 
                                 
@@ -1018,48 +443,39 @@ Seata集成SpringBoot
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/spring-boot-java-spring-cloud/">
-                            <span class="chip bg-color">spring boot java spring cloud</span>
-                        </a>
-                        
-                    </div>
-                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/01/07/seata-server-qi-dong-shi-nei-wang-ip-dao-zhi-springboot-xiang-mu-wu-fa-zhao-dao-seata-fu-wu/">
+                    <a href="/2022/01/21/csdn-bo-ke-qian-yi-dao-hexo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="seata-server启动是内网ip导致springboot项目无法找到seata服务">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="CSDN博客迁移到HEXO">
                             
-                            <span class="card-title">seata-server启动是内网ip导致springboot项目无法找到seata服务</span>
+                            <span class="card-title">CSDN博客迁移到HEXO</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-问题描述：seata部署在linux，然后用springboot项目去访问显示无法找到seata服务。
-问题发现：seata如果直接用启动脚本去启动那么默认是用的内网ip，就算你注册到nacos你也可以看看，ip地址并不是你虚拟机的公网
+                                @toc
+一直想把CSDN博客全部迁移到HEXO，但是HEXO是有特定格式的，网上找了很多工具都不太好用。终于发现了一个！https://github.com/flytam/CsdnSyncHexo
+我来记录一下使用步骤（其实在该项目的RE
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
+                                <a href="/categories/%E6%9D%82/" class="post-category">
+                                    杂
                                 </a>
                                 
                                 
@@ -1068,13 +484,382 @@ Seata集成SpringBoot
                     </div>
 
                     
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/tcp-ip-spring-boot-java/">
-                            <span class="chip bg-color">tcp/ip spring boot java</span>
-                        </a>
-                        
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/xiang-mu-xiang-guan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="项目相关">
+                            
+                            <span class="card-title">项目相关</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+1、Elasticsearch 与 solr 的区别背景：他们都是基于 Lucene 搜索服务器基础上开发，一款优秀的，高性能的企业级搜索服务器，【是因为他们都是基于分词技术构建的倒排索引的方式进行查询】
+开发语言：Java
+诞生
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
                     </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/jvm-gc/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JVM、GC">
+                            
+                            <span class="card-title">JVM、GC</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+CMS错标对象的修正算法(三色标记算法)fields：属性
+但是这个方法有个问题，在我扫描完A将其标记成黑色后，再去扫描B，发现B-D连接消失了，但是此时A-D又建立了连接，但是因为A已经被标记成黑色了，就不会回头再扫描和A相连的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/nginx-es-docker-shiro-rabbitmq/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Nginx、ES、Docker、Shiro、RabbitMQ">
+                            
+                            <span class="card-title">Nginx、ES、Docker、Shiro、RabbitMQ</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+Nginx👇👇👇1、什么是Nginx?Nginx 是一个 轻量级/高性能的反向代理Web服务器，他实现非常高效的反向代理、负载均衡
+2、为什么Nginx性能这么高？因为他的事件处理机制：异步非阻塞事件处理机制：运用了epol
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/duo-xian-cheng-gao-bing-fa-xiang-guan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="多线程高并发相关">
+                            
+                            <span class="card-title">多线程高并发相关</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+ThreadLocal中只能线程独享
+看看set方法的源码
+ThreadLocal为啥要用弱引用看看mao的set方法中的源码
+
+
+可以看到ThreadLocal有一个强引用tl指向它，还有一个弱引用key指向它，假如key是强引
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/java-ji-chu-ji-he-pian/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java基础、集合篇">
+                            
+                            <span class="card-title">Java基础、集合篇</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+Java基础1、关于自动装箱、拆箱简单一点说，装箱就是  自动将基本数据类型转换为包装器类型；拆箱就是  自动将包装器类型转换为基本数据类型。
+装箱和拆箱是如何实现的：
+用一句话来总结：　装箱过程是通过调用包装器的valueOf方
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/qing-niao-wei-shang-cheng-xi-tong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="青鸟微商城系统">
+                            
+                            <span class="card-title">青鸟微商城系统</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+电商系统分类
+一般电商项目的架构图
+介绍 面试官你好，我最近参与的项目是青鸟微商城系统，这个项目是我们学校创新学院孵化的项目之一，我从去年开始到现在一直参与这个微商城系统的开发我们研发的这个微商城系统是B/C模式的电商系统，将来会
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/mian-jing-hui-zong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="面经汇总">
+                            
+                            <span class="card-title">面经汇总</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+Java八股👇👇👇1、Object类下面有哪些方法object构造方法、getClass、hashCode、equals、clone、toString、notify、notifyAll、wait
+2、HashMap的put过
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/zookeeper-yu-dubbo/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Zookeeper与Dubbo">
+                            
+                            <span class="card-title">Zookeeper与Dubbo</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+常见关系对比：
+
+Dubbo是个微服务整体架构的框架，提供的功能包括服务注册发现，远程调用，监控等等。对标的项目大概是spring cloud。Dubbo的服务发现模块基于zookeeper实现。Zookeeper。是用来保证分布
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/01/21/qing-liang-ji-rpc-kuang-jia/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="轻量级RPC框架">
+                            
+                            <span class="card-title">轻量级RPC框架</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                @toc
+
+1、负载均衡怎么做的？我们可以从Nacos中获得所有提供这个服务的列表，要从中选择一个，那就涉及到客户端侧的负载均衡，所以只要创建一个负载均衡的接口，再去实现它就行了，目前就实现了随机、轮询两种，在创建客户端的时候可以指定，如果
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E7%A7%81%E5%AF%86%E6%96%87%E7%AB%A0/" class="post-category">
+                                    私密文章
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
                     
                 </div>
             </div>
@@ -1096,7 +881,7 @@ Seata集成SpringBoot
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">7 / 69</div>
+            <div class="center-align b-text-gray">7 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1127,7 +912,7 @@ Seata集成SpringBoot
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

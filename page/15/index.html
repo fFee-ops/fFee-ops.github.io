@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/21/581.zui-duan-wu-xu-lian-xu-zi-shu-zu-gao-pin-ti/">
+                    <a href="/2021/07/07/method-threw-java.lang.nullpointerexception-exception.cannot-evaluate-com.sun.proxy.xxx/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="581. 最短无序连续子数组（高频题）">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Method threw ‘java.lang.NullPointerException‘ exception. Cannot evaluate com.sun.proxy.xxx">
                             
-                            <span class="card-title">581. 最短无序连续子数组（高频题）</span>
+                            <span class="card-title">Method threw ‘java.lang.NullPointerException‘ exception. Cannot evaluate com.sun.proxy.xxx</span>
                         </div>
                     </a>
 
@@ -380,25 +380,19 @@
                             
                                 
 
-581. 最短无序连续子数组
-解题思路
-代码
-
-解题思路数组问题一般就想到双指针。
-
-将数组 nums 进行排序，记为 numsSort，然后比较 nums 和 numsSort 的元素来决定最左边和最右边不匹配的元素。它们之间的子数组
+我在debug的时候发现会出现 Method threw 'java.lang.NullPointerException' exception. Cannot evaluate com.sun.proxy.$Proxy0.toStrin
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-07
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -412,13 +406,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/21/494.mu-biao-he-gao-pin-ti/">
+                    <a href="/2021/07/04/maven-yi-jing-dao-ru-liao-mo-kuai-zuo-biao-dan-shi-yi-ran-wu-fa-shi-yong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="494. 目标和（高频题）">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="maven已经导入了模块坐标，但是依然无法使用">
                             
-                            <span class="card-title">494. 目标和（高频题）</span>
+                            <span class="card-title">maven已经导入了模块坐标，但是依然无法使用</span>
                         </div>
                     </a>
 
@@ -427,24 +421,21 @@
                             
                                 
 
-494. 目标和
-解题思路
-代码
+现象：已经在pom.xml中引入了gav坐标，但是另一个项目的文件依然无法import
+解决：原来的项目没有包，加一个包就好了
 
-解题思路这题其实可以转化成动态规划中的零一背包问题，所以这个背包容量就是 (target + sum(nums)) / 2,要装入背包的东西就是nums[]中的元素。
-这其中dp[i]的含义还是背包问
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-04
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -458,13 +449,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/20/461.han-ming-ju-chi-gao-pin-ti/">
+                    <a href="/2021/07/03/google-protobuf/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="461. 汉明距离（高频题）">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Google Protobuf">
                             
-                            <span class="card-title">461. 汉明距离（高频题）</span>
+                            <span class="card-title">Google Protobuf</span>
                         </div>
                     </a>
 
@@ -473,26 +464,25 @@
                             
                                 
 
-461. 汉明距离
-解题思路
-代码
+Google Protobuf
+编码和解码的基本介绍
+为什么要有 Google Protobuf？
+Protobuf
+使用步骤
 
-解题思路每次比较最右边的那个二进制位是否相同，然后不断右移即可
-代码class Solution {
-    public int hammingDistance(int x, int y) {
- 
+编码和解码的基本介绍编写网络应用程序时，因为数据在网络中传输的都是二进制字节码数据，在发送数据时就需要编码
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-03
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -506,13 +496,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/20/448.zhao-dao-suo-you-shu-zu-zhong-xiao-shi-de-shu-zi-gao-pin-ti/">
+                    <a href="/2021/06/30/netty-he-xin-mo-kuai-zu-jian/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="448. 找到所有数组中消失的数字（高频题）">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Netty 核心模块组件">
                             
-                            <span class="card-title">448. 找到所有数组中消失的数字（高频题）</span>
+                            <span class="card-title">Netty 核心模块组件</span>
                         </div>
                     </a>
 
@@ -521,28 +511,143 @@
                             
                                 
 
-448. 找到所有数组中消失的数字
-解题思路
-代码
+Netty 核心模块组件
 
-解题思路将所有正数作为数组下标，置对应数组值为负值。那么，仍为正数的位置即为（未出现过）消失的数字。
-举个例子：
-
-原始数组：[4,3,2,7,8,2,3,1]
-
-重置后为：[-4,
+Bootstrap、ServerBootstrap
+Future、ChannelFuture
+Channel
+Selector
+ChannelHandler 及其实现类
+Pipeline /ChannelPi
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-30
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/java/">
+                            <span class="chip bg-color">java</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/06/27/netty-gao-xing-neng-jia-gou-she-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Netty 高性能架构设计">
+                            
+                            <span class="card-title">Netty 高性能架构设计</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Netty 高性能架构设计
+线程模型基本介绍
+
+传统阻塞 I/O 服务模型
+Reactor 模式（笼统概念版并未具体到三种实现）
+
+单 Reactor 单线程
+单 Reactor 多线程
+主从 Reactor 多线程
+
+
+Netty模型
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/python/">
+                            <span class="chip bg-color">python</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/06/27/netty-gai-shu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Netty概述">
+                            
+                            <span class="card-title">Netty概述</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Netty概述
+为什么会产生Netty?
+Netty的优点
+Netty 版本说明
+
+为什么会产生Netty?因为原生io存在巨多问题：
+
+ NIO 的类库和 API 繁杂，使用麻烦。
+ 需要一些额外的技能，比如要熟悉Java多线程、网络
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -556,13 +661,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/20/399.chu-fa-qiu-zhi-gao-pin-ti/">
+                    <a href="/2021/06/23/ji-yu-mysql-shi-xian-fen-bu-shi-suo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="399. 除法求值（高频题）">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="基于MySQL实现分布式锁">
                             
-                            <span class="card-title">399. 除法求值（高频题）</span>
+                            <span class="card-title">基于MySQL实现分布式锁</span>
                         </div>
                     </a>
 
@@ -571,28 +676,30 @@
                             
                                 
 
-399. 除法求值
-解题思路
-代码
+基于MySQL实现分布式锁
+适用场景
+基于唯一索引实现
 
-解题思路一刷2021/3/20，没弄明白，题解见这里
-代码// 定义邻接节点类
-class Node {
-    // 邻接节点代表的字符串
-    public String id;
-    //
+实现方式
+优点
+缺点
+
+
+在毫秒级的插入中，不能通过唯一性约束保证，如何实现分布式锁？
+
+适用场景基于Mysql实现分布式锁，适用于对性能要求不高（用mysql实现性能肯定不如用
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -606,13 +713,13 @@ class Node {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/20/394.zi-fu-chuan-jie-ma-gao-pin-ti/">
+                    <a href="/2021/06/22/bio-nio-aio/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="394. 字符串解码（高频题）">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="BIO、NIO、AIO">
                             
-                            <span class="card-title">394. 字符串解码（高频题）</span>
+                            <span class="card-title">BIO、NIO、AIO</span>
                         </div>
                     </a>
 
@@ -621,26 +728,38 @@ class Node {
                             
                                 
 
-394. 字符串解码
-解题思路
-代码
+BIO、NIO、AIO
+BIO
 
-解题思路这题主要用到了栈，本题难点在于括号内嵌套括号，需要从内向外生成与拼接字符串，这与栈的先入后出特性对应。
-算法流程1、构建辅助栈 stack， 遍历字符串 s 中每个字符 c；
+基本概念
 
-当 c 为
+
+NIO
+
+基本概念
+为什么说是非阻塞的？
+三大核心组件
+
+Buffer
+
+buffer中核心的四个参数
+
+
+Channel
+关于 Buffer 和 Channel 的注意事项和细节
+Sel
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -654,13 +773,13 @@ class Node {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/19/338.bi-te-wei-ji-shu-gao-pin-ti/">
+                    <a href="/2021/06/17/jvm-ge-qu-cun-fang-de-dong-xi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="338. 比特位计数（高频题）">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JVM各区存放的东西~">
                             
-                            <span class="card-title">338. 比特位计数（高频题）</span>
+                            <span class="card-title">JVM各区存放的东西~</span>
                         </div>
                     </a>
 
@@ -669,25 +788,20 @@ class Node {
                             
                                 
 
-338. 比特位计数
-解题思路
-代码
+JVM各区存放的东西~
 
-解题思路其实这就是一个数学题，找到规律了就很简单
-
-一个数比如a，如果是偶数，那么a比特位1的个数和(a/2)比特位1的个数是一样的，因为一个数是偶数那么他的二进制比他的一半的二进制只是多了一个0
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/JVM%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="post-category">
+                                    JVM底层原理
                                 </a>
                                 
                                 
@@ -701,13 +815,13 @@ class Node {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/19/322.ling-qian-dui-huan-gao-pin-ti/">
+                    <a href="/2021/06/16/mysql-zhu-cong-fu-zhi-du-xie-fen-chi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="322. 零钱兑换（高频题）">
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL主从复制、读写分离">
                             
-                            <span class="card-title">322. 零钱兑换（高频题）</span>
+                            <span class="card-title">MySQL主从复制、读写分离</span>
                         </div>
                     </a>
 
@@ -716,25 +830,91 @@ class Node {
                             
                                 
 
-322. 零钱兑换
-解题思路
-代码
+MySQL主从复制、读写分离
+为什么要用主从复制、读写分离？
+主从复制
 
-解题思路这题典型的**动态规划套路下的 完全背包问题**，主要注意
+原理
+配置实现
 
-需要求的是最小值，那我们就需要先给dp数组全都赋一个最大值,一般常取Integer.MAX_VALUE,这个题目中,因为amou
+一主一从
+双主双从
+
+
+
+
+读写分离
+
+读写分离的实现方式
+通过mycat实现
+
+
+
+为什么要用主从复制、读写分离？为了提高数据库的可用性、并发
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93-sql/">
+                            <span class="chip bg-color">mysql 数据库 sql</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/06/11/cong-gong-si-gitlab-la-dai-ma-zong-shi-xian-shi-you-xie-yi-lai-wu-fa-dao-ru/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="从公司GitLab拉代码总是显示有些依赖无法导入">
+                            
+                            <span class="card-title">从公司GitLab拉代码总是显示有些依赖无法导入</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+解决：在终端输入以下命令后重新导入依赖
+mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
+也就是跳过单元测试和javadoc
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -748,13 +928,13 @@ class Node {
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/19/309.zui-jia-mai-mai-gu-piao-shi-ji-han-leng-dong-qi-gao-pin-ti/">
+                    <a href="/2021/05/18/yu-fa-huan-jing-ru-he-debug/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="309. 最佳买卖股票时机含冷冻期（高频题）">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="预发环境如何Debug">
                             
-                            <span class="card-title">309. 最佳买卖股票时机含冷冻期（高频题）</span>
+                            <span class="card-title">预发环境如何Debug</span>
                         </div>
                     </a>
 
@@ -763,170 +943,30 @@ class Node {
                             
                                 
 
-309. 最佳买卖股票时机含冷冻期
-解题思路
-代码
+预发环境如何Debug今天需要在预发环境进行一下断点DeBug，但是预发环境是已经开启了并且部署在远端的服务器，下面记录一下怎么解决。
 
-解题思路买卖股票问题都可以用动态规划，具体思路见这里
 
-写状态转移方程的时候注意，绝大部分都是找到前一个状态和目前状态的关系比如：
-dp[i][0]=Math.max(dp[i-1]
+原本应该是add configuration
+
+
+
+
+
+开启Debug运行即可
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/19/301.shan-chu-wu-xiao-de-gua-hao-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="301. 删除无效的括号（高频题）">
-                            
-                            <span class="card-title">301. 删除无效的括号（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-301. 删除无效的括号
-解题思路
-代码
-
-解题思路要用回溯算法，一刷2021/3/19，没有完全弄明白
-
-最开始看到题目要求删除最小括号数目，我想的是dp，但是最后它要你返回的又是字符串的组合，所以就要回溯。整体思路比较简单：
-
- 统
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/19/283.yi-dong-ling-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="283. 移动零（高频题）">
-                            
-                            <span class="card-title">283. 移动零（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-283. 移动零
-解题思路
-代码
-
-解题思路很简单的双指针，每次交换，都是将左指针的零与右指针的非零数交换，且非零数的相对顺序并未改变。
-代码class Solution {
-    public void moveZeroes(int
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/19/221.zui-da-zheng-fang-xing-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="221. 最大正方形（高频题）">
-                            
-                            <span class="card-title">221. 最大正方形（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-221. 最大正方形
-解题思路
-代码
-
-解题思路一看求最大面积，而且感觉后一步和前一步之间还有联系，并且问题规模可以很大，直接动态规划。
-题解见这里
-代码class Solution {
-    public int maximalSq
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -955,7 +995,7 @@ dp[i][0]=Math.max(dp[i-1]
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">15 / 69</div>
+            <div class="center-align b-text-gray">15 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -986,7 +1026,7 @@ dp[i][0]=Math.max(dp[i-1]
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

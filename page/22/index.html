@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/jian-zhi-offer-32-iii.cong-shang-dao-xia-da-yin-er-cha-shu-iii/">
+                    <a href="/2021/03/07/jian-zhi-offer-50.di-yi-ge-zhi-chu-xian-yi-ci-de-zi-fu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="剑指 Offer 32 - III. 从上到下打印二叉树 III">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="剑指 Offer 50. 第一个只出现一次的字符">
                             
-                            <span class="card-title">剑指 Offer 32 - III. 从上到下打印二叉树 III</span>
+                            <span class="card-title">剑指 Offer 50. 第一个只出现一次的字符</span>
                         </div>
                     </a>
 
@@ -380,16 +380,18 @@
                             
                                 
 
-剑指 Offer 32 - III. 从上到下打印二叉树 III
+剑指 Offer 50. 第一个只出现一次的字符
 解题思路
 代码
 
-解题思路和前面两个上到下打印二叉树一样，不过有个特点，要按照z字形打印每一层的元素，其实总结一下就是奇数层正序打印，偶数层倒序打印，要实现这个功能很简单
+解题思路两次循环，第一次记录出现数字，第二次找出第一个数字为1的。
+代码class Solution {
+    public char firstUniqChar(S
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                             <span class="publish-author">
                                 
@@ -410,13 +412,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/jian-zhi-offer-32-ii.cong-shang-dao-xia-da-yin-er-cha-shu-ii/">
+                    <a href="/2021/03/07/jian-zhi-offer-49.chou-shu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="剑指 Offer 32 - II. 从上到下打印二叉树 II">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="剑指 Offer 49. 丑数">
                             
-                            <span class="card-title">剑指 Offer 32 - II. 从上到下打印二叉树 II</span>
+                            <span class="card-title">剑指 Offer 49. 丑数</span>
                         </div>
                     </a>
 
@@ -425,18 +427,17 @@
                             
                                 
 
-剑指 Offer 32 - II. 从上到下打印二叉树 II
+剑指 Offer 49. 丑数
 解题思路
 代码
 
-解题思路和从上到下打印二叉树 I一样，只不多添加一个temp来保存每一层的节点值。
-代码/**
- * Definition for a binary tre
+解题思路这题要用动态规划。
+丑数只包含因子 2, 3, 5 ，因此有 “丑数 == 某较小丑数× 某因子” （例如：10 = 5*2）。所以我们要得到多大的丑数就要给每一个丑数都求出来它
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                             <span class="publish-author">
                                 
@@ -457,13 +458,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/jian-zhi-offer-32-i.cong-shang-dao-xia-da-yin-er-cha-shu/">
+                    <a href="/2021/03/07/jian-zhi-offer-48.zui-chang-bu-han-chong-fu-zi-fu-de-zi-zi-fu-chuan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="剑指 Offer 32 - I. 从上到下打印二叉树">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="剑指 Offer 48. 最长不含重复字符的子字符串">
                             
-                            <span class="card-title">剑指 Offer 32 - I. 从上到下打印二叉树</span>
+                            <span class="card-title">剑指 Offer 48. 最长不含重复字符的子字符串</span>
                         </div>
                     </a>
 
@@ -472,19 +473,18 @@
                             
                                 
 
-剑指 Offer 32 - I. 从上到下打印二叉树
+剑指 Offer 48. 最长不含重复字符的子字符串
 解题思路
 代码
 
-解题思路层级遍历，无脑BFS模板，甚至还可以省略回头记录，和步数
-代码/**
- * Definition for a binary tree node.
- * pu
+解题思路套用模板即可，因为只有一个字符串，所以模板还可以简化一下，不需要need和valid。
+更新窗口内数据只要更新window内该字符出现的次数就可以了。
+还要
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                             <span class="publish-author">
                                 
@@ -505,13 +505,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/jian-zhi-offer-31.zhan-de-ya-ru-dan-chu-xu-lie/">
+                    <a href="/2021/03/07/jian-zhi-offer-47.li-wu-de-zui-da-jie-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="剑指 Offer 31. 栈的压入、弹出序列">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="剑指 Offer 47. 礼物的最大价值">
                             
-                            <span class="card-title">剑指 Offer 31. 栈的压入、弹出序列</span>
+                            <span class="card-title">剑指 Offer 47. 礼物的最大价值</span>
                         </div>
                     </a>
 
@@ -520,20 +520,17 @@
                             
                                 
 
-剑指 Offer 31. 栈的压入、弹出序列
+剑指 Offer 47. 礼物的最大价值
 解题思路
 代码
 
-解题思路借用一个辅助栈 stack，模拟 压入 / 弹出操作的排列。根据是否模拟成功，即可得到结果。
-主要步骤：
-
-入栈操作： 按照压栈序列的顺序执行。
-出栈操作： 每次入
+解题思路拿现在东西的最大值和前面东西的状态有关，很容易想到动态规划。
+dp数组含义： dp[i][j]代表从棋盘的左上角开始，到达单元格 (i,j)下标从0开始！！ 时能拿到礼
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                             <span class="publish-author">
                                 
@@ -554,13 +551,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/319.deng-pao-kai-guan-gao-pin-ti/">
+                    <a href="/2021/03/06/jian-zhi-offer-46.ba-shu-zi-fan-yi-cheng-zi-fu-chuan/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="319. 灯泡开关（高频题）">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="剑指 Offer 46. 把数字翻译成字符串">
                             
-                            <span class="card-title">319. 灯泡开关（高频题）</span>
+                            <span class="card-title">剑指 Offer 46. 把数字翻译成字符串</span>
                         </div>
                     </a>
 
@@ -569,19 +566,17 @@
                             
                                 
 
-319. 灯泡开关
-题目
+剑指 Offer 46. 把数字翻译成字符串
 解题思路
 代码
 
-题目初始时有 n 个灯泡处于关闭状态。
-对某个灯泡切换开关意味着：如果灯泡状态为关闭，那该灯泡就会被开启；而灯泡状态为开启，那该灯泡就会被关闭。
-第 1 轮，每个灯泡切换一次开关。即，打开所有
+解题思路典型动态规划题目。首先定义dp数组含义：dp[i] 代表以nums[]中第i位数字为结尾的数字的翻译方案数量。
+推导状态转移方程：比如数字6 2 4，手动推出应该有
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -602,13 +597,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/jian-zhi-offer-30.bao-han-min-han-shu-de-zhan/">
+                    <a href="/2021/03/06/jian-zhi-offer-45.ba-shu-zu-pai-cheng-zui-xiao-de-shu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指 Offer 30. 包含min函数的栈">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="剑指 Offer 45. 把数组排成最小的数">
                             
-                            <span class="card-title">剑指 Offer 30. 包含min函数的栈</span>
+                            <span class="card-title">剑指 Offer 45. 把数组排成最小的数</span>
                         </div>
                     </a>
 
@@ -617,19 +612,18 @@
                             
                                 
 
-剑指 Offer 30. 包含min函数的栈
+剑指 Offer 45. 把数组排成最小的数
 解题思路
 代码
 
-解题思路可通过建立辅助栈实现本题。
-代码    class MinStack {
-        Stack&lt;Integer> A;
-        Stack&lt
+解题思路此题求拼接起来的最小数字，本质上是一个排序问题。设数组 numsnums 中任意两数字的字符串为 x 和 y ，则规定 排序判断规则 为：
+
+若拼接字符串 x + 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -650,13 +644,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/05/integer-yong-bi-jiao-de-keng/">
+                    <a href="/2021/03/06/jian-zhi-offer-44.shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Integer用==比较的坑">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="剑指 Offer 44. 数字序列中某一位的数字">
                             
-                            <span class="card-title">Integer用==比较的坑</span>
+                            <span class="card-title">剑指 Offer 44. 数字序列中某一位的数字</span>
                         </div>
                     </a>
 
@@ -665,61 +659,24 @@
                             
                                 
 
-Integer在用==的时候是比较地址，但是如果你的Integer的值在[-128,127]之间，Integer会直接引用这个缓存变量，只有超过这个区间才会new 一个Integer对象
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/04/jian-zhi-offer-29.shun-shi-zhen-da-yin-ju-zhen/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="剑指 Offer 29. 顺时针打印矩阵">
-                            
-                            <span class="card-title">剑指 Offer 29. 顺时针打印矩阵</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-剑指 Offer 29. 顺时针打印矩阵
+剑指 Offer 44. 数字序列中某一位的数字
 解题思路
 代码
 
-解题思路顺时针打印矩阵的顺序是 “从左向右、从上向下、从右向左、从下向上” 循环。因此，考虑设定矩阵的“左、上、右、下”四个边界，模拟以上矩阵遍历顺序。
-主要流程:
+解题思路主要思路就三步：
 
- 根据边
+找到n应该在几位数中
+找到n所在的那个数字
+确定n是数字中的哪一位
+
+具体思路理解：见这篇题解
+代码class Solution {
+   
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -740,13 +697,13 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/04/jian-zhi-offer-28.dui-cheng-de-er-cha-shu/">
+                    <a href="/2021/03/06/jian-zhi-offer-43.1-n-zheng-shu-zhong-1-chu-xian-de-ci-shu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="剑指 Offer 28. 对称的二叉树">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="剑指 Offer 43. 1～n 整数中 1 出现的次数">
                             
-                            <span class="card-title">剑指 Offer 28. 对称的二叉树</span>
+                            <span class="card-title">剑指 Offer 43. 1～n 整数中 1 出现的次数</span>
                         </div>
                     </a>
 
@@ -755,20 +712,18 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
                             
                                 
 
-剑指 Offer 28. 对称的二叉树
+剑指 Offer 43. 1～n 整数中 1 出现的次数
 解题思路
 代码
 
-解题思路
-代码/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int va
+解题思路将 1 ~ n 的个位、十位、百位、…的 1 出现次数相加，即为 1 出现的总次数。某位中 1出现次数的计算方法：
+
+当 cur = 0时： 此位 1 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -789,13 +744,13 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/04/jian-zhi-offer-27.er-cha-shu-de-jing-xiang/">
+                    <a href="/2021/03/06/jian-zhi-offer-42.lian-xu-zi-shu-zu-de-zui-da-he/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="剑指 Offer 27. 二叉树的镜像">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="剑指 Offer 42. 连续子数组的最大和">
                             
-                            <span class="card-title">剑指 Offer 27. 二叉树的镜像</span>
+                            <span class="card-title">剑指 Offer 42. 连续子数组的最大和</span>
                         </div>
                     </a>
 
@@ -804,16 +759,18 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
                             
                                 
 
-剑指 Offer 27. 二叉树的镜像
+剑指 Offer 42. 连续子数组的最大和
 解题思路
 代码
 
-解题思路很简单，就是递归调用mirrorTree()得到输入的那个节点，比如你输入的是mirrorTree(root.right)那么返回的节点其实就是root.right，然后
+解题思路最基本的动态规划题目，只要找准dp[i]的含义，那就十分简单
+代码class Solution {
+    public int maxSubArray(int[]
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -834,13 +791,13 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/04/jian-zhi-offer-26.shu-de-zi-jie-gou/">
+                    <a href="/2021/03/06/jian-zhi-offer-41.shu-ju-liu-zhong-de-zhong-wei-shu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="剑指 Offer 26. 树的子结构">
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="剑指 Offer 41. 数据流中的中位数">
                             
-                            <span class="card-title">剑指 Offer 26. 树的子结构</span>
+                            <span class="card-title">剑指 Offer 41. 数据流中的中位数</span>
                         </div>
                     </a>
 
@@ -849,20 +806,16 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
                             
                                 
 
-剑指 Offer 26. 树的子结构
+剑指 Offer 41. 数据流中的中位数
 解题思路
 代码
 
-解题思路主要是要构建一个辅助函数：来判断以x为根节点的树是否包含B
-
-代码/**
- * Definition for a binary tree node.
- * public c
+解题思路这题用小顶堆+大顶堆来做。维护一个小顶堆，用来存放数组中较大的那一部分，维护一大顶堆，用来存放数组中较小的一部分。要始终保持小顶堆的最小值大于等于大顶堆的最大值。也就
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -883,13 +836,13 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/04/jian-zhi-offer-25.he-bing-liang-ge-pai-xu-de-lian-biao/">
+                    <a href="/2021/03/06/jian-zhi-offer-40.zui-xiao-de-k-ge-shu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="剑指 Offer 25. 合并两个排序的链表">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="剑指 Offer 40. 最小的k个数">
                             
-                            <span class="card-title">剑指 Offer 25. 合并两个排序的链表</span>
+                            <span class="card-title">剑指 Offer 40. 最小的k个数</span>
                         </div>
                     </a>
 
@@ -898,17 +851,64 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
                             
                                 
 
-剑指 Offer 25. 合并两个排序的链表
+剑指 Offer 40. 最小的k个数
 解题思路
 代码
 
-解题思路第一想法就是双指针。单链表一般用快慢指针，剩下的一般用普通双指针。本题核心思路，新建一个链表，然后遍历比较l1,l2当前的节点，把小的那个放到新链表去，多次重复。
+解题思路思路一：注意找前 K 大/前 K 小问题不需要对整个数组进行 O(NlogN)O(NlogN) 的排序！例如本题，直接通过快排切分排好第 K 小的数（下标为 K-1），那
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/06/jian-zhi-offer-39.shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="剑指 Offer 39. 数组中出现次数超过一半的数字">
+                            
+                            <span class="card-title">剑指 Offer 39. 数组中出现次数超过一半的数字</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+剑指 Offer 39. 数组中出现次数超过一半的数字
+解题思路
+代码
+
+解题思路这题有两个方法；
+
+方法一：正常思路可以先排序，再取中间值，中间值就是数组中出现次数超过一半的数字。因为一个元素占数组的一半以上，那肯定能到达中间位置。
 
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-06
                             </span>
                             <span class="publish-author">
                                 
@@ -944,7 +944,7 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">22 / 69</div>
+            <div class="center-align b-text-gray">22 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -975,7 +975,7 @@ Integer在用==的时候是比较地址，但是如果你的Integer的值在[-12
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

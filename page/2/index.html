@@ -365,32 +365,41 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/19/geo-lei-xing/">
+                    <a href="/2022/07/17/es-shu-ju-lei-xing/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="geo类型">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ES数据类型">
                             
-                            <span class="card-title">geo类型</span>
+                            <span class="card-title">ES数据类型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                概述Redis 3.2 中增加了对GEO类型的支持。GEO，Geographic，地理信息的缩写。该类型，就是元素的2维坐标，在地图上就是经纬度。redis基于该类型，提供了经纬度设置，查询，范围查询，距离查询，经纬度Hash等常见操作。应
+                                
+
+整体数据类型结构：
+String 类型主要分为text与keyword两种类型。两者区别主要在于能否分词。text类型
+"mappings": {
+"properties": {
+"name": {
+"type": "text"
+},
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/ElasticSearch/" class="post-category">
+                                    ElasticSearch
                                 </a>
                                 
                                 
@@ -399,37 +408,52 @@
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch-%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
+                            <span class="chip bg-color">elasticsearch 大数据 搜索引擎</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/19/bitmap-lei-xing/">
+                    <a href="/2022/07/17/elasticsearch-an-zhuang-ji-ji-chu-cao-zuo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="bitmap类型">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="ElasticSearch安装及基础操作">
                             
-                            <span class="card-title">bitmap类型</span>
+                            <span class="card-title">ElasticSearch安装及基础操作</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                介绍bitmap 存储的是连续的二进制数字（0 和 1），通过 bitmap, 只需要一个 bit 位来表示某个元素对应的值或者状态，key 就是对应元素本身 。我们知道 8 个 bit 可以组成一个 Byte，所以bitmap 本身会极大
+                                
+
+安装ElasticSearch下载地址
+可视化界面elasticsearch-head下载地址
+kibana下载地址 ：解压超级久。。。。
+ik分词器下载地址
+jdk必须是1.8及以上的版本，且要配置nodejs、python环境。
+需
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/ElasticSearch/" class="post-category">
+                                    ElasticSearch
                                 </a>
                                 
                                 
@@ -438,37 +462,49 @@
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/elasticsearch-%E5%A4%A7%E6%95%B0%E6%8D%AE-%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/">
+                            <span class="chip bg-color">elasticsearch 大数据 搜索引擎</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/19/hash-lei-xing/">
+                    <a href="/2022/07/10/yong-maven-xia-zai-yi-lai-bao-cuo-authorization-failed-for-xxx-403-forbidden/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hash类型">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="用maven下载依赖报错:Authorization failed for xxx 403 Forbidden">
                             
-                            <span class="card-title">hash类型</span>
+                            <span class="card-title">用maven下载依赖报错:Authorization failed for xxx 403 Forbidden</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                介绍hash 类似于 JDK1.8 前的 HashMap，内部实现也差不多(数组 + 链表)。不过，Redis 的hash 做了更多优化。另外，hash 是一个 string 类型的 field 和 value 的映射表，特别适合用于存储对
+                                
+
+问题描述今天在新电脑上自己创建了一个新项目想运行一下，但是maven依赖一直拉不下来，就连最简单的springboot的依赖都拉不下来。
+原因我的maven用的是公司的配置文件，公司代理会阻止从 maven Central 等下载依赖
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-10
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -477,43 +513,48 @@
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/maven-java-%E5%BC%80%E5%8F%91%E8%AF%AD%E8%A8%80/">
+                            <span class="chip bg-color">maven java 开发语言</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/19/string-lei-xing/">
+                    <a href="/2022/07/06/wang-zhi-lian-jie-da-xiao-xie-qu-fen-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="string类型">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="网址链接大小写区分问题">
                             
-                            <span class="card-title">string类型</span>
+                            <span class="card-title">网址链接大小写区分问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                Redis的Key的设计
-用:分割
-把表名转换为key前缀, 比如: user:
-第二段放置主键值
-第三段放置列名
+                                
 
-string字符串类型介绍string 数据结构是简单的 key-value 类型。虽然 Redis 是用 C 语言写的，
+问题今天发起一个请求的时候在地址栏输入了一个url地址，但是怎么都得不到正确的东西。
+url地址类似于https://www.lei.com/download/latest?productname=pc。其实就是一个下载链接，但是怎么都
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-06
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -522,34 +563,90 @@ string字符串类型介绍string 数据结构是简单的 key-value 类型。�
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/">
+                            <span class="chip bg-color">大数据</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/19/redis-qi-dong-cheng-gong-dan-wu-fa-yong-ui-lian-jie/">
+                    <a href="/2022/03/29/collectors.tomap-shi-yong-jie-xi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="redis启动成功但无法用UI连接">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Collectors.toMap使用解析">
                             
-                            <span class="card-title">redis启动成功但无法用UI连接</span>
+                            <span class="card-title">Collectors.toMap使用解析</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                问题描述：系统为CentOS7.9，已经启动了redis，并且用命令行能够成功进入到客户端。但是无法使用图形化界面进行远程链接。一直报错问题排查
+                                
 
-防火墙是不是没打开
-有没有注释掉redis.conf的bind 127.0.0.1
-启动时候
+背景之前我们可能会遇到一些把List 转 Map 操作，在过去我们可能使用的是 for 循环遍历的方式。
+例如：
+Map&lt;String, String> map = new HashMap&lt;>();
+for (User us
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-29
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis-java-postman/">
+                            <span class="chip bg-color">redis java postman</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/20/com-sun-mail-util-mailconnectexception-couldn-t-connect-to-host-port-smtp-aliyun-com-25-timeout/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="com.sun.mail.util.MailConnectException:Couldn&#39;t connect to host, port:smtp.aliyun.com, 25; timeout">
+                            
+                            <span class="card-title">com.sun.mail.util.MailConnectException:Couldn&#39;t connect to host, port:smtp.aliyun.com, 25; timeout</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题描述SpringBoot项目部署到阿里服务器，发送邮箱报错com.sun.mail.util.MailConnectException:Couldn't connect to host, port:smtp.aliyun.com, 25
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-20
                             </span>
                             <span class="publish-author">
                                 
@@ -570,285 +667,27 @@ string字符串类型介绍string 数据结构是简单的 key-value 类型。�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/17/xiu-gai-idea-ti-jiao-dao-git-de-ni-cheng/">
+                    <a href="/2022/03/19/lombok-de-builder-default-shi-xiao/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="修改IDEA提交到git的昵称">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Lombok的@Builder.Default失效">
                             
-                            <span class="card-title">修改IDEA提交到git的昵称</span>
+                            <span class="card-title">Lombok的@Builder.Default失效</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、在idea的terminal输入
- git config user.name 
-
-获取当前用户昵称。
-2、输入以下命令来修改昵称
-git config --global user.name "用户名" 
-
-
+                                问题今天有一个类，有两个字段用了@Builder.Default 来修饰。但是当我往数据库插入时候发现这两个数据是null，但是我已经指定了默认值啊
+原因我创建这个对象的时候用的是new ，没走Lombok
+解决创建对象用xx.builde
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Git/" class="post-category">
-                                    Git
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/16/kong-wang-guan/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="kong网关">
-                            
-                            <span class="card-title">kong网关</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1.  kong网关简介Kong是一款基于OpenResty（Nginx + Lua模块）编写的高可用、易扩展的，由Mashape公司开源的API Gateway项目。Kong是基于NGINX和Apache Cassandra或Postgr
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/16/redis-an-zhuang-bu-long-guo-lu-qi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis安装布隆过滤器">
-                            
-                            <span class="card-title">Redis安装布隆过滤器</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                关于布隆过滤器的简介请看这篇文章 ：https://juejin.cn/post/6844904013419249678
-安装在redis布隆过滤器插件地址下载最新的release源码，在编译服务器进行解压编译
-wget https://g
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/15/openresty-ying-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="OpenResty应用">
-                            
-                            <span class="card-title">OpenResty应用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1. OpenResty 命令详解openresty -h | -?
-
-
-含义：查看OpenResty的帮助，可以得知当前的版本号以及全部指令的使用方式。
-
-openresty -v
-
-
-含义：查看当前OpenResty的版本
-
-openr
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/15/openresty-chang-yong-ming-ling/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="OpenResty常用命令">
-                            
-                            <span class="card-title">OpenResty常用命令</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                主要帮助对http请求取参、取header头、输出等。
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/15/openresty-an-zhuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Openresty安装">
-                            
-                            <span class="card-title">Openresty安装</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                yum安装你可以在你的 CentOS 系统中添加 openresty 仓库，这样就可以便于未来安装或更新我们的软件包（通过 yum update 命令）
-①添加OpenResty仓库运行下面的命令就可以添加仓库：
-sudo yum inst
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/15/cenos7-shi-yong-yum-ming-ling-bao-cuo-jie-jue-file-contains-no-section-headers-file-file-etc-yum-repos-d-centos-base-r/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="CenOS7使用yum 命令报错解决File contains no section headers. file:file:///etc/yum.repos.d/CentOS-Base.r">
-                            
-                            <span class="card-title">CenOS7使用yum 命令报错解决File contains no section headers. file:file:///etc/yum.repos.d/CentOS-Base.r</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                解决：①删除yum.repos.d目录下所有文件
-rm -f /etc/yum.repos.d/*
-
-②从阿里的库重新下载这个文件
-wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirro
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
                             </span>
                             <span class="publish-author">
                                 
@@ -856,6 +695,211 @@ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirro
                                 
                                 <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
                                     踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/19/postman-fa-song-x-www-form-urlencoded-ge-shi-de-can-shu-hou-duan-jie-shou-bu-dao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="postman发送x-www-form-urlencoded格式的参数后端接收不到">
+                            
+                            <span class="card-title">postman发送x-www-form-urlencoded格式的参数后端接收不到</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题postman发送x-www-form-urlencoded格式的参数后端接收不到，后端controller层已经写了@RequestParam 来接收参数
+原因我调用请求是用的get方法
+解决用post发起请求
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/19/charles-mei-you-xian-shi-request-he-response/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="charles没有显示request和response">
+                            
+                            <span class="card-title">charles没有显示request和response</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+解决点击charles中的Preferences 然后在点击Viewers。取消勾选红框内容
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/19/xx-available-expected-single-matching-bean-but-found-2-xx-xx/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="xx available:expected single matching bean but found 2:xx,xx">
+                            
+                            <span class="card-title">xx available:expected single matching bean but found 2:xx,xx</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题描述今天部署环境的时候一直部署失败，出现报错如下：‘PetWarRewardDao’ available: expected single matching bean but found 2: PetWarRewardDao,petWa
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/19/yong-lombok-zhu-jie-class-hou-fa-xian-class-de-boolean-shu-xing-mei-you-get-fang-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="用Lombok注解class后发现class的boolean属性没有get方法">
+                            
+                            <span class="card-title">用Lombok注解class后发现class的boolean属性没有get方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题描述今天有这么一段代码
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class PetWarPeriodAwardDetail implements Seri
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/03/13/java8-xin-te-xing-zhi-shuang-mou-hao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Java8新特性之双冒号（::）">
+                            
+                            <span class="card-title">Java8新特性之双冒号（::）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                定义双冒号运算操作符是类方法的句柄，lambda表达式的一种简写。双冒号（::）运算符在Java 8中被用作方法引用（method reference），方法引用是与lambda表达式相关的一个重要特性。大概意思就是，使用lambda表达式
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                                 
                                 
@@ -884,7 +928,7 @@ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirro
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 69</div>
+            <div class="center-align b-text-gray">2 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -915,7 +959,7 @@ wget -O /etc/yum.repos.d/CentOS-Base.repo http://mirro
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

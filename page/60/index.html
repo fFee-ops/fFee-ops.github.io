@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/11/zhi-xing-ji-hua/">
+                    <a href="/2020/07/22/javamail-fa-song-you-jian/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="执行计划">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JavaMail发送邮件">
                             
-                            <span class="card-title">执行计划</span>
+                            <span class="card-title">JavaMail发送邮件</span>
                         </div>
                     </a>
 
@@ -380,29 +380,25 @@
                             
                                 
 
-文章目录
-两个问题
-执行计划
+package com.java_lettuce.Util;
 
-id：编号
-select_type:查询类型
-type:索引类型、类型
-possible_keys ：可能用到的索引，是一种预测，不准。
-key ：实际使用到的索引
-key_len ：索引的长度 ;
-re
+import java.util.Properties;
+
+import javax.mail.Address;
+import javax.mail.Message;
+im
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
+                                <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                                 
                                 
@@ -416,13 +412,426 @@ re
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/10/suo-yin/">
+                    <a href="/2020/07/22/ji-yu-redis-shi-xian-you-xiang-fa-song-yan-zheng-ma-gong-neng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="索引">
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="基于Redis实现邮箱发送验证码功能">
                             
-                            <span class="card-title">索引</span>
+                            <span class="card-title">基于Redis实现邮箱发送验证码功能</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+title需求：用户在客户端输入邮箱，点击发送后随机生成4位数字码。有效期为40秒。输入验证码，点击验证，返回成功或者失败。
+
+前端页面
+&lt;!DOCTYPE html>
+&lt;html lang="en" xmlns:th="h
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/22/idea-yin-ru-wai-bu-jquery-wen-jian-reng-ran-xian-shi-unresolved-function-or-method/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="IDEA引入外部jquery文件“$“仍然显示Unresolved function or method $()">
+                            
+                            <span class="card-title">IDEA引入外部jquery文件“$“仍然显示Unresolved function or method $()</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+问题：
+今天准备写一个新的测试页面，然后从外部引入jQuery文件。
+
+
+但是当我去写jQuery语法时候，”$“仍然显示Unresolved function or method $()。
+
+
+原因： 我引入的是jQuery.min文
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/22/springboot2.x-zhong-redis-shi-yong-lettuce/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="SpringBoot2.x中redis使用(lettuce)">
+                            
+                            <span class="card-title">SpringBoot2.x中redis使用(lettuce)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录
+测试String类型
+测试hash类型
+
+pom.xml中添加如下依赖
+  &lt;!--默认是lettuce客户端-->
+        &lt;dependency>
+            &lt;groupId>org
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/22/springboot-zheng-he-jedis/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="SpringBoot整合Jedis">
+                            
+                            <span class="card-title">SpringBoot整合Jedis</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录
+Jedis操作String类型
+Jedis操作Hash类型
+
+我们在使用springboot搭建微服务的时候，在很多时候还是需要redis的高速缓存来缓存一些数据，存储一些高频率访问的数据，如果直接使用redis的话又比较麻烦
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/21/idea-dan-yuan-ce-shi-ju-e-xin-de-keng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="IDEA单元测试巨恶心的坑">
+                            
+                            <span class="card-title">IDEA单元测试巨恶心的坑</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+今天用idea单元测试，一直卡在resolving dependencies。网上各种办法查询都无效。
+最后解决的办法如下：1、我最开始没有在springboot启动选项里面选择junit模块。于是在pom文件中添加如下依赖
+     
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/20/idea-chuang-jian-springboot-xiang-mu-maven-yi-lai-chu-cuo/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="idea创建Springboot项目MAVEN依赖出错">
+                            
+                            <span class="card-title">idea创建Springboot项目MAVEN依赖出错</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+今天新建一个spring boot项目，其中的
+&lt;plugin>
+&lt;groupId>org.springframework.boot&lt;/groupId>
+&lt;artifactId>spring-boot-maven
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/19/chang-yong-ming-ling/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="常用命令">
+                            
+                            <span class="card-title">常用命令</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)等
+keys * : 返回满足的所有键 ,可以模糊匹配 比如 keys abc* 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/18/redis-an-zhuang-qi-dong-guan-bi-pei-zhi-xiang-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Redis 安装、启动、关闭、配置详解">
+                            
+                            <span class="card-title">Redis 安装、启动、关闭、配置详解</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录
+Redis安装
+redis启动
+
+简单启动
+高级启动
+
+
+Redis配置详解
+
+自定义配置Redis
+
+
+Redis中的内存维护策略
+Redis关闭
+
+Redis安装Redis是C语言开发，安装Redis需要先将官网下载的源码
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/18/redis-jian-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Redis简介">
+                            
+                            <span class="card-title">Redis简介</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+1. 什么是RedisRedis 是完全开源免费的，遵守BSD协议，是一个高性能(NOSQL)的key-value数据库,Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/17/suo-ji-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="锁机制">
+                            
+                            <span class="card-title">锁机制</span>
                         </div>
                     </a>
 
@@ -433,21 +842,29 @@ re
 
 文章目录
 分类
-创建索引
-删除索引
-查询索引
-BTree检索原理
+示例
 
-分类
-主键索引： 不能重复。id 不能是null
-唯一索引 ：不能重复。id 可以是null
-单值索引 ： 单列， age ;一个表可以多个单值索引,name。
-复合索
+1、表锁
+MySQL表级锁的锁模式
+
+分析表锁定
+
+
+2、行锁
+
+行锁分析
+
+
+
+
+
+解决因资源共享 而造成的并发问题。
+分类操作类型：a.读锁（共享锁）： 对同一个数据（衣服），多个读操作可以同时进行，互不干扰
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-17
                             </span>
                             <span class="publish-author">
                                 
@@ -468,13 +885,13 @@ BTree检索原理
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/10/sql-you-hua/">
+                    <a href="/2020/07/16/fen-xi-hai-liang-shu-ju/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="SQL优化">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="分析海量数据">
                             
-                            <span class="card-title">SQL优化</span>
+                            <span class="card-title">分析海量数据</span>
                         </div>
                     </a>
 
@@ -484,21 +901,19 @@ BTree检索原理
                                 
 
 文章目录
-为什么要进行SQL优化
-优化
+模拟海量数据
+分析海量数据
 
-Sql解析顺序
-索引的优缺点
+模拟海量数据通过 存储过程（无return）/存储函数（有return）来模拟。
+create database testdata ;
+use testdata
 
-
-
-为什么要进行SQL优化原因：性能低、执行时间太长、等待时间太长、SQL语句欠佳（连接查询）、索引失效、服务器参数设置不合理（缓冲、线程数）
-优化a.SQL ：
+create table dep
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
                             </span>
                             <span class="publish-author">
                                 
@@ -506,454 +921,6 @@ Sql解析顺序
                                 
                                 <a href="/categories/MySQL/" class="post-category">
                                     MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/09/sql-yu-ju-you-hua-yuan-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="SQL语句优化原理">
-                            
-                            <span class="card-title">SQL语句优化原理</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录首先客户端发送sql语句，服务端的连接层收到语句将语句传递给服务层，服务层将语句进行优化再由引擎层决定由什么引擎执行，再将数据进行存储。
-
-MYSQL逻辑分层 ：连接层 服务层 引擎层 存储层
-引擎层的默认引擎：InnoDB(默
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/09/linux-an-zhuang-mysql/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LINUX安装mysql">
-                            
-                            <span class="card-title">LINUX安装mysql</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-MySQL的版本
-安装步骤
-服务启动关闭
-存放目录与配置文件详解
-字符编码设置
-
-MySQL的版本5.x:5.0-5.1:早期产品的延续，升级维护5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5）
-安
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/09/dubbo-he-zookeeper-de-guan-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Dubbo和zookeeper的关系">
-                            
-                            <span class="card-title">Dubbo和zookeeper的关系</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-QAQ简单来说打个比方：dubbo就是动物园的动物，zookeeper是动物园。如果游客想看动物的话那么就去动物园看。比如你要看老虎，那么动物园有你才能看到。
-换句话说我们把很多不同的dubbo（动物）放到zookeeper（动物园中）
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/08/zookeeper-cli/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Zookeeper CLI">
-                            
-                            <span class="card-title">Zookeeper CLI</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录ZooKeeper命令行界面（CLI）用于与ZooKeeper集合进行交互以进行开发。它有助于调试和解决不同的选项。要执行ZooKeeper CLI操作，首先打开ZooKeeper服务器（“bin/zkServer.sh sta
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/08/zookeeper-an-zhuang-ji-qi-dong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Zookeeper 安装及启动">
-                            
-                            <span class="card-title">Zookeeper 安装及启动</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Zookeeper 安装
-安装
-
-集群搭建
-
-
-启动
-配置解读
-
-安装1、安装好java环境
-2、下载zookeeper，传到Linux，并且解压到自定义文件夹下
-3、重命名zookeeper的配置文件：zoo_sample.cfg改名
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zookeeper/">
-                            <span class="chip bg-color">zookeeper</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/08/zookeeper-leader-xuan-ju/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Zookeeper leader选举">
-                            
-                            <span class="card-title">Zookeeper leader选举</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Zookeeper leader选举
-第一次启动
-非第一次启动
-
-zookeeper的leader选举要分为是不是第一次启动。
-第一次启动
-
- 服务器1启动，发起一次选举。服务器1投自己一票。此时服务器1票数一票，不够半数以上（3票），
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F-%E4%BA%91%E5%8E%9F%E7%94%9F/">
-                            <span class="chip bg-color">zookeeper 分布式 云原生</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/08/zookeeper-gong-zuo-liu/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Zookeeper 工作流">
-                            
-                            <span class="card-title">Zookeeper 工作流</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-
-
-
-组件
-描述
-
-
-
-写入（write）
-写入过程由leader节点处理。leader将写入请求转发到所有znode，并等待znode的回复。如果一半的znode回复，则写入过程完成。
-
-
-读取（read）
-读取由特定连接的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/08/zookeeper-ji-chu-zhi-shi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="zookeeper基础知识">
-                            
-                            <span class="card-title">zookeeper基础知识</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-什么是Apache ZooKeeper
-zookeeper提供的常见服务
-zk的特点
-zookeeper架构
-zookeeper的数据结构
-zookeeper Sessions（会话）
-Watches（监视）
-
-什么是Apac
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/zookeeper/" class="post-category">
-                                    zookeeper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/zookeeper/">
-                            <span class="chip bg-color">zookeeper</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/16/ji-linux-wu-fa-ping-tong-win-dan-win-ke-ping-tong-linux/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="记LINUX无法ping通WIN，但Win可ping通Linux">
-                            
-                            <span class="card-title">记LINUX无法ping通WIN，但Win可ping通Linux</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录今天做LVS负载均衡的时候发现LINUX无法ping通win，但相反WIN可ping通LINUX，且Linux可ping通外网。
-一番排查后不是网段的问题，也不是防火墙的问题。
-原因是：默认情况下，Windows防火墙和网络设置
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
                                 </a>
                                 
                                 
@@ -982,7 +949,7 @@ Watches（监视）
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">60 / 69</div>
+            <div class="center-align b-text-gray">60 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1013,7 +980,7 @@ Watches（监视）
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

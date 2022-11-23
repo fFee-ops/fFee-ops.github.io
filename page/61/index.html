@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/15/guan-xi-mo-shi-she-ji-zhi-gui-fan-xing-shi/">
+                    <a href="/2020/07/16/man-sql-pai-cha/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="关系模式设计之规范形式">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="慢SQL排查">
                             
-                            <span class="card-title">关系模式设计之规范形式</span>
+                            <span class="card-title">慢SQL排查</span>
                         </div>
                     </a>
 
@@ -381,36 +381,24 @@
                                 
 
 文章目录
-什么是第一范式
+慢查询日志
+慢查询阀值：
+查询超过阀值的SQL
 
-不符合第一范式时的处理手段
-
-
-什么是第二范式
-
-不符合第二范式时的处理手段
-
-
-什么是第三范式
-
-不满足第三范式时的处理手段
-
-
-什么是 Boyce-Codd 范式
-
-不满足 Boyce-Codd 范式时的
+慢查询日志慢查询日志:MySQL提供的一种日志记录，用于记录MySQL种响应时间超过阀值的SQL语句 （long_query_time，默认10秒）
+慢查询日志默认是关闭的；建
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    数据库系统
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -424,13 +412,56 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/13/lamp-da-jian-lun-tan-bo-ke-ping-tai/">
+                    <a href="/2020/07/16/bi-mian-suo-yin-shi-xiao-de-yi-xie-yuan-ze/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="LAMP搭建论坛、博客平台">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="避免索引失效的一些原则">
                             
-                            <span class="card-title">LAMP搭建论坛、博客平台</span>
+                            <span class="card-title">避免索引失效的一些原则</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录1、复合索引a.复合索引，不要跨列或无序使用（最佳左前缀）b.复合索引，尽量使用全索引匹配
+2、不要在索引上进行任何操作（计算、函数、类型转换），否则索引失效例如
+select ..where A.x = .. ;  --假设A
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/15/you-hua-an-li/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="优化案例">
+                            
+                            <span class="card-title">优化案例</span>
                         </div>
                     </a>
 
@@ -440,23 +471,28 @@
                                 
 
 文章目录
-什么是LAMP
-搭建论坛
-搭建博客
+单表优化
+两表优化
+三张表优化A B C
 
-什么是LAMPLAMP 是指Linux（操作系统）+ Apache （HTTP 服务器）+ MySQL/MariaDB（数据库）和 PHP（网络编程语言），一般用来建立 web 应用平台。
+单表优化准备数据：
+create table book
+(
+    bid int(4) primary key,
+    name varchar(20) not null,
+  
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -470,13 +506,56 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/11/jquery-zhong-de-html-text-val-qu-bie/">
+                    <a href="/2020/07/11/unknown-column-entrytime-in-field-list/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="JQuery中的html() text() val()区别">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Unknown column ‘EntryTime‘ in ‘field list‘">
                             
-                            <span class="card-title">JQuery中的html() text() val()区别</span>
+                            <span class="card-title">Unknown column ‘EntryTime‘ in ‘field list‘</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+今天在写一个Demo时候，一直往数据库插入不进去数据。持续报错
+Unknown column ‘EntryTime’ in ‘field list’
+经过检查，是数据库EntryTime字段前面多了个空格。应该是建表的时候不小心加上了…
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/11/zhi-xing-ji-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="执行计划">
+                            
+                            <span class="card-title">执行计划</span>
                         </div>
                     </a>
 
@@ -486,24 +565,28 @@
                                 
 
 文章目录
-html
-TEXT
-VAL
-text()和html()的对比
+两个问题
+执行计划
 
-htmlhtml()： 取得第一个匹配元素的html内容（标签+内容）。html(val)： 设置每一个匹配元素的html内容，就是将上一步取得的内容全部替换成括
+id：编号
+select_type:查询类型
+type:索引类型、类型
+possible_keys ：可能用到的索引，是一种预测，不准。
+key ：实际使用到的索引
+key_len ：索引的长度 ;
+re
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -517,13 +600,13 @@ htmlhtml()： 取得第一个匹配元素的html内容（标签+内容）。html
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/06/han-shu-yi-lai-ji-qi-gong-li-ding-li/">
+                    <a href="/2020/07/10/suo-yin/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="函数依赖及其公理/定理">
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="索引">
                             
-                            <span class="card-title">函数依赖及其公理/定理</span>
+                            <span class="card-title">索引</span>
                         </div>
                     </a>
 
@@ -533,30 +616,29 @@ htmlhtml()： 取得第一个匹配元素的html内容（标签+内容）。html
                                 
 
 文章目录
-什么是函数依赖
-部分函数依赖与完全函数依赖
-传递函数依赖
-函数依赖相关的几个重要概念
-关于函数依赖的 Armstrong 公理
+分类
+创建索引
+删除索引
+查询索引
+BTree检索原理
 
-Armstrong 公理
-Armstrong 公理对应的引理
-
-
-什么是属性（集）闭包
-属性闭包
+分类
+主键索引： 不能重复。id 不能是null
+唯一索引 ：不能重复。id 可以是null
+单值索引 ： 单列， age ;一个表可以多个单值索引,name。
+复合索
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    数据库系统
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -570,13 +652,13 @@ Armstrong 公理对应的引理
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/06/fang-fa-de-chong-xie-yu-chong-zai/">
+                    <a href="/2020/07/10/sql-you-hua/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="方法的重写与重载">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="SQL优化">
                             
-                            <span class="card-title">方法的重写与重载</span>
+                            <span class="card-title">SQL优化</span>
                         </div>
                     </a>
 
@@ -586,23 +668,28 @@ Armstrong 公理对应的引理
                                 
 
 文章目录
-方法的重写（override）
-方法的重载（overload）
-重写与重载之间的区别
+为什么要进行SQL优化
+优化
 
-方法的重写（override）基本概念：子类从父类中继承方法，有时，子类需要修改父类中定义的方法的实现，这称做方法的重写(method o
+Sql解析顺序
+索引的优缺点
+
+
+
+为什么要进行SQL优化原因：性能低、执行时间太长、等待时间太长、SQL语句欠佳（连接查询）、索引失效、服务器参数设置不合理（缓冲、线程数）
+优化a.SQL ：
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-10
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/java/" class="post-category">
-                                    java
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -616,13 +703,13 @@ Armstrong 公理对应的引理
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/05/this-guan-jian-zi-yu-static-guan-jian-zi/">
+                    <a href="/2020/07/09/sql-yu-ju-you-hua-yuan-li/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="this关键字与static关键字">
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="SQL语句优化原理">
                             
-                            <span class="card-title">this关键字与static关键字</span>
+                            <span class="card-title">SQL语句优化原理</span>
                         </div>
                     </a>
 
@@ -631,20 +718,22 @@ Armstrong 公理对应的引理
                             
                                 
 
-this关于this关键字，你只需要记住它就是指自身，this即代表自己，this.属性访问的是自己的属性、this()访问的就是自己的无参构造方法。
-this()调用的是Person自己的无参构造方法，this.name访问的是Per
+文章目录首先客户端发送sql语句，服务端的连接层收到语句将语句传递给服务层，服务层将语句进行优化再由引擎层决定由什么引擎执行，再将数据进行存储。
+
+MYSQL逻辑分层 ：连接层 服务层 引擎层 存储层
+引擎层的默认引擎：InnoDB(默
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/java/" class="post-category">
-                                    java
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -658,63 +747,13 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/05/shu-ju-ku-she-ji-guo-cheng/">
+                    <a href="/2020/07/09/linux-an-zhuang-mysql/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="数据库设计过程">
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="LINUX安装mysql">
                             
-                            <span class="card-title">数据库设计过程</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-1.需求分析阶段（常用自顶向下）
-2.概念结构设计阶段（E-R图）
-3.逻辑结构设计阶段
-4.物理设计阶段
-5.数据库实施阶段
-6.数据库运行和维护阶段
-
-一般将数据库的设计分为以下几个过程。
-1.需求分析2.概念结构设计3.
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    数据库系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/05/shu-ju-jian-mo-gong-cheng-hua-fang-fa-ji-an-li-fen-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="数据建模：工程化方法及案例分析">
-                            
-                            <span class="card-title">数据建模：工程化方法及案例分析</span>
+                            <span class="card-title">LINUX安装mysql</span>
                         </div>
                     </a>
 
@@ -724,28 +763,26 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
                                 
 
 文章目录
-什么是IDEF1X
+MySQL的版本
+安装步骤
+服务启动关闭
+存放目录与配置文件详解
+字符编码设置
 
-独立实体和从属实体
-
-
-标定联系和非标定联系
-非确定联系与相交实体
-分类联系与分类实体
-
-什么是IDEF1XIDEF1X 是 E-R 图的一种细化。例如实体被细分为独立实体、从属实体；其它概念也有所细化。
+MySQL的版本5.x:5.0-5.1:早期产品的延续，升级维护5.4 - 5.x : MySQL整合了三方公司的新存储引擎 （推荐5.5）
+安
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    数据库系统
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
                                 </a>
                                 
                                 
@@ -759,13 +796,13 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/04/mou-pao-pai-xu/">
+                    <a href="/2020/07/09/dubbo-he-zookeeper-de-guan-xi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="冒泡排序">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Dubbo和zookeeper的关系">
                             
-                            <span class="card-title">冒泡排序</span>
+                            <span class="card-title">Dubbo和zookeeper的关系</span>
                         </div>
                     </a>
 
@@ -774,28 +811,20 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
                             
                                 
 
-文章目录
-基本原理
-代码实现
-
-基础实现
-优化代码
-
-
-
-基本原理将序列当中的左右元素，依次比较，如果左边的元素大于右边元素则交换位置，保证右边的元素始终大于左边的元素;( 第一轮结束后，序列最后一个元素一定是当前序列的最大值;)对序列
+QAQ简单来说打个比方：dubbo就是动物园的动物，zookeeper是动物园。如果游客想看动物的话那么就去动物园看。比如你要看老虎，那么动物园有你才能看到。
+换句话说我们把很多不同的dubbo（动物）放到zookeeper（动物园中）
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-09
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
                                 </a>
                                 
                                 
@@ -809,13 +838,13 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/04/xuan-ze-pai-xu/">
+                    <a href="/2020/07/08/zookeeper-cli/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="选择排序">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Zookeeper CLI">
                             
-                            <span class="card-title">选择排序</span>
+                            <span class="card-title">Zookeeper CLI</span>
                         </div>
                     </a>
 
@@ -824,24 +853,19 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
                             
                                 
 
-文章目录
-基本思想
-时间复杂度
-代码实现
-
-基本思想给定一组记录，经过第一轮比较后得到最小的值，并将其与数组第一个位置的元素进行交换，接着从数组第二个位置的元素开始与其余元素比较，求出最大值，与数组第二个位置的元素交换位置，以此类推。直
+文章目录ZooKeeper命令行界面（CLI）用于与ZooKeeper集合进行交互以进行开发。它有助于调试和解决不同的选项。要执行ZooKeeper CLI操作，首先打开ZooKeeper服务器（“bin/zkServer.sh sta
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
                                 </a>
                                 
                                 
@@ -855,13 +879,13 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/06/03/js-zhong-she-zhi-window.location.href-tiao-zhuan-wu-xiao-zai-a-biao-qian-li-huo-zhe-form-biao-dan-li/">
+                    <a href="/2020/07/08/zookeeper-an-zhuang-ji-qi-dong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="JS中设置window.location.href跳转无效(在a标签里或这form表单里)">
+                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Zookeeper 安装及启动">
                             
-                            <span class="card-title">JS中设置window.location.href跳转无效(在a标签里或这form表单里)</span>
+                            <span class="card-title">Zookeeper 安装及启动</span>
                         </div>
                     </a>
 
@@ -870,23 +894,30 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
                             
                                 
 
-文章目录代码如下：
- &lt;li>&lt;a href="myblog.html" onclick="checkLogin()">博客管理&lt;/a>&lt;/li>
+Zookeeper 安装
+安装
 
- function checkLogin() {
-      
+集群搭建
+
+
+启动
+配置解读
+
+安装1、安装好java环境
+2、下载zookeeper，传到Linux，并且解压到自定义文件夹下
+3、重命名zookeeper的配置文件：zoo_sample.cfg改名
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E5%89%8D%E7%AB%AF/" class="post-category">
-                                    前端
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
                                 </a>
                                 
                                 
@@ -895,49 +926,13 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
                     </div>
 
                     
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/06/03/qian-duan-huo-qu-hou-duan-ding-yi-cookie-de-can-shu-qian-duan-huo-qu-url-hou-can-shu-de-zhi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="前端获取后端定义Cookie的参数|前端获取URL?后参数的值">
-                            
-                            <span class="card-title">前端获取后端定义Cookie的参数|前端获取URL?后参数的值</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-        //获取cookie中的参数
-        function getCookiesPbyName(s) {
-            var strcookie = document.cookie;
-          
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/JavaWeb/" class="post-category">
-                                    JavaWeb
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/zookeeper/">
+                            <span class="chip bg-color">zookeeper</span>
+                        </a>
+                        
                     </div>
-
                     
                 </div>
             </div>
@@ -959,7 +954,7 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">61 / 69</div>
+            <div class="center-align b-text-gray">61 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -990,7 +985,7 @@ this()调用的是Person自己的无参构造方法，this.name访问的是Per
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/08/28/dai-ma-shi-xian-hua-dong-chuang-kou-xian-liu/">
+                    <a href="/2021/10/31/netty-gao-ji-you-hua/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="代码实现滑动窗口限流">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Netty高级优化">
                             
-                            <span class="card-title">代码实现滑动窗口限流</span>
+                            <span class="card-title">Netty高级优化</span>
                         </div>
                     </a>
 
@@ -380,28 +380,29 @@
                             
                                 
 
-代码实现滑动窗口限流
-代码
-思路
+Netty高级优化
+使用EventLoop的任务调度
+减少ChannelPipline的调用长度
+减少ChannelHandler的创建
+BOSS与Worker线程配置优化
 
-代码package 限流;
+BOSS线程优化
+Worker（I/O）线程池优化
 
-import java.time.LocalTime;
-import java.util.LinkedList;
-import java.util.List;
-impor
+
+线程
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-31
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/java/" class="post-category">
-                                    java
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -412,8 +413,8 @@ impor
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                            <span class="chip bg-color">滑动窗口</span>
+                        <a href="/tags/netty/">
+                            <span class="chip bg-color">netty</span>
                         </a>
                         
                     </div>
@@ -423,13 +424,13 @@ impor
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/08/23/hashmap-kuo-rong-yi-ji-concurrenthashmap-kuo-rong-ji-zhi/">
+                    <a href="/2021/10/31/xue-xi-netty-shi-gou-jian-de-demo/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="HashMap扩容以及ConcurrentHashMap扩容机制">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="学习Netty时构建的demo">
                             
-                            <span class="card-title">HashMap扩容以及ConcurrentHashMap扩容机制</span>
+                            <span class="card-title">学习Netty时构建的demo</span>
                         </div>
                     </a>
 
@@ -438,35 +439,20 @@ impor
                             
                                 
 
-HashMap扩容以及ConcurrentHashMap扩容机制
-HashMap
+详情见github
 
-1.7
-1.8
-
-
-ConcurrentHashMap
-
-1.7
-1.8
-
-
-
-HashMap1.7
-
-void transfer(Entry[] ne
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-31
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/java/" class="post-category">
-                                    java
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -475,18 +461,26 @@ void transfer(Entry[] ne
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/netty/">
+                            <span class="chip bg-color">netty</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/08/16/yi-zhi-xing-hash-suan-fa/">
+                    <a href="/2021/10/31/shen-ru-pou-xi-he-xin-bytebuf-huan-chong-qu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="一致性hash算法">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="深入剖析核心ByteBuf缓冲区">
                             
-                            <span class="card-title">一致性hash算法</span>
+                            <span class="card-title">深入剖析核心ByteBuf缓冲区</span>
                         </div>
                     </a>
 
@@ -495,32 +489,35 @@ void transfer(Entry[] ne
                             
                                 
 
-一致性hash算法
-前置场景
+深入剖析核心ByteBuf缓冲区
+工作原理
+索引指针详解
+缓冲区的使用
 
-出现的问题
+读取操作
+写入操作
+丢弃处理
+清理功能
+缓冲区使用模式
+ByteBuf 的分配
+ByteBuf的释放
+小结
 
 
-一致性hash算法
 
-优点
-hash环的偏斜
-
-
-
-前置场景在没有一致性hash算法之前，我们会遇到这种场景，假如现在有三张图片，要均匀的存放在三台缓存服务器上去，那么我们会以图片名为ke
+工作原理Java NIO 提供了ByteBuff
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-31
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                                <a href="/categories/Netty/" class="post-category">
+                                    Netty
                                 </a>
                                 
                                 
@@ -529,18 +526,26 @@ hash环的偏斜
                     </div>
 
                     
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/netty/">
+                            <span class="chip bg-color">netty</span>
+                        </a>
+                        
+                    </div>
+                    
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/08/06/xiao-bai-shu-shi-du-wen-ti/">
+                    <a href="/2021/10/28/hu-lian-wang-jia-gou-yan-bian-guo-cheng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="小白鼠试毒问题">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="互联网架构演变过程">
                             
-                            <span class="card-title">小白鼠试毒问题</span>
+                            <span class="card-title">互联网架构演变过程</span>
                         </div>
                     </a>
 
@@ -549,17 +554,45 @@ hash环的偏斜
                             
                                 
 
-小白鼠试毒问题
-问题描述
-解决思路
+互联网架构演变过程
+业务架构
 
-问题描述有30瓶酒（在面试问题中往往基数更大），其中一瓶有毒，喝了之后一周以后就会毒发死亡，请问最少用多少只老鼠可以得到有毒的那瓶酒
-解决思路先说一下答案：2^5=32&gt;30；所以最少需要5只
+单体模式
+中台战略
+
+业务中台
+技术中台
+数据中台
+服务接入层
+
+
+
+
+数据架构
+
+单数据库
+主从读写
+分库分表
+高速缓存
+数据多样化
+
+
+应用架构
+
+单机调优
+动静分离
+分布式
+微服务
+
+
+部署架构
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-28
                             </span>
                             <span class="publish-author">
                                 
@@ -575,63 +608,26 @@ hash环的偏斜
                     </div>
 
                     
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/08/03/dui-yi-ge-shu-zu-jin-xing-pai-xu-de-xiao-keng/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="对一个数组进行排序的小坑">
-                            
-                            <span class="card-title">对一个数组进行排序的小坑</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-对一个数组进行排序的小坑今天写题需要对两个数组进行比较，第一个数组是无序的。第二个数组是对第一个数组进行排序的。但是我最开始的写法是
-int[] numSort=nums;
-Arrays.sort(numSort);
-
-这种操作同时也会
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%9E%B6%E6%9E%84/">
+                            <span class="chip bg-color">架构</span>
+                        </a>
+                        
                     </div>
-
                     
                 </div>
             </div>
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/08/02/dijkstra-suan-fa/">
+                    <a href="/2021/10/25/zk-suan-fa-ji-chu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Dijkstra算法">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="zk算法基础">
                             
-                            <span class="card-title">Dijkstra算法</span>
+                            <span class="card-title">zk算法基础</span>
                         </div>
                     </a>
 
@@ -640,293 +636,40 @@ Arrays.sort(numSort);
                             
                                 
 
-Dijkstra算法
-适用场景
+zk算法基础
+拜占庭将军问题
+Paxos算法
+
+算法概述
 算法流程
-落地实现需要的数据结构
 
-适用场景单源最短路问题可以使用 Dijkstra 算法。例如lc743.网络延迟时间
-算法流程
- 首先，Dijkstra 算法需要从当前全部未确定最短路的点中，找到距离
+情况1
+情况2
+情况3
+
+
+
+
+ZAB协议
+
+概念
+简介
+
+
+
+拜占庭将军问题拜占庭将军问题是一个协议问题，拜占庭帝国军队的将军们必须全体一致的决定是否攻击某一支敌军
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-25
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/26/java-zhong-nextint-hou-jie-nextline-hui-du-dao-yi-ge-kong-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Java中nextInt()后，接nextLine() 会读到一个空行">
-                            
-                            <span class="card-title">Java中nextInt()后，接nextLine() 会读到一个空行</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-昨天pdd笔试一直卡在输入？就是这个问题：Java中nextInt()后，接nextLine() 会读到一个空行
-原因（太长可以忽略直接看解决）：这是因为在调用nextLine()函数前调用了Scanner的另一个函数nextInt()
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-26
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/16/guan-yu-zhi-jie-xiu-gai-list-ji-he-yuan-su-de-ji-chong-qing-kuang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="关于直接修改list集合元素的几种情况">
-                            
-                            <span class="card-title">关于直接修改list集合元素的几种情况</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-关于直接修改list集合元素的几种情况
-问题产生以及复现
-结论
-
-问题产生以及复现在刷题的时候发现了一行代码
-list.get(list.size()-1)[1]=Math.max(intervals[i][1],list.get(li
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/07/method-threw-java.lang.nullpointerexception-exception.cannot-evaluate-com.sun.proxy.xxx/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Method threw ‘java.lang.NullPointerException‘ exception. Cannot evaluate com.sun.proxy.xxx">
-                            
-                            <span class="card-title">Method threw ‘java.lang.NullPointerException‘ exception. Cannot evaluate com.sun.proxy.xxx</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-我在debug的时候发现会出现 Method threw 'java.lang.NullPointerException' exception. Cannot evaluate com.sun.proxy.$Proxy0.toStrin
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-07
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/04/maven-yi-jing-dao-ru-liao-mo-kuai-zuo-biao-dan-shi-yi-ran-wu-fa-shi-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="maven已经导入了模块坐标，但是依然无法使用">
-                            
-                            <span class="card-title">maven已经导入了模块坐标，但是依然无法使用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-现象：已经在pom.xml中引入了gav坐标，但是另一个项目的文件依然无法import
-解决：原来的项目没有包，加一个包就好了
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/07/03/google-protobuf/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Google Protobuf">
-                            
-                            <span class="card-title">Google Protobuf</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Google Protobuf
-编码和解码的基本介绍
-为什么要有 Google Protobuf？
-Protobuf
-使用步骤
-
-编码和解码的基本介绍编写网络应用程序时，因为数据在网络中传输的都是二进制字节码数据，在发送数据时就需要编码
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Netty/" class="post-category">
-                                    Netty
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/30/netty-he-xin-mo-kuai-zu-jian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Netty 核心模块组件">
-                            
-                            <span class="card-title">Netty 核心模块组件</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Netty 核心模块组件
-
-Bootstrap、ServerBootstrap
-Future、ChannelFuture
-Channel
-Selector
-ChannelHandler 及其实现类
-Pipeline /ChannelPi
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-30
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Netty/" class="post-category">
-                                    Netty
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
                                 </a>
                                 
                                 
@@ -937,8 +680,412 @@ Pipeline /ChannelPi
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/java/">
-                            <span class="chip bg-color">java</span>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/24/fu-wu-qi-dong-tai-shang-xia-xian-jian-ting-an-li/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="服务器动态上下线监听案例">
+                            
+                            <span class="card-title">服务器动态上下线监听案例</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+服务器动态上下线监听案例
+需求
+具体实现
+测试
+
+需求某分布式系统中，主节点可以有多台，可以动态上下线，任意一台客户端都能实时感知到主节点服务器的上下线。其实本质就是节点的创建和移除。
+具体实现1、先在集群上创建/servers 节点2
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-24
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">1024程序员节</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/23/ke-hu-duan-xiang-fu-wu-duan-xie-shu-ju-liu-cheng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="客户端向服务端写数据流程">
+                            
+                            <span class="card-title">客户端向服务端写数据流程</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+客户端向服务端写数据流程
+写流程之写入请求直接发送给Leader节点
+写流程之写入请求发送给follower节点
+
+写流程之写入请求直接发送给Leader节点可以发现在leader同步给第一个follower时就给client返回ack
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/zookeeper-%E5%88%86%E5%B8%83%E5%BC%8F-%E4%BA%91%E5%8E%9F%E7%94%9F/">
+                            <span class="chip bg-color">zookeeper 分布式 云原生</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/23/zk-ji-qun-qi-dong-ting-zhi-jiao-ben/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="ZK 集群启动停止脚本">
+                            
+                            <span class="card-title">ZK 集群启动停止脚本</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+ZK 集群启动停止脚本
+编写
+
+之所以想写一个启动脚本，是因为假如我们集群中有一百台zk，那么每次停止都要跑到每台zk的bin目录下执行stop命令，很是麻烦。
+编写1.在某台安装了zk的服务器的某个目录下创建一个zk.sh执行脚本2.
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/zookeeper/" class="post-category">
+                                    zookeeper
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/linux-%E8%BF%90%E7%BB%B4-%E6%9C%8D%E5%8A%A1%E5%99%A8-1024%E7%A8%8B%E5%BA%8F%E5%91%98%E8%8A%82/">
+                            <span class="chip bg-color">linux 运维 服务器 1024程序员节</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/05/mycat-de-pei-zhi-wen-jian-jiang-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="mycat的配置文件讲解">
+                            
+                            <span class="card-title">mycat的配置文件讲解</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+mycat的配置文件讲解
+schema.xml文件
+
+
+1、schema标签
+2、table标签
+3、childTable标签
+4、dataNode标签
+5、dataHost标签
+6、heartbeat标签
+
+
+
+
+server.xml
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyCat/" class="post-category">
+                                    MyCat
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-sql/">
+                            <span class="chip bg-color">数据库 sql</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/05/mycat-de-shi-yong/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="mycat的使用">
+                            
+                            <span class="card-title">mycat的使用</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+mycat的使用
+读写分离
+数据切分
+
+1、垂直切分
+2、水平切分
+3、总结
+
+
+
+读写分离通过mycat和mysql的主从复制配合搭建数据库的读写分离，可以实现mysql的高可用性，下面我们来搭建mysql的读写分离。
+详细见这里
+数
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyCat/" class="post-category">
+                                    MyCat
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                            <span class="chip bg-color">mysql 数据库</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/05/mycat-de-an-zhuang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="mycat的安装">
+                            
+                            <span class="card-title">mycat的安装</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+mycat的安装
+环境准备
+MyCat的安装
+
+环境准备本次安装环境为CentOS7.3。如果你要使用MyCat，那么首先要在你的机器上安装Mysql和JDK。
+MyCat的安装从官网下载需要的安装包，并且上传到具体的虚拟机中进行解压缩
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyCat/" class="post-category">
+                                    MyCat
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mysql-linux/">
+                            <span class="chip bg-color">mysql linux</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/10/05/mycat-de-ji-ben-jie-shao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="mycat的基本介绍">
+                            
+                            <span class="card-title">mycat的基本介绍</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+mycat的基本介绍
+前置知识
+
+分布式数据库
+分布式数据库的实现原理
+OLTP和OLAP
+
+
+mycat的基本介绍
+
+mycat是什么
+mycat的原理
+应用场景
+为什么使用mycat、与其余数据库中间件的对比
+
+
+mycat的核心概
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/MyCat/" class="post-category">
+                                    MyCat
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93-big-data-memcached/">
+                            <span class="chip bg-color">数据库 big data memcached</span>
                         </a>
                         
                     </div>
@@ -963,7 +1110,7 @@ Pipeline /ChannelPi
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">13 / 69</div>
+            <div class="center-align b-text-gray">13 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -994,7 +1141,7 @@ Pipeline /ChannelPi
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

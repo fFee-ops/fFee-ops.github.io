@@ -365,31 +365,25 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/springboot-zheng-he-jedis/">
+                    <a href="/2020/09/06/guo-qi-shan-chu-ce-lue-nei-cun-tao-tai-ce-lue/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="SpringBoot整合Jedis">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="过期删除策略&amp;内存淘汰策略">
                             
-                            <span class="card-title">SpringBoot整合Jedis</span>
+                            <span class="card-title">过期删除策略&amp;内存淘汰策略</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                
-
-文章目录
-Jedis操作String类型
-Jedis操作Hash类型
-
-我们在使用springboot搭建微服务的时候，在很多时候还是需要redis的高速缓存来缓存一些数据，存储一些高频率访问的数据，如果直接使用redis的话又比较麻烦
+                                1. 问题分析①、如何设置Redis键的过期时间？②、设置完一个键的过期时间后，到了这个时间，这个键还能获取到么？假如获取不到那这个键还占据着内存吗？③、如何设置Redis的内存大小？当内存满了之后，Redis有哪些内存淘汰策略？我们又该如
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-06
                             </span>
                             <span class="publish-author">
                                 
@@ -410,13 +404,56 @@ Jedis操作Hash类型
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/21/idea-dan-yuan-ce-shi-ju-e-xin-de-keng/">
+                    <a href="/2020/09/06/redis-shi-wu/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="IDEA单元测试巨恶心的坑">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="Redis事务">
                             
-                            <span class="card-title">IDEA单元测试巨恶心的坑</span>
+                            <span class="card-title">Redis事务</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 简介Redis 事务的本质是一组命令的集合
+
+Redis的事务是通过multi、exec、discard和watch这四个命令来完成的。
+Redis的单个命令都是原子性的，所以这里需要确保事务性的对象是命令集合。
+Redis将命令集合
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/06/redis-duo-shu-ju-ku/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Redis多数据库">
+                            
+                            <span class="card-title">Redis多数据库</span>
                         </div>
                     </a>
 
@@ -425,14 +462,336 @@ Jedis操作Hash类型
                             
                                 
 
-今天用idea单元测试，一直卡在resolving dependencies。网上各种办法查询都无效。
-最后解决的办法如下：1、我最开始没有在springboot启动选项里面选择junit模块。于是在pom文件中添加如下依赖
-     
+Redis多数据库Redis下，数据库是由一个整数索引标识，而不是由一个数据库名称。默认情况下，一个客户端连接到数据库0。
+redis配置文件中下面的参数来控制数据库总数： database 16 //(从0开始 1 2 3 …15)
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/06/redis-fa-bu-ding-yue/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Redis发布订阅">
+                            
+                            <span class="card-title">Redis发布订阅</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Redis发布订阅
+简介
+常用命令
+应用场景
+
+简介Redis 发布订阅(pub/sub)是一种消息通信模式：发送者(pub)发送消息，订阅者(sub)接收消息。 Redis 客户端可以订阅任意数量的频道。
+
+下图展示了频道 chann
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-06
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/11/redis-lei-xing-zhi-hyperloglog/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="hyperloglog">
+                            
+                            <span class="card-title">hyperloglog</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+文章目录
+简介
+为什么需要HyperLoglog
+常用命令
+应用场景
+总结
+
+简介Redis 在 2.8.9 版本添加了 HyperLogLog 结构。Redis HyperLogLog 是用来做基数统计的算法，HyperLogLog 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/11/zset/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="ZSet">
+                            
+                            <span class="card-title">ZSet</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+…
+简介
+常用命令
+应用场景
+使用lettuce操作ZSet
+
+简介1、Redis 有序集合和集合一样也是string类型元素的集合,且不允许重复的成员。2、不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/05/set-lei-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Set类型">
+                            
+                            <span class="card-title">Set类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+= =
+命令
+应用场景
+RedisTemplate操作Set
+
+Redis 的 Set 是 String 类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。Redis 中集合是通过哈希表实现的，set是通过hasht
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/08/05/list-lei-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="List类型">
+                            
+                            <span class="card-title">List类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+~~
+常用命令
+应用场景
+RedisTemplate操作List
+
+List类型是一个链表结构的集合，其主要功能有push、pop、获取元素等。更详细的说，List类型是一个双端链表的节点，可以通过相关的操作进行集合的头部或者尾部添加和
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/25/ji-yu-redis-shi-xian-xian-zhi-deng-lu-gong-neng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="基于Redis实现限制登录功能">
+                            
+                            <span class="card-title">基于Redis实现限制登录功能</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+title
+具体代码实现
+
+需求：用户在2分钟内，仅允许输入错误密码5次。如果超过次数，限制其登录1小时。（要求每登录失败时，都要给相应提式）
+思路：**1、**判断当前登录的用户是否被限制登录&nbsp;&nbsp;&nbsp;&nb
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/07/23/shi-yong-redistemplate-bao-cuo-err-value-is-not-an-integer-or-out-of-range/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用RedisTemplate报错ERR value is not an integer or out of range">
+                            
+                            <span class="card-title">使用RedisTemplate报错ERR value is not an integer or out of range</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+在用RedisTemplate时候报错ERR value is not an integer or out of range,经过排查发现是RedisTemplate操作自增时侯报错。
+redisTemplate.opsForValue
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
                             </span>
                             <span class="publish-author">
                                 
@@ -453,13 +812,13 @@ Jedis操作Hash类型
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/20/idea-chuang-jian-springboot-xiang-mu-maven-yi-lai-chu-cuo/">
+                    <a href="/2020/07/23/java.lang.string-cannot-be-cast-to-java.lang.integer/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="idea创建Springboot项目MAVEN依赖出错">
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="java.lang.String cannot be cast to java.lang.Integer">
                             
-                            <span class="card-title">idea创建Springboot项目MAVEN依赖出错</span>
+                            <span class="card-title">java.lang.String cannot be cast to java.lang.Integer</span>
                         </div>
                     </a>
 
@@ -468,15 +827,13 @@ Jedis操作Hash类型
                             
                                 
 
-今天新建一个spring boot项目，其中的
-&lt;plugin>
-&lt;groupId>org.springframework.boot&lt;/groupId>
-&lt;artifactId>spring-boot-maven
+今天在将string 转为int类型时候报错：java.lang.String cannot be cast to java.lang.Integer
+原因：在将String类型强制转换成Integer时语法没错，但是在编译的时候会报j
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
                             </span>
                             <span class="publish-author">
                                 
@@ -497,13 +854,13 @@ Jedis操作Hash类型
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/19/chang-yong-ming-ling/">
+                    <a href="/2020/07/23/thyme-leaf-bu-neng-zhi-jie-fang-wen-templates-xia-de-html-ye-mian/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="常用命令">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="thyme leaf不能直接访问templates下的html页面">
                             
-                            <span class="card-title">常用命令</span>
+                            <span class="card-title">thyme leaf不能直接访问templates下的html页面</span>
                         </div>
                     </a>
 
@@ -512,404 +869,15 @@ Jedis操作Hash类型
                             
                                 
 
-文章目录Redis支持五种数据类型：string（字符串），hash（哈希），list（列表），set（集合）及zset(sorted set：有序集合)等
-keys * : 返回满足的所有键 ,可以模糊匹配 比如 keys abc* 
+搞忘了，要通过controller来跳转到html页面，不能直接访问templates下的html页面
+比如要到达index2.html
+则在controller中
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/18/redis-an-zhuang-qi-dong-guan-bi-pei-zhi-xiang-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Redis 安装、启动、关闭、配置详解">
-                            
-                            <span class="card-title">Redis 安装、启动、关闭、配置详解</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-Redis安装
-redis启动
-
-简单启动
-高级启动
-
-
-Redis配置详解
-
-自定义配置Redis
-
-
-Redis中的内存维护策略
-Redis关闭
-
-Redis安装Redis是C语言开发，安装Redis需要先将官网下载的源码
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/18/redis-jian-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Redis简介">
-                            
-                            <span class="card-title">Redis简介</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-1. 什么是RedisRedis 是完全开源免费的，遵守BSD协议，是一个高性能(NOSQL)的key-value数据库,Redis是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/17/suo-ji-zhi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="锁机制">
-                            
-                            <span class="card-title">锁机制</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-分类
-示例
-
-1、表锁
-MySQL表级锁的锁模式
-
-分析表锁定
-
-
-2、行锁
-
-行锁分析
-
-
-
-
-
-解决因资源共享 而造成的并发问题。
-分类操作类型：a.读锁（共享锁）： 对同一个数据（衣服），多个读操作可以同时进行，互不干扰
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/16/fen-xi-hai-liang-shu-ju/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="分析海量数据">
-                            
-                            <span class="card-title">分析海量数据</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-模拟海量数据
-分析海量数据
-
-模拟海量数据通过 存储过程（无return）/存储函数（有return）来模拟。
-create database testdata ;
-use testdata
-
-create table dep
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/16/man-sql-pai-cha/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="慢SQL排查">
-                            
-                            <span class="card-title">慢SQL排查</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-慢查询日志
-慢查询阀值：
-查询超过阀值的SQL
-
-慢查询日志慢查询日志:MySQL提供的一种日志记录，用于记录MySQL种响应时间超过阀值的SQL语句 （long_query_time，默认10秒）
-慢查询日志默认是关闭的；建
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/16/bi-mian-suo-yin-shi-xiao-de-yi-xie-yuan-ze/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="避免索引失效的一些原则">
-                            
-                            <span class="card-title">避免索引失效的一些原则</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录1、复合索引a.复合索引，不要跨列或无序使用（最佳左前缀）b.复合索引，尽量使用全索引匹配
-2、不要在索引上进行任何操作（计算、函数、类型转换），否则索引失效例如
-select ..where A.x = .. ;  --假设A
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/15/you-hua-an-li/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="优化案例">
-                            
-                            <span class="card-title">优化案例</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-文章目录
-单表优化
-两表优化
-三张表优化A B C
-
-单表优化准备数据：
-create table book
-(
-    bid int(4) primary key,
-    name varchar(20) not null,
-  
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/11/unknown-column-entrytime-in-field-list/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Unknown column ‘EntryTime‘ in ‘field list‘">
-                            
-                            <span class="card-title">Unknown column ‘EntryTime‘ in ‘field list‘</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-今天在写一个Demo时候，一直往数据库插入不进去数据。持续报错
-Unknown column ‘EntryTime’ in ‘field list’
-经过检查，是数据库EntryTime字段前面多了个空格。应该是建表的时候不小心加上了…
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
                             </span>
                             <span class="publish-author">
                                 
@@ -945,7 +913,7 @@ Unknown column ‘EntryTime’ in ‘field list’
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">59 / 69</div>
+            <div class="center-align b-text-gray">59 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -976,7 +944,7 @@ Unknown column ‘EntryTime’ in ‘field list’
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

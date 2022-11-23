@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/08/11/redis-lei-xing-zhi-hyperloglog/">
+                    <a href="/2020/09/13/bing-xing-he-bing-fa-de-qu-bie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="hyperloglog">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="并行和并发的区别">
                             
-                            <span class="card-title">hyperloglog</span>
+                            <span class="card-title">并行和并发的区别</span>
                         </div>
                     </a>
 
@@ -380,378 +380,17 @@
                             
                                 
 
-文章目录
-简介
-为什么需要HyperLoglog
-常用命令
-应用场景
-总结
+并行和并发的区别
+并发（concurrency）：
+并行（parallel）：
 
-简介Redis 在 2.8.9 版本添加了 HyperLogLog 结构。Redis HyperLogLog 是用来做基数统计的算法，HyperLogLog 
+简单理解并发：一个处理器可以同时处理多个任务。这是逻辑上的同时发生。并行：多个处理器同时处理多个不同的任务。这是物理上的同时发生。
+有一个清晰地比喻：并发
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/11/zset/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="ZSet">
-                            
-                            <span class="card-title">ZSet</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-…
-简介
-常用命令
-应用场景
-使用lettuce操作ZSet
-
-简介1、Redis 有序集合和集合一样也是string类型元素的集合,且不允许重复的成员。2、不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-11
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/05/set-lei-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Set类型">
-                            
-                            <span class="card-title">Set类型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-= =
-命令
-应用场景
-RedisTemplate操作Set
-
-Redis 的 Set 是 String 类型的无序集合。集合成员是唯一的，这就意味着集合中不能出现重复的数据。Redis 中集合是通过哈希表实现的，set是通过hasht
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/08/05/list-lei-xing/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="List类型">
-                            
-                            <span class="card-title">List类型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-~~
-常用命令
-应用场景
-RedisTemplate操作List
-
-List类型是一个链表结构的集合，其主要功能有push、pop、获取元素等。更详细的说，List类型是一个双端链表的节点，可以通过相关的操作进行集合的头部或者尾部添加和
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-08-05
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/25/ji-yu-redis-shi-xian-xian-zhi-deng-lu-gong-neng/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="基于Redis实现限制登录功能">
-                            
-                            <span class="card-title">基于Redis实现限制登录功能</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-title
-具体代码实现
-
-需求：用户在2分钟内，仅允许输入错误密码5次。如果超过次数，限制其登录1小时。（要求每登录失败时，都要给相应提式）
-思路：**1、**判断当前登录的用户是否被限制登录&nbsp;&nbsp;&nbsp;&nb
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-25
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/23/shi-yong-redistemplate-bao-cuo-err-value-is-not-an-integer-or-out-of-range/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="使用RedisTemplate报错ERR value is not an integer or out of range">
-                            
-                            <span class="card-title">使用RedisTemplate报错ERR value is not an integer or out of range</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-在用RedisTemplate时候报错ERR value is not an integer or out of range,经过排查发现是RedisTemplate操作自增时侯报错。
-redisTemplate.opsForValue
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/23/java.lang.string-cannot-be-cast-to-java.lang.integer/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="java.lang.String cannot be cast to java.lang.Integer">
-                            
-                            <span class="card-title">java.lang.String cannot be cast to java.lang.Integer</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-今天在将string 转为int类型时候报错：java.lang.String cannot be cast to java.lang.Integer
-原因：在将String类型强制转换成Integer时语法没错，但是在编译的时候会报j
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/23/thyme-leaf-bu-neng-zhi-jie-fang-wen-templates-xia-de-html-ye-mian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="thyme leaf不能直接访问templates下的html页面">
-                            
-                            <span class="card-title">thyme leaf不能直接访问templates下的html页面</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-搞忘了，要通过controller来跳转到html页面，不能直接访问templates下的html页面
-比如要到达index2.html
-则在controller中
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-23
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/07/22/javamail-fa-song-you-jian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="JavaMail发送邮件">
-                            
-                            <span class="card-title">JavaMail发送邮件</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-package com.java_lettuce.Util;
-
-import java.util.Properties;
-
-import javax.mail.Address;
-import javax.mail.Message;
-im
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-13
                             </span>
                             <span class="publish-author">
                                 
@@ -772,13 +411,13 @@ im
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/ji-yu-redis-shi-xian-you-xiang-fa-song-yan-zheng-ma-gong-neng/">
+                    <a href="/2020/09/13/yun-xing-shi-shu-ju-qu-gai-shu-ji-xian-cheng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="基于Redis实现邮箱发送验证码功能">
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="运行时数据区概述及线程">
                             
-                            <span class="card-title">基于Redis实现邮箱发送验证码功能</span>
+                            <span class="card-title">运行时数据区概述及线程</span>
                         </div>
                     </a>
 
@@ -787,23 +426,23 @@ im
                             
                                 
 
-title需求：用户在客户端输入邮箱，点击发送后随机生成4位数字码。有效期为40秒。输入验证码，点击验证，返回成功或者失败。
+运行时数据区概述及线程
+概述
+线程
 
-前端页面
-&lt;!DOCTYPE html>
-&lt;html lang="en" xmlns:th="h
+概述内存是非常重要的系统资源,是硬盘和CPU的中间仓库及桥梁,承载着操作系统和应用程序的实时运行。JVM内存布局规定了Java在运行过程中内存申请、分配、管理的策略,保证了JVM的高效稳定运行。不同
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-13
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Redis/" class="post-category">
-                                    Redis
+                                <a href="/categories/JVM%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="post-category">
+                                    JVM底层原理
                                 </a>
                                 
                                 
@@ -817,13 +456,13 @@ title需求：用户在客户端输入邮箱，点击发送后随机生成4位�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/idea-yin-ru-wai-bu-jquery-wen-jian-reng-ran-xian-shi-unresolved-function-or-method/">
+                    <a href="/2020/09/10/lei-jia-zai-zi-xi-tong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="IDEA引入外部jquery文件“$“仍然显示Unresolved function or method $()">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="类加载子系统">
                             
-                            <span class="card-title">IDEA引入外部jquery文件“$“仍然显示Unresolved function or method $()</span>
+                            <span class="card-title">类加载子系统</span>
                         </div>
                     </a>
 
@@ -832,19 +471,144 @@ title需求：用户在客户端输入邮箱，点击发送后随机生成4位�
                             
                                 
 
-问题：
-今天准备写一个新的测试页面，然后从外部引入jQuery文件。
+类加载子系统
+类加载器与类的加载过程
+
+类加载器ClassLoader角色
+类的加载过程
 
 
-但是当我去写jQuery语法时候，”$“仍然显示Unresolved function or method $()。
+类加载器的分类
+
+关于ClassLoader
 
 
-原因： 我引入的是jQuery.min文
+双亲委派机制
+
+
+沙箱安全机制
+
+
+
+
+其它
+
+对类加载器的引用
+类的主动使用和被动使用
+
+
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/JVM%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="post-category">
+                                    JVM底层原理
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/10/jvm-jian-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="JVM简介">
+                            
+                            <span class="card-title">JVM简介</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+JVM简介
+java跨平台的语言
+
+Java代码执行流程
+
+
+JVM跨语言的平台
+
+字节码
+
+
+虚拟机与java虚拟机
+
+虚拟机
+java虚拟机
+
+
+JVM的位置
+JVM的整体结构
+JVM架构模型
+JVM的生命周期
+
+java跨平台的语
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-10
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/JVM%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="post-category">
+                                    JVM底层原理
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/09/mybatis-bao-cuo-parameter-index-out-of-range-1-number-of-parameters-which-is-0/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="mybatis报错 Parameter index out of range (1 ＞ number of parameters, which is 0)">
+                            
+                            <span class="card-title">mybatis报错 Parameter index out of range (1 ＞ number of parameters, which is 0)</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+在Mybatis的Mapper文件中的sql涉及 like语句：
+在Mybatis中Mapper.xml文件中，如果有sql涉及的模糊查询，中间包含like语句时，只能使用$,不能使用#。
+例如：
+select title from a
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-09
                             </span>
                             <span class="publish-author">
                                 
@@ -865,13 +629,13 @@ title需求：用户在客户端输入邮箱，点击发送后随机生成4位�
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/07/22/springboot2.x-zhong-redis-shi-yong-lettuce/">
+                    <a href="/2020/09/09/redis-ji-qun-da-jian/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="SpringBoot2.x中redis使用(lettuce)">
+                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Redis集群搭建">
                             
-                            <span class="card-title">SpringBoot2.x中redis使用(lettuce)</span>
+                            <span class="card-title">Redis集群搭建</span>
                         </div>
                     </a>
 
@@ -880,19 +644,305 @@ title需求：用户在客户端输入邮箱，点击发送后随机生成4位�
                             
                                 
 
-文章目录
-测试String类型
-测试hash类型
+Redis集群搭建
+创建集群步骤
 
-pom.xml中添加如下依赖
-  &lt;!--默认是lettuce客户端-->
-        &lt;dependency>
-            &lt;groupId>org
+可以查看Redis官网查看集群搭建方式，连接如下
+官方手册
+以下步骤是在一台 Linux 服务器上搭建有6个节点的 Redis集群。
+创建集群步骤1、把下载好的redis-5.0.2.tar.gz放在
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-09
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/08/redis-cluster-ji-qun-de-jian-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Redis Cluster集群的简介">
+                            
+                            <span class="card-title">Redis Cluster集群的简介</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 主从 + 哨兵 问题分析（1）在主从 + 哨兵模式中，仍然只有一个Master节点。当并发写请求较大时，哨兵模式并不能缓解写压力（2） 在Redis Sentinel模式中，每个节点需要保存全量数据，冗余比较多
+2. Cluster概
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/08/redis-shao-bing-ji-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Redis哨兵机制">
+                            
+                            <span class="card-title">Redis哨兵机制</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Redis哨兵机制
+前言
+1、哨兵机制简介
+2、哨兵进程的作用
+3、哨兵进程的工作方式
+哨兵机制模拟演示
+相关面试题
+
+1.故障转移时会从剩下的slave选举一个新的master，被选举为master的标准是什么？
+2.执行切换的那个哨
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                            <span class="chip bg-color">redis 数据库</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/08/redis-zhu-cong-fu-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Redis主从复制">
+                            
+                            <span class="card-title">Redis主从复制</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 目前redis面临的问题Redis有 两种不同的持久化方式， Redis 服务器通过持久化，把 Redis 内存中持久化到硬盘当中，当Redis 宕机时，我们重启 Redis 服务器时，可以由 RDB 文件或 AOF 文件恢复内存中的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-08
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/redis-%E6%95%B0%E6%8D%AE%E5%BA%93-%E8%BF%90%E7%BB%B4/">
+                            <span class="chip bg-color">redis 数据库 运维</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/07/re-dian-key/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="热点key">
+                            
+                            <span class="card-title">热点key</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+热点key
+简介
+解决办法
+案例
+
+简介某个key访问非常频繁，当key失效的时候有大量线程来构建缓存，导致负载增加，系统崩溃。（可以理解为新浪微博头条）
+解决办法1 使用锁，单机用synchronized,lock等，分布式用分布式锁
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/07/huan-cun-chuan-tou-yu-xue-beng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="缓存穿透与雪崩">
+                            
+                            <span class="card-title">缓存穿透与雪崩</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+缓存穿透与雪崩
+缓存穿透
+
+简介
+解决办法
+
+
+缓存雪崩
+
+简介
+解决办法
+
+
+
+缓存穿透简介缓存穿透是指查询一个一定不存在的数据，由于缓存不命中时需要从数据库查询，查不到数据则不写入缓存，这将导致这个不存在的数据每次请求都要到数据库去
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-07
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/09/06/redis-chi-jiu-hua/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis持久化">
+                            
+                            <span class="card-title">Redis持久化</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1. 什么是Redis持久化持久化就是把内存的数据写到磁盘中去，防止服务宕机了内存数据丢失。 Redis 提供了两种持久化方式:RDB（默认）和AOFRDB一定时间取存储文件，AOF默认每秒去存储历史命令
+数据存放于：内存：高效、断电（关机
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-06
                             </span>
                             <span class="publish-author">
                                 
@@ -928,7 +978,7 @@ pom.xml中添加如下依赖
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">58 / 69</div>
+            <div class="center-align b-text-gray">58 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -959,7 +1009,7 @@ pom.xml中添加如下依赖
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

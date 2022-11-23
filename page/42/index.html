@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/11/15/jin-cheng-de-zhuang-tai-yu-zhuan-huan/">
+                    <a href="/2020/11/17/du-zhe-xie-zhe-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="进程的状态与转换">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="读者--写者问题">
                             
-                            <span class="card-title">进程的状态与转换</span>
+                            <span class="card-title">读者--写者问题</span>
                         </div>
                     </a>
 
@@ -380,17 +380,499 @@
                             
                                 
 
-进程的状态与转换
-进程的状态
-
-三种基本状态
-另外两种状态
-
-
-进程状态的转换
+读者–写者问题
+问题描述
+问题分析
+如何实现
 总结
 
-进程的状态三种基本状态进程是程序的一次执行。在这个执行过程中,有时进程正在被CPU处理,有时又需要等待CPU服务,可见,进程的状态是会有各种变化。为
+问题描述有读者和写者两组并发进程,共享一个文件,当两个或两个以上的读进程同时访问共享数据时不会产生副作用,但若某个写进程和其他进程(读进程或写进程)同时访问共享数据时则可能导致数据不
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/17/xi-yan-zhe-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="吸烟者问题">
+                            
+                            <span class="card-title">吸烟者问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+吸烟者问题
+问题描述
+问题分析
+如何实现
+总结
+
+问题描述假设一个系统有三个抽烟者进程和一个供应者进程。每个抽烟者不停地卷烟并抽掉它,但是要卷起并抽掉一支烟,抽烟者需要有三种材料:烟草、纸和胶水。三个抽烟者中,第一个拥有烟草第二个拥有纸
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/17/duo-sheng-chan-zhe-duo-xiao-fei-zhe/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="多生产者-多消费者">
+                            
+                            <span class="card-title">多生产者-多消费者</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+多生产者-多消费者
+问题描述
+问题分析
+如何实现
+总结
+
+问题描述桌子上有一只盘子,每次只能向其中放入一个水果。爸爸专向盘子中放苹果,妈妈专向盘子中放橘子,儿子专等着吃盘子中的橘子,女儿专等着吃盘子中的苹果。只有盘子空时,爸爸或妈妈才可
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/17/sheng-chan-zhe-xiao-fei-zhe-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="生产者消费者问题">
+                            
+                            <span class="card-title">生产者消费者问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+生产者消费者问题
+问题描述
+问题分析
+问题解决
+
+拓展思考
+
+
+总结
+
+问题描述系统中有一组生产者进程和一组消费者进程,生产者进程每次生产一个产品放入缓冲区,消费者进程每次从缓冲区中取出一个产品并使用。(注:这里的“产品”理解为某种数据
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/17/yong-xin-hao-liang-ji-zhi-shi-xian-jin-cheng-hu-chi-tong-bu-qian-qu-guan-xi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="用信号量机制实现 进程互斥、同 步、前驱关系">
+                            
+                            <span class="card-title">用信号量机制实现 进程互斥、同 步、前驱关系</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+用信号量机制实现 进程互斥、同 步、前驱关系
+实现进程互斥
+⭐实现进程同步
+实现前驱关系
+总结
+
+实现进程互斥1.分析并发进程的关键活动,划定临界区(如:对临界资源打印机的访问就应放在临界区)2.设置互斥信号量 mutex,初值为13.
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/17/xin-hao-liang-ji-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="信号量机制">
+                            
+                            <span class="card-title">信号量机制</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+信号量机制
+简介
+整形信号量
+记录型信号量
+总结
+
+之前学习的这些进程互斥的解决方案分别存在哪些问题?
+
+进程互斥的三种硬件实现方式(中断屏蔽方法、TS/TSL指令、Swap/XCHG指 )
+进程互斥的四种软件实现方式(单标志法、双标志
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/16/jin-cheng-hu-chi-de-ying-jian-shi-xian-fang-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="进程互斥的硬件实现方法">
+                            
+                            <span class="card-title">进程互斥的硬件实现方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+进程互斥的硬件实现方法
+中断屏蔽方法
+TestAndSet指令
+Swap指令
+总结
+
+中断屏蔽方法利用“开/关中断指令”实现(与原语的实现思想相同,即在某进程开始访问临界区到结束访问为止都不允许被中断,也就不能发生进程切换,因此也不可能
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/16/jin-cheng-hu-chi-de-ruan-jian-shi-xian-fang-fa/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="进程互斥的软件实现方法">
+                            
+                            <span class="card-title">进程互斥的软件实现方法</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+进程互斥的软件实现方法
+单标志法
+双标志先检查法
+双标志后检查法
+Peterson算法
+总结
+
+单标志法算法思想: 两个进程在访冋完临界区后会把使用临界区的权限转交给另一个进程。也就是说每个进程进入临界区的权限只能被另一个进程赋予
+
+t
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/16/jin-cheng-tong-bu-hu-chi-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="进程同步、互斥问题">
+                            
+                            <span class="card-title">进程同步、互斥问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+进程同步、互斥问题
+什么是进程同步
+什么是进程互斥
+总结
+
+什么是进程同步知识点回顾: 进程具有异步性的特征。异步性是指,各并发执行的进程以各自独立的、不可预知的速度向前推进。
+但是有时候操作系统需要有一些进程按照特定的顺序来执行。比如
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/16/diao-du-suan-fa-xiang-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="调度算法详解">
+                            
+                            <span class="card-title">调度算法详解</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+调度算法详解
+适合早期批处理系统的算法
+
+先来先服务(FCFS, First Come First Serve)
+短作业优先( SJF, Shortest Job First）
+高响应比优先(HRRN ，Highest Response
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
+                                    操作系统
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2020/11/15/diao-du-suan-fa-de-ping-jie-zhi-biao/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="调度算法的评价指标">
+                            
+                            <span class="card-title">调度算法的评价指标</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+调度算法的评价指标
+五种指标
+
+CPU利用率
+系统吞吐量
+周转时间
+等待时间
+响应时间
+
+
+总结
+
+五种指标CPU利用率由于早期的CPU造价极其昂贵,因此人们会希望让CPU尽可能多地工作。
+CPU利用率:指CPU“忙碌”的时间占总时间的
                             
                         </div>
                         <div class="publish-info">
@@ -416,13 +898,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2020/11/15/jin-cheng-de-ding-yi-zu-cheng-zu-zhi-fang-shi-te-zheng/">
+                    <a href="/2020/11/15/jin-cheng-diao-du-de-shi-ji-qie-huan-yu-guo-cheng-fang-shi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="进程的定义、组成 、组织方式 、特征">
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="进程调度的时机、切换与过程、方式">
                             
-                            <span class="card-title">进程的定义、组成 、组织方式 、特征</span>
+                            <span class="card-title">进程调度的时机、切换与过程、方式</span>
                         </div>
                     </a>
 
@@ -431,524 +913,19 @@
                             
                                 
 
-进程的定义、组成 、组织方式 、特征
-进程的定义
-进程的组成
-进程的组织
-
-链接方式
-索引方式
-
-
-进程的特征
+进程调度的时机、切换与过程、方式
+进程调度的时机
+进程的切换与过程
 总结
 
-进程的定义程序:就是一个指令序列，早期的计算机(只支持单道程序)引入多道程序技术之后为了方便操作系统管理,完成各程序
+进程调度的时机进程调度(低级调度),就是按照某种算法从就绪队列中选择一个进程为其分配处理机
+
+例题：临界资源： 时间段内只允许一个进程使用的资源。各进程需要互斥
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
                                 <i class="far fa-clock fa-fw icon-date"></i>2020-11-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/15/hexo-bo-ke-de-bei-fen/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hexo博客的备份">
-                            
-                            <span class="card-title">Hexo博客的备份</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-Hexo博客的备份
-前提、机制
-备份博客
-
-创建新分支
-获取 .git文件夹
-.gitignore
-备份
-为啥把hexo作为默认分支
-个人备份习惯
-
-
-恢复博客
-
-克隆项目到本地
-恢复博客
-
-
-
-经过一天的挣扎总算把博客搭建的差不多了。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9D%82/" class="post-category">
-                                    杂
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/14/2020-11-14-xiao-ji/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2020-11-14小记">
-                            
-                            <span class="card-title">2020-11-14小记</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-
-title: 2020-11-14小记date: 2020-11-14 23:04:00author: Sliingcategories: 随笔tags:
-
-Hexo
-
-
-不知道从哪里开始说，就想到哪里说到那里吧。其实之前一直是用的C
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9D%82/" class="post-category">
-                                    杂
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/14/hexo-bu-shu-zhi-neng-ben-di-sou-suo/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="hexo部署，只能本地搜索">
-                            
-                            <span class="card-title">hexo部署，只能本地搜索</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-用hexo搭建博客，hexo-generator-search 作为搜索插件，然后发现只能在自己的电脑上用搜索功能，换别人的电脑或者手机都不行，报下面的错误原因： http不能直接访问https
-解决： 部署的时候用https
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-14
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/13/hexo-gitee-da-jian-bo-ke-neng-fang-wen-dan-wu-fa-jia-zai-css-wen-jian/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="hexo+Gitee搭建博客，能访问但无法加载css文件">
-                            
-                            <span class="card-title">hexo+Gitee搭建博客，能访问但无法加载css文件</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-今天将hexo搭建的博客部署到码云，然后主题样式可以出来，但是图片出不来，
-解决：1、修改hexo中 _config.yml 文件2、root 后面写你 github 仓库的名字，前后斜杠都不能省！我就是省略了仓库后面的/，导致图片出不
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
-                                    踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/13/xi-tong-diao-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="系统调用">
-                            
-                            <span class="card-title">系统调用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-系统调用
-概述和作用
-系统调用与库函数的区别
-系统调用的背后过程
-总结
-
-概述和作用操作系统作为用户和计算机硬件之间的接口,需要向上提供一些简单易用的服务。主要包括命令接口和程序接口。其中程序接口由一组系统调用组成。“系统调用”是操作系
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/12/zhong-duan-he-yi-chang/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="中断和异常">
-                            
-                            <span class="card-title">中断和异常</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-中断和异常
-中断机制的诞生
-中断的概念和作用
-中断的分类
-
-外中断的处理过程
-
-
-总结
-
-中断机制的诞生为了解决上述问题,人们发明了操作系统(作为计算机的管理者),引入中断机制,实现了多道程序并发执行本质: 发生中断就意味着需要操作系统
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/12/cao-zuo-xi-tong-de-yun-xing-ji-zhi-ti-xi-jie-gou/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="操作系统的运行机制、体系结构">
-                            
-                            <span class="card-title">操作系统的运行机制、体系结构</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-操作系统的运行机制、体系结构
-什么是指令
-两种处理器状态
-两种程序
-操作系统的内核
-
-大内核和微内核
-
-
-总结
-
-什么是指令简单来说,“指令”就是处理器(CPU)能识别、执行的最基本命令。比如:加法指令就是让CpU进行加法运算
-指令又分
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/12/cao-zuo-xi-tong-de-fa-zhan-yu-fen-lei/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="操作系统的发展与分类">
-                            
-                            <span class="card-title">操作系统的发展与分类</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-操作系统的发展与分类
-手工操作阶段
-单道批处理系统
-多道批处理系统
-分时操作系统
-实时操作系统
-其他几种操作系统
-总结
-
-手工操作阶段主要缺点:用户独占全机、人机速度矛盾导致资源利用率极低
-单道批处理系统主要优点: 缓解了一定程度的人机
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/12/cao-zuo-xi-tong-de-si-ge-te-zheng/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="操作系统的四个特征">
-                            
-                            <span class="card-title">操作系统的四个特征</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-操作系统的四个特征
-并发
-共享
-
-并发和共享的关系
-
-
-虚拟
-异步
-总结
-
-并发并发:指两个或多个事件在同一时间间隔内发生。这些事件宏观上是同时发生的,但微观上是交替发生的
-操作系统的并发性指计算机系统中同时存在着多个运行着的程序。
-①
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" class="post-category">
-                                    操作系统
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2020/11/12/cao-zuo-xi-tong-de-jian-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="操作系统的简介">
-                            
-                            <span class="card-title">操作系统的简介</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-操作系统的简介
-概念
-目标和功能
-
-作为系统资源的管理者
-作为用户和计算机硬件之间的接口
-作为最接近硬件的层次
-
-
-总结
-
-概念操作系统( Operating System,os)是指控制和管理整个计算机系统的硬件和软件资源,并合理地组
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-12
                             </span>
                             <span class="publish-author">
                                 
@@ -984,7 +961,7 @@ Hexo
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">42 / 69</div>
+            <div class="center-align b-text-gray">42 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1015,7 +992,7 @@ Hexo
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

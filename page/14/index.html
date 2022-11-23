@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/06/27/netty-gao-xing-neng-jia-gou-she-ji/">
+                    <a href="/2021/10/02/linux-shang-de-mysql-wu-fa-bei-yuan-cheng-lian-jie/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Netty 高性能架构设计">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Linux上的mysql无法被远程连接">
                             
-                            <span class="card-title">Netty 高性能架构设计</span>
+                            <span class="card-title">Linux上的mysql无法被远程连接</span>
                         </div>
                     </a>
 
@@ -380,30 +380,23 @@
                             
                                 
 
-Netty 高性能架构设计
-线程模型基本介绍
+Linux上的mysql无法被远程连接
+问题发现
+问题解决
 
-传统阻塞 I/O 服务模型
-Reactor 模式（笼统概念版并未具体到三种实现）
-
-单 Reactor 单线程
-单 Reactor 多线程
-主从 Reactor 多线程
-
-
-Netty模型
+问题发现项目需要，在linux上搭建一个新的mysql，然后用别的服务器去连接它，但是一直提示失败。想过权限问题，密码强度问题等等，一系列排查后发现还是没用。最后排查到，是因
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-02
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Netty/" class="post-category">
-                                    Netty
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
                                 </a>
                                 
                                 
@@ -414,8 +407,8 @@ Netty模型
                     
                     <div class="card-action article-tags">
                         
-                        <a href="/tags/python/">
-                            <span class="chip bg-color">python</span>
+                        <a href="/tags/mysql-linux-%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                            <span class="chip bg-color">mysql linux 数据库</span>
                         </a>
                         
                     </div>
@@ -425,13 +418,13 @@ Netty模型
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/06/27/netty-gai-shu/">
+                    <a href="/2021/09/01/mysql-suo-de-chong-lei-yi-ji-jia-suo-qing-kuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Netty概述">
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Mysql锁的种类以及加锁情况">
                             
-                            <span class="card-title">Netty概述</span>
+                            <span class="card-title">Mysql锁的种类以及加锁情况</span>
                         </div>
                     </a>
 
@@ -440,27 +433,294 @@ Netty模型
                             
                                 
 
-Netty概述
-为什么会产生Netty?
-Netty的优点
-Netty 版本说明
+Mysql锁的种类以及加锁情况
+锁的种类
 
-为什么会产生Netty?因为原生io存在巨多问题：
+按照锁粒度
+按照是否可写
+另外两个表级锁
 
- NIO 的类库和 API 繁杂，使用麻烦。
- 需要一些额外的技能，比如要熟悉Java多线程、网络
+
+加锁的情况
+
+怎么上读锁或者写锁
+关于是表锁还是行锁？
+for update锁的情况
+
+
+
+锁的种类按照锁粒度表锁：Mysql中锁定 粒度最大 的
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-01
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Netty/" class="post-category">
-                                    Netty
+                                <a href="/categories/MySQL/" class="post-category">
+                                    MySQL
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/mysql/">
+                            <span class="chip bg-color">mysql</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/08/31/bu-chong-ti-sou-ji/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="补充题搜集">
+                            
+                            <span class="card-title">补充题搜集</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+补充题搜集
+1、排序奇升偶降链表
+
+思路
+代码
+
+
+2、36进制加法/减法
+
+加法
+
+代码
+
+
+减法
+
+
+3、木头切割问题
+
+思路
+代码
+
+
+4、迷宫问题
+
+代码
+
+
+5、求区间最小数乘区间和的最大值
+
+思路
+代码
+
+
+6、求一个数的立
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-31
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/08/28/yuan-huan-hui-yuan-dian-wen-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="圆环回原点问题">
+                            
+                            <span class="card-title">圆环回原点问题</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+圆环回原点问题
+1、从任意点出发，回到原点
+2、从零点出发
+
+1、从任意点出发，回到原点10个城市编号0~9，城市之间移动只能前后移动（比如5只能到4或者6），10个城市构成一个环，从0可以到9，从9也可以到0。从任意城市X出发，途径N
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-%E7%AE%97%E6%B3%95/">
+                            <span class="chip bg-color">动态规划 算法</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/08/28/dai-ma-shi-xian-hua-dong-chuang-kou-xian-liu/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="代码实现滑动窗口限流">
+                            
+                            <span class="card-title">代码实现滑动窗口限流</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+代码实现滑动窗口限流
+代码
+思路
+
+代码package 限流;
+
+import java.time.LocalTime;
+import java.util.LinkedList;
+import java.util.List;
+impor
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-28
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category">
+                                    java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                            <span class="chip bg-color">滑动窗口</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/08/23/hashmap-kuo-rong-yi-ji-concurrenthashmap-kuo-rong-ji-zhi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="HashMap扩容以及ConcurrentHashMap扩容机制">
+                            
+                            <span class="card-title">HashMap扩容以及ConcurrentHashMap扩容机制</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+HashMap扩容以及ConcurrentHashMap扩容机制
+HashMap
+
+1.7
+1.8
+
+
+ConcurrentHashMap
+
+1.7
+1.8
+
+
+
+HashMap1.7
+
+void transfer(Entry[] ne
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-23
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/java/" class="post-category">
+                                    java
                                 </a>
                                 
                                 
@@ -474,13 +734,13 @@ Netty 版本说明
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/06/23/ji-yu-mysql-shi-xian-fen-bu-shi-suo/">
+                    <a href="/2021/08/16/yi-zhi-xing-hash-suan-fa/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="基于MySQL实现分布式锁">
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="一致性hash算法">
                             
-                            <span class="card-title">基于MySQL实现分布式锁</span>
+                            <span class="card-title">一致性hash算法</span>
                         </div>
                     </a>
 
@@ -489,30 +749,32 @@ Netty 版本说明
                             
                                 
 
-基于MySQL实现分布式锁
-适用场景
-基于唯一索引实现
+一致性hash算法
+前置场景
 
-实现方式
+出现的问题
+
+
+一致性hash算法
+
 优点
-缺点
+hash环的偏斜
 
 
-在毫秒级的插入中，不能通过唯一性约束保证，如何实现分布式锁？
 
-适用场景基于Mysql实现分布式锁，适用于对性能要求不高（用mysql实现性能肯定不如用
+前置场景在没有一致性hash算法之前，我们会遇到这种场景，假如现在有三张图片，要均匀的存放在三台缓存服务器上去，那么我们会以图片名为ke
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-23
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
                                 </a>
                                 
                                 
@@ -526,13 +788,13 @@ Netty 版本说明
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/06/22/bio-nio-aio/">
+                    <a href="/2021/08/06/xiao-bai-shu-shi-du-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="BIO、NIO、AIO">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="小白鼠试毒问题">
                             
-                            <span class="card-title">BIO、NIO、AIO</span>
+                            <span class="card-title">小白鼠试毒问题</span>
                         </div>
                     </a>
 
@@ -541,38 +803,24 @@ Netty 版本说明
                             
                                 
 
-BIO、NIO、AIO
-BIO
+小白鼠试毒问题
+问题描述
+解决思路
 
-基本概念
-
-
-NIO
-
-基本概念
-为什么说是非阻塞的？
-三大核心组件
-
-Buffer
-
-buffer中核心的四个参数
-
-
-Channel
-关于 Buffer 和 Channel 的注意事项和细节
-Sel
+问题描述有30瓶酒（在面试问题中往往基数更大），其中一瓶有毒，喝了之后一周以后就会毒发死亡，请问最少用多少只老鼠可以得到有毒的那瓶酒
+解决思路先说一下答案：2^5=32&gt;30；所以最少需要5只
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-06
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Netty/" class="post-category">
-                                    Netty
+                                <a href="/categories/%E6%9D%82/" class="post-category">
+                                    杂
                                 </a>
                                 
                                 
@@ -586,13 +834,13 @@ Sel
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/06/17/jvm-ge-qu-cun-fang-de-dong-xi/">
+                    <a href="/2021/08/03/dui-yi-ge-shu-zu-jin-xing-pai-xu-de-xiao-keng/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="JVM各区存放的东西~">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="对一个数组进行排序的小坑">
                             
-                            <span class="card-title">JVM各区存放的东西~</span>
+                            <span class="card-title">对一个数组进行排序的小坑</span>
                         </div>
                     </a>
 
@@ -601,126 +849,16 @@ Sel
                             
                                 
 
-JVM各区存放的东西~
+对一个数组进行排序的小坑今天写题需要对两个数组进行比较，第一个数组是无序的。第二个数组是对第一个数组进行排序的。但是我最开始的写法是
+int[] numSort=nums;
+Arrays.sort(numSort);
 
+这种操作同时也会
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/JVM%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/" class="post-category">
-                                    JVM底层原理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/16/mysql-zhu-cong-fu-zhi-du-xie-fen-chi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="MySQL主从复制、读写分离">
-                            
-                            <span class="card-title">MySQL主从复制、读写分离</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-MySQL主从复制、读写分离
-为什么要用主从复制、读写分离？
-主从复制
-
-原理
-配置实现
-
-一主一从
-双主双从
-
-
-
-
-读写分离
-
-读写分离的实现方式
-通过mycat实现
-
-
-
-为什么要用主从复制、读写分离？为了提高数据库的可用性、并发
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/MySQL/" class="post-category">
-                                    MySQL
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/mysql-%E6%95%B0%E6%8D%AE%E5%BA%93-sql/">
-                            <span class="chip bg-color">mysql 数据库 sql</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/06/11/cong-gong-si-gitlab-la-dai-ma-zong-shi-xian-shi-you-xie-yi-lai-wu-fa-dao-ru/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="从公司GitLab拉代码总是显示有些依赖无法导入">
-                            
-                            <span class="card-title">从公司GitLab拉代码总是显示有些依赖无法导入</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-解决：在终端输入以下命令后重新导入依赖
-mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
-也就是跳过单元测试和javadoc
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-03
                             </span>
                             <span class="publish-author">
                                 
@@ -741,13 +879,13 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/18/yu-fa-huan-jing-ru-he-debug/">
+                    <a href="/2021/08/02/dijkstra-suan-fa/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="预发环境如何Debug">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Dijkstra算法">
                             
-                            <span class="card-title">预发环境如何Debug</span>
+                            <span class="card-title">Dijkstra算法</span>
                         </div>
                     </a>
 
@@ -756,23 +894,61 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
                             
                                 
 
-预发环境如何Debug今天需要在预发环境进行一下断点DeBug，但是预发环境是已经开启了并且部署在远端的服务器，下面记录一下怎么解决。
+Dijkstra算法
+适用场景
+算法流程
+落地实现需要的数据结构
 
-
-原本应该是add configuration
-
-
-
-
-
-开启Debug运行即可
-
-
+适用场景单源最短路问题可以使用 Dijkstra 算法。例如lc743.网络延迟时间
+算法流程
+ 首先，Dijkstra 算法需要从当前全部未确定最短路的点中，找到距离
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-02
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                    数据结构与算法
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/07/26/java-zhong-nextint-hou-jie-nextline-hui-du-dao-yi-ge-kong-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Java中nextInt()后，接nextLine() 会读到一个空行">
+                            
+                            <span class="card-title">Java中nextInt()后，接nextLine() 会读到一个空行</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+昨天pdd笔试一直卡在输入？就是这个问题：Java中nextInt()后，接nextLine() 会读到一个空行
+原因（太长可以忽略直接看解决）：这是因为在调用nextLine()函数前调用了Scanner的另一个函数nextInt()
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-26
                             </span>
                             <span class="publish-author">
                                 
@@ -793,13 +969,13 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/05/11/charles-zhua-https-xian-shi-unknown-jie-jue-fang-fa/">
+                    <a href="/2021/07/16/guan-yu-zhi-jie-xiu-gai-list-ji-he-yuan-su-de-ji-chong-qing-kuang/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Charles抓https显示unknown解决方法">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="关于直接修改list集合元素的几种情况">
                             
-                            <span class="card-title">Charles抓https显示unknown解决方法</span>
+                            <span class="card-title">关于直接修改list集合元素的几种情况</span>
                         </div>
                     </a>
 
@@ -808,12 +984,17 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
                             
                                 
 
-今天尝试抓个https的请求，发现显示全是unknown我也已经设置过了电脑上的证书 也信任了手机里也安装了Charles的证书，最后解决方案不知道从什么时候开始 iOS多了个信任的操作 原来这块貌似是默认是信任吧在设置–&gt;通用–
+关于直接修改list集合元素的几种情况
+问题产生以及复现
+结论
+
+问题产生以及复现在刷题的时候发现了一行代码
+list.get(list.size()-1)[1]=Math.max(intervals[i][1],list.get(li
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-11
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-07-16
                             </span>
                             <span class="publish-author">
                                 
@@ -821,151 +1002,6 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
                                 
                                 <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
                                     踩坑
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/04/28/er-cha-shu-zhi-jing-zui-da-lu-jing-he-deng-zong-jie/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="二叉树直径、最大路径和等总结">
-                            
-                            <span class="card-title">二叉树直径、最大路径和等总结</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-二叉树直径、最大路径和总结
-104、二叉树的最大深度
-534、二叉树的直径
-124、二叉树中的最大路径和
-687、最长同值路径
-
-今天发现这几题的解法十分类似，于是放到一起。
-104、二叉树的最大深度/**
- * Definition 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/21/647.hui-wen-zi-chuan-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="647. 回文子串（高频题）">
-                            
-                            <span class="card-title">647. 回文子串（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-647. 回文子串
-解题思路
-代码
-
-解题思路本题和lc第5题思路差不多，而且注意，一般寻找回文串 都是用从中心向两端扩大
-代码class Solution {
-    public int countSubstrings(String
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/21/621.ren-wu-diao-du-qi-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="621. 任务调度器（高频题）">
-                            
-                            <span class="card-title">621. 任务调度器（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-621. 任务调度器
-解题思路
-代码
-
-解题思路这题大致用贪心思想，但是我觉得这是一个找规律的题目。一刷2021/3/21，没弄明白
-二刷 2021/4/29，其实就是求那个图的面积
-详情见题解
-
-不过要注意有多少个任务和出现最多的那个
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
                                 </a>
                                 
                                 
@@ -994,7 +1030,7 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">14 / 69</div>
+            <div class="center-align b-text-gray">14 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1025,7 +1061,7 @@ mvn clean package \-Dmaven.test.skip=true \-Dmaven.javadoc.skip=true
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

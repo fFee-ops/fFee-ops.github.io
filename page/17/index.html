@@ -365,13 +365,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/17/84.zhu-zhuang-tu-zhong-zui-da-de-ju-xing-gao-pin-ti/">
+                    <a href="/2021/03/19/309.zui-jia-mai-mai-gu-piao-shi-ji-han-leng-dong-qi-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="84. 柱状图中最大的矩形（高频题）">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="309. 最佳买卖股票时机含冷冻期（高频题）">
                             
-                            <span class="card-title">84. 柱状图中最大的矩形（高频题）</span>
+                            <span class="card-title">309. 最佳买卖股票时机含冷冻期（高频题）</span>
                         </div>
                     </a>
 
@@ -380,17 +380,19 @@
                             
                                 
 
-84. 柱状图中最大的矩形
+309. 最佳买卖股票时机含冷冻期
 解题思路
 代码
 
-解题思路一刷 2021/3/17，没搞懂题解见这里
-二刷：2021/4/6这题其实就是说：我们可以遍历每根柱子，以当前柱子 i 的高度作为矩形的高，那么矩形的宽度边界即为向左找到第一个高度小
+解题思路买卖股票问题都可以用动态规划，具体思路见这里
+
+写状态转移方程的时候注意，绝大部分都是找到前一个状态和目前状态的关系比如：
+dp[i][0]=Math.max(dp[i-1]
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                             <span class="publish-author">
                                 
@@ -411,13 +413,13 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/17/64.zui-xiao-lu-jing-he-gao-pin-ti/">
+                    <a href="/2021/03/19/301.shan-chu-wu-xiao-de-gua-hao-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="64. 最小路径和（高频题）">
+                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="301. 删除无效的括号（高频题）">
                             
-                            <span class="card-title">64. 最小路径和（高频题）</span>
+                            <span class="card-title">301. 删除无效的括号（高频题）</span>
                         </div>
                     </a>
 
@@ -426,19 +428,67 @@
                             
                                 
 
-64. 最小路径和
+301. 删除无效的括号
 解题思路
 代码
 
-解题思路最基本的动态规划，问题，找准了dp数组的含义就没啥难的了。
-dp[i][j]：到下标(i,j)的最小和
+解题思路要用回溯算法，一刷2021/3/19，没有完全弄明白
+
+最开始看到题目要求删除最小括号数目，我想的是dp，但是最后它要你返回的又是字符串的组合，所以就要回溯。整体思路比较简单：
+
+ 统
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/19/283.yi-dong-ling-gao-pin-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="283. 移动零（高频题）">
+                            
+                            <span class="card-title">283. 移动零（高频题）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+283. 移动零
+解题思路
+代码
+
+解题思路很简单的双指针，每次交换，都是将左指针的零与右指针的非零数交换，且非零数的相对顺序并未改变。
 代码class Solution {
-    public int minPathSu
+    public void moveZeroes(int
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                             <span class="publish-author">
                                 
@@ -459,13 +509,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/17/62.bu-tong-lu-jing-gao-pin-ti/">
+                    <a href="/2021/03/19/221.zui-da-zheng-fang-xing-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="62. 不同路径（高频题）">
+                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="221. 最大正方形（高频题）">
                             
-                            <span class="card-title">62. 不同路径（高频题）</span>
+                            <span class="card-title">221. 最大正方形（高频题）</span>
                         </div>
                     </a>
 
@@ -474,160 +524,19 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-62. 不同路径
+221. 最大正方形
 解题思路
 代码
 
-解题思路求最值问题，而且看得出来比较复杂的情况，直接动态规划。
-
- dp[i][j]：到坐标(i,j)共有几条路径
- 那么结果就是dp[m-1][n-1]
- 因为只能向右或者向下移动，所以状态转移方程
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/17/56.he-bing-qu-jian-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="56. 合并区间（高频题）">
-                            
-                            <span class="card-title">56. 合并区间（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-56. 合并区间
-解题思路
-代码
-
-解题思路是否有重叠区间的问题，直接贪心思路，根据数组的end或者start进行升序排序，再看看start和end的大小关系来判断是否重叠。像435题就是一样的类型。不过本题要注意，一定要根据start
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/17/49.zi-mu-yi-wei-ci-fen-zu-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="49. 字母异位词分组（高频题）">
-                            
-                            <span class="card-title">49. 字母异位词分组（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-49. 字母异位词分组
-解题思路
-代码
-
-解题思路本题没有啥通用的套路，只能直接去想咋做了。因为异位词排序后是一样的，所以只需要维护一个map，key为排序后的字符串，val为一个list集合，其中包含着原本的字符串。具体分析如下
-代码
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/17/48.xuan-zhuan-tu-xiang-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="48. 旋转图像（高频题）">
-                            
-                            <span class="card-title">48. 旋转图像（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-48. 旋转图像
-解题思路
-代码
-
-解题思路这是一个技巧题目，用不上什么套路。
-技巧就是：先以对角线（左上&lt;—&gt;右下）为轴进行翻转，再对每行左右翻转即可。
-
-另外：如果是反转一维数组呢？
+解题思路一看求最大面积，而且感觉后一步和前一步之间还有联系，并且问题规模可以很大，直接动态规划。
+题解见这里
 代码class Solution {
+    public int maximalSq
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                             <span class="publish-author">
                                 
@@ -648,13 +557,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/17/39.zu-he-zong-he-gao-pin-ti/">
+                    <a href="/2021/03/19/207.ke-cheng-biao-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="39. 组合总和（高频题）">
+                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="207. 课程表（高频题）">
                             
-                            <span class="card-title">39. 组合总和（高频题）</span>
+                            <span class="card-title">207. 课程表（高频题）</span>
                         </div>
                     </a>
 
@@ -663,18 +572,68 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-39. 组合总和
+207. 课程表
 解题思路
 代码
 
-解题思路看到是组合问题，直接用回溯法，然后再剪枝避免出现重复组合就行了，直接套回溯法模板。
+解题思路这种有先决顺序的工程安排问题一般就是_拓扑排序_，这道题是拓扑排序的裸题。
+拓扑排序其实一般就利用Map把拓扑图构建出来，然后用BFS去遍历拓扑图就好了。
+则本题的大概思路为：
+
+ 统计每个课
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/19/152.cheng-ji-zui-da-zi-shu-zu-gao-pin-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="152. 乘积最大子数组（高频题）">
+                            
+                            <span class="card-title">152. 乘积最大子数组（高频题）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+152. 乘积最大子数组
+解题思路
+代码
+
+解题思路本题要用动态规划，主要思路如下
 代码class Solution {
-    List&lt;List&lt;Integer>> res =
+    public int maxProduct(int[] nums) {
+        int n = n
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
                             </span>
                             <span class="publish-author">
                                 
@@ -695,13 +654,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/16/33.sou-suo-xuan-zhuan-pai-xu-shu-zu-gao-pin-ti/">
+                    <a href="/2021/03/19/148.pai-xu-lian-biao-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="33. 搜索旋转排序数组（高频题）">
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="148. 排序链表（高频题）">
                             
-                            <span class="card-title">33. 搜索旋转排序数组（高频题）</span>
+                            <span class="card-title">148. 排序链表（高频题）</span>
                         </div>
                     </a>
 
@@ -710,23 +669,115 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-33. 搜索旋转排序数组
+148. 排序链表
 解题思路
 代码
 
-解题思路本质上还是有序数组嘛，所以用二分搜索。
+解题思路这题想到要排序，是链表。用快慢指针，还需要扩展一下，归并排序。但是要注意，这里的归并排序和 给数组归并排序有一丢丢的不同，因为这个链表不支持随机访问
+代码/**
+ * Definition 
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
+                                    力扣
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
- 首先找到旋转点
- 将数组在逻辑上从旋转点切分成两个有序数组
- 分别对两个有序数组进行二分搜索即可
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/18/java-bi-shi-de-ge-chong-shu-ru-qing-kuang/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Java笔试的各种输入情况">
+                            
+                            <span class="card-title">Java笔试的各种输入情况</span>
+                        </div>
+                    </a>
 
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+Java笔试的各种输入情况
+
+1、行数不确定，每行的值是确定的，比如每行只有两个数
+2、行数确定，每一行的元素个数不确定
+3、单行输入多个参数
+4、多行输入多个参数，每行参数个数不定
+
+
+
+如果要是需要的是字符串简单多了，主要是有时候输
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/03/18/139.dan-ci-chai-fen-gao-pin-ti/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="139. 单词拆分（高频题）">
+                            
+                            <span class="card-title">139. 单词拆分（高频题）</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                
+
+139. 单词拆分
+解题思路
+代码
+
+解题思路本题用动态规划，dp[i]表示s前i个字符能否拆分转移方程：dp[i] = dp[j] &amp;&amp; check(s[j+1, i]);
 代码class Solution {
- 
+   
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                             <span class="publish-author">
                                 
@@ -747,13 +798,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/16/32.zui-chang-you-xiao-gua-hao-gao-pin-ti/">
+                    <a href="/2021/03/18/128.zui-chang-lian-xu-xu-lie-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="32. 最长有效括号（高频题）">
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="128. 最长连续序列（高频题）">
                             
-                            <span class="card-title">32. 最长有效括号（高频题）</span>
+                            <span class="card-title">128. 最长连续序列（高频题）</span>
                         </div>
                     </a>
 
@@ -762,19 +813,18 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-32. 最长有效括号
+128. 最长连续序列
 解题思路
 代码
 
-解题思路有关括号匹配的问题一般都用栈。
-我们扫描到左括号，就将当前位置入栈。扫描到右括号，就将栈顶出栈（代表栈顶的左括号匹配到了右括号），然后分两种情况。
-
-栈不空，那么就用当前的位置减去栈顶的存
+解题思路
+ 对于数组nums，其可能有多个数字连续的序列，其中每个序列都会有一个左边界，例如示例1的结果中[1, 2, 3, 4]的左边界就为1。
+ 如果我们知道了每一个连续序列的左边界，并且知
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                             <span class="publish-author">
                                 
@@ -795,13 +845,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/16/31.xia-yi-ge-pai-lie-gao-pin-ti/">
+                    <a href="/2021/03/18/124.er-cha-shu-zhong-de-zui-da-lu-jing-he-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="31. 下一个排列（高频题）">
+                            <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="124. 二叉树中的最大路径和（高频题）">
                             
-                            <span class="card-title">31. 下一个排列（高频题）</span>
+                            <span class="card-title">124. 二叉树中的最大路径和（高频题）</span>
                         </div>
                     </a>
 
@@ -810,20 +860,20 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-31. 下一个排列
+124. 二叉树中的最大路径和
 解题思路
 代码
 
-解题思路数组问题嘛，双指针
-我们会尽可能的将低位的数字变大，这样才符合「下一个排列」的定义。
-为了更好理解，我们结合样例来分析，假设样例为 [1,3,5,4,1]：
-
- 从后往前找，找到第一个下降的
+解题思路见这篇题解
+代码/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int v
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                             <span class="publish-author">
                                 
@@ -844,13 +894,13 @@ dp[i][j]：到下标(i,j)的最小和
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/03/16/23.he-bing-k-ge-sheng-xu-lian-biao/">
+                    <a href="/2021/03/18/114.er-cha-shu-zhan-kai-wei-lian-biao-gao-pin-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="23. 合并K个升序链表">
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="114. 二叉树展开为链表（高频题）">
                             
-                            <span class="card-title">23. 合并K个升序链表</span>
+                            <span class="card-title">114. 二叉树展开为链表（高频题）</span>
                         </div>
                     </a>
 
@@ -859,61 +909,18 @@ dp[i][j]：到下标(i,j)的最小和
                             
                                 
 
-23. 合并K个升序链表
+114. 二叉树展开为链表
 解题思路
 代码
 
-解题思路其实最开始的思路是N个指针，每次放最小的进新链表，但是这样时间复杂度太高了！合并两个有序链表可以考虑这样做。所以我选择维护一个小顶堆，将所有的元素都加入小顶堆，然后再出来的时候就是按照
+解题思路用后序遍历，把左子树接到根节点上，再把原来的右子树接到现在的右子树上，然后把原来的左子树置为null。 虽然是后序遍历，但是连接起来成链表，就是前序遍历的结果
+代码/**
+ * De
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E5%8A%9B%E6%89%A3/" class="post-category">
-                                    力扣
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/03/16/19.shan-chu-lian-biao-de-dao-shu-di-n-ge-jie-dian-gao-pin-ti/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="19. 删除链表的倒数第 N 个结点（高频题）">
-                            
-                            <span class="card-title">19. 删除链表的倒数第 N 个结点（高频题）</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                
-
-19. 删除链表的倒数第 N 个结点
-解题思路
-代码
-
-解题思路链表，直接快慢指针，不是要删除第N个节点，我们就先定位到第N个节点，再删除就可以了。但是本题要注意，我们是fast.next != null就结束了，而不是fast != 
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
                             </span>
                             <span class="publish-author">
                                 
@@ -949,7 +956,7 @@ dp[i][j]：到下标(i,j)的最小和
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">17 / 69</div>
+            <div class="center-align b-text-gray">17 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -980,7 +987,7 @@ dp[i][j]：到下标(i,j)的最小和
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             

@@ -365,311 +365,27 @@
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/15/openresty-jie-shao/">
+                    <a href="/2022/03/12/snapshot-da-bao-wen-ti/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="OpenResty介绍">
+                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="SNAPSHOT打包问题">
                             
-                            <span class="card-title">OpenResty介绍</span>
+                            <span class="card-title">SNAPSHOT打包问题</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                OpenResty是一个基于 Nginx 与 Lua 的高性能 Web 平台，其内部集成了大量精良的 Lua 库、第三方模块以及大多数的依赖项。
-用于方便地搭建能够处理超高并发、扩展性极高的动态 Web 应用、Web 服务和动态网关。
-Op
+                                问题描述今天在公司打一个SNAPSHOT包，但是发现最后deploy到release仓库里面去了，并没有到达snapshot的仓库
+原因我的version格式有误，以下为我原来的version格式
+&lt;version>2.2.6-SNA
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-15
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/13/nginx-kua-yu-pei-zhi-fang-dao-lian-pei-zhi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Nginx跨域配置、防盗链配置">
-                            
-                            <span class="card-title">Nginx跨域配置、防盗链配置</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                跨域配置当出现403跨域错误的时候 No 'Access-Control-Allow-Origin' header is present on the requested resource，需要给Nginx服务器配置响应的header参数：
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Nginx/" class="post-category">
-                                    Nginx
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/13/kafka-shun-xu-xiao-xi/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="kafka顺序消息">
-                            
-                            <span class="card-title">kafka顺序消息</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                场景概述假设我们要传输一批订单到另一个系统，那么订单对应状态的演变是有顺序性要求的。已下单 → 已支付 → 已确认不允许错乱！
-顺序级别1）全局有序：串行化。每条经过kafka的消息必须严格保障有序性。这就要求kafka单通道，每个grou
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-13
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/12/kafka-di-ceng-jia-gou/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="kafka底层架构">
-                            
-                            <span class="card-title">kafka底层架构</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1. 存储架构1.1 分段存储kafka每个主题可以有多个分区，每个分区在它所在的broker上创建一个文件夹。每个分区又分为多个段，每个段有两个文件，log文件里顺序存消息，index文件里存消息的索引。段的命名直接以当前段的第一条消息的
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-12
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/10/springboot-zheng-he-mybatis-rang-ri-zhi-zhong-shu-chu-zhi-xing-de-sql-yu-ju/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Springboot整合Mybatis让日志中输出执行的sql语句">
-                            
-                            <span class="card-title">Springboot整合Mybatis让日志中输出执行的sql语句</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                有时候我们需要在控制台看一下sql语句的执行结果来排查错误，这个时候就需要如下操作：
-默认mybatis已经配置好了
-①引入依赖
-    &lt;dependencies>
-        &lt;dependency>
-         
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Mybatis/" class="post-category">
-                                    Mybatis
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/10/knife4j-de-shi-yong/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="knife4j的使用">
-                            
-                            <span class="card-title">knife4j的使用</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                什么是knife4jKnife4j的前身是swagger-bootstrap-ui,前身swagger-bootstrap-ui是一个纯swagger-ui的ui皮肤项目。简单来说就是给我们平常用的swagger换个UI。而Knife4j提
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-10
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%9D%82/" class="post-category">
-                                    杂
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/09/springboot-zheng-he-kafka/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="Springboot整合kafka">
-                            
-                            <span class="card-title">Springboot整合kafka</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                1. 整合kafka1、引入依赖
-        &lt;dependency>
-            &lt;groupId>org.springframework.kafka&lt;/groupId>
-            &lt;
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-09
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/02/06/windows-xia-kafka-yun-xing-bao-cuo-consumer-offsets-22-00000000000000000000-index-swap-ling-yi-ge-cheng-xu-zheng-zai-shi-yong-ci-wen-jian-jin-cheng-wu-fa-fang-wen/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="windows下kafka运行报错:consumer_offsets-22:00000000000000000000.index.swap:另一个程序正在使用此文件，进程无法访问。">
-                            
-                            <span class="card-title">windows下kafka运行报错:consumer_offsets-22:00000000000000000000.index.swap:另一个程序正在使用此文件，进程无法访问。</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                原因windows上的kafka不太稳定用一段时间后会出现这个问题。
-解决删除下列文件夹下的内容，但是文件夹别删除
-
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-06
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
                             </span>
                             <span class="publish-author">
                                 
@@ -690,39 +406,34 @@ Op
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/05/linux-pei-zhi-java-home/">
+                    <a href="/2022/03/12/redis-xing-neng-ya-ce/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="linux配置JAVA_HOME">
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis性能压测">
                             
-                            <span class="card-title">linux配置JAVA_HOME</span>
+                            <span class="card-title">Redis性能压测</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1、首先输入
-echo $JAVA_HOME
-
-看有没有输出。有的话证明已经配置了，没有就继续。
-2、输入find / -name java找到JDK位置
-3、复制选中的jdk的路径
-4、vi /etc/profile 添加如下内容：
-  
+                                Redis 的性能测试工具，目前主流使用的是 redis-benchmark
+简介Redis 官方提供 redis-benchmark 的工具来模拟 N 个客户端同时发出 M 个请求,可以便捷对服务器进行读写性能压测。
+语法redis 性能
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-12
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
                                 </a>
                                 
                                 
@@ -736,34 +447,33 @@ echo $JAVA_HOME
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/05/kafka-jia-gou-tan-suo-ji-an-zhuang/">
+                    <a href="/2022/03/08/idea-checkstyle-cha-jian-an-zhuang-ji-shi-yong/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="kafka架构探索及安装">
+                            <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="IDEA checkstyle插件安装及使用">
                             
-                            <span class="card-title">kafka架构探索及安装</span>
+                            <span class="card-title">IDEA checkstyle插件安装及使用</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                1. 发展历程https://kafka.apache.org/downloads
-1.1 版本命名Kafka在1.0.0版本前的命名规则是4位，比如0.8.2.1，0.8是大版本号，2是小版本号，1表示打过1个补丁。
-现在的版本号命名规则
+                                流程1、首先打开IDEA菜单栏的Settings中的plugins，搜索CheckStyle-IDEA并安装:
+2、安装重启IDEA之后，Settings下搜索Inspections,再查询CheckStyle，如果能查询到内容，说明安装成
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-03-08
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
+                                <a href="/categories/%E6%9D%82/" class="post-category">
+                                    杂
                                 </a>
                                 
                                 
@@ -777,34 +487,38 @@ echo $JAVA_HOME
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/05/kafka-chuang-jian-zhu-ti-chu-cuo-zookeeper-is-not-a-recognized-option/">
+                    <a href="/2022/02/20/lua-jiao-ben-yi-ji-redis-man-cha-xun-ri-zhi/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="kafka创建主题出错:zookeeper is not a recognized option">
+                            <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="lua脚本以及redis慢查询日志">
                             
-                            <span class="card-title">kafka创建主题出错:zookeeper is not a recognized option</span>
+                            <span class="card-title">lua脚本以及redis慢查询日志</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                原因选项zookeeper已弃用
-解决把选项zookeeper替换为--bootstrap-server来使用
+                                lua脚本lua是一种轻量小巧的脚本语言，用标准C语言编写并以源代码形式开放， 其设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。Lua应用场景：
 
+游戏开发
+独立应用脚本
+Web应用脚本
+扩展和数据库插件
+Nginx
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-20
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
                                 </a>
                                 
                                 
@@ -818,38 +532,324 @@ echo $JAVA_HOME
             
             <div class="article col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2022/02/05/kafka-ji-chu-zu-jian/">
+                    <a href="/2022/02/19/geo-lei-xing/">
                         <div class="card-image">
                             
                             
-                            <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="kafka基础组件">
+                            <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="geo类型">
                             
-                            <span class="card-title">kafka基础组件</span>
+                            <span class="card-title">geo类型</span>
                         </div>
                     </a>
 
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                角色
-
-broker：节点，就是你看到的机器，也就是一个kafka服务
-provider：生产者，发消息的
-consumer：消费者，读消息的
-zookeeper：信息/注册中心，记录kafka的各种信息的地方
-controller：其中的
+                                概述Redis 3.2 中增加了对GEO类型的支持。GEO，Geographic，地理信息的缩写。该类型，就是元素的2维坐标，在地图上就是经纬度。redis基于该类型，提供了经纬度设置，查询，范围查询，距离查询，经纬度Hash等常见操作。应
                             
                         </div>
                         <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-05
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
                             </span>
                             <span class="publish-author">
                                 
                                 <i class="fas fa-bookmark fa-fw icon-category"></i>
                                 
-                                <a href="/categories/kafka/" class="post-category">
-                                    kafka
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/19/bitmap-lei-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="bitmap类型">
+                            
+                            <span class="card-title">bitmap类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                介绍bitmap 存储的是连续的二进制数字（0 和 1），通过 bitmap, 只需要一个 bit 位来表示某个元素对应的值或者状态，key 就是对应元素本身 。我们知道 8 个 bit 可以组成一个 Byte，所以bitmap 本身会极大
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/19/hash-lei-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="hash类型">
+                            
+                            <span class="card-title">hash类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                介绍hash 类似于 JDK1.8 前的 HashMap，内部实现也差不多(数组 + 链表)。不过，Redis 的hash 做了更多优化。另外，hash 是一个 string 类型的 field 和 value 的映射表，特别适合用于存储对
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/19/string-lei-xing/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="string类型">
+                            
+                            <span class="card-title">string类型</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                Redis的Key的设计
+用:分割
+把表名转换为key前缀, 比如: user:
+第二段放置主键值
+第三段放置列名
+
+string字符串类型介绍string 数据结构是简单的 key-value 类型。虽然 Redis 是用 C 语言写的，
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/19/redis-qi-dong-cheng-gong-dan-wu-fa-yong-ui-lian-jie/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="redis启动成功但无法用UI连接">
+                            
+                            <span class="card-title">redis启动成功但无法用UI连接</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                问题描述：系统为CentOS7.9，已经启动了redis，并且用命令行能够成功进入到客户端。但是无法使用图形化界面进行远程链接。一直报错问题排查
+
+防火墙是不是没打开
+有没有注释掉redis.conf的bind 127.0.0.1
+启动时候
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-19
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/%E8%B8%A9%E5%9D%91/" class="post-category">
+                                    踩坑
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/17/xiu-gai-idea-ti-jiao-dao-git-de-ni-cheng/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="修改IDEA提交到git的昵称">
+                            
+                            <span class="card-title">修改IDEA提交到git的昵称</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1、在idea的terminal输入
+ git config user.name 
+
+获取当前用户昵称。
+2、输入以下命令来修改昵称
+git config --global user.name "用户名" 
+
+
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-17
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Git/" class="post-category">
+                                    Git
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/16/kong-wang-guan/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="kong网关">
+                            
+                            <span class="card-title">kong网关</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                1.  kong网关简介Kong是一款基于OpenResty（Nginx + Lua模块）编写的高可用、易扩展的，由Mashape公司开源的API Gateway项目。Kong是基于NGINX和Apache Cassandra或Postgr
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Nginx/" class="post-category">
+                                    Nginx
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                </div>
+            </div>
+            
+            <div class="article col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2022/02/16/redis-an-zhuang-bu-long-guo-lu-qi/">
+                        <div class="card-image">
+                            
+                            
+                            <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Redis安装布隆过滤器">
+                            
+                            <span class="card-title">Redis安装布隆过滤器</span>
+                        </div>
+                    </a>
+
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                关于布隆过滤器的简介请看这篇文章 ：https://juejin.cn/post/6844904013419249678
+安装在redis布隆过滤器插件地址下载最新的release源码，在编译服务器进行解压编译
+wget https://g
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-16
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Redis/" class="post-category">
+                                    Redis
                                 </a>
                                 
                                 
@@ -878,7 +878,7 @@ controller：其中的
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">3 / 69</div>
+            <div class="center-align b-text-gray">3 / 71</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -909,7 +909,7 @@ controller：其中的
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">673.2k</span>&nbsp;字
+                class="white-color">693.9k</span>&nbsp;字
             
             
             
