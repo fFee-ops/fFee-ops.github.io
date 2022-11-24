@@ -136,7 +136,7 @@ socialLink:
   email: shanglei-sl@foxmail.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
-  qq: luminoused@sina.com
+  qq: #luminoused@sina.com
   weibo: # https://weibo.com/xxx
   zhihu: # https://www.zhihu.com/xxx
   rss: true # true、false
@@ -506,7 +506,7 @@ daovoice:
 
 # Tidio online contact
 tidio:
-  enable: true
+  enable: false
   public_key: uqhqpubq69u3ij9xel3grkla9q5wfoej
 
 # 腾讯兔小巢，见https://txc.qq.com/
