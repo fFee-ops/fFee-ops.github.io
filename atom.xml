@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-11-23T03:30:59.011Z</updated>
+  <updated>2022-12-06T02:35:39.011Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>svg转换到base64格式</title>
+    <link href="http://example.com/2022/12/06/svg-zhuan-huan-dao-base64-ge-shi/"/>
+    <id>http://example.com/2022/12/06/svg-zhuan-huan-dao-base64-ge-shi/</id>
+    <published>2022-12-06T02:26:16.000Z</published>
+    <updated>2022-12-06T02:35:39.011Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;需求背景&quot;&gt;&lt;a href=&quot;#需求背景&quot; class=&quot;headerlink&quot; title=&quot;需求背景&quot;&gt;&lt;/a&gt;需求背景&lt;/h1&gt;&lt;p&gt;需要将端上传过来的svg文件解析为字符串，然后再生成jpeg格式图片，再将图片转成Base64格式进行使用&lt;/p&gt;
+&lt;h1</summary>
+        
+      
+    
+    
+    
+    <category term="杂" scheme="http://example.com/categories/%E6%9D%82/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>一条SQL语句执行的顺序</title>
@@ -509,29 +533,6 @@
         
         
     <summary type="html">&lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="踩坑" scheme="http://example.com/categories/%E8%B8%A9%E5%9D%91/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>charles没有显示request和response</title>
-    <link href="http://example.com/2022/03/19/charles-mei-you-xian-shi-request-he-response/"/>
-    <id>http://example.com/2022/03/19/charles-mei-you-xian-shi-request-he-response/</id>
-    <published>2022-03-19T04:48:56.000Z</published>
-    <updated>2022-07-30T06:56:50.373Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;&lt;img</summary>
         
       
     
